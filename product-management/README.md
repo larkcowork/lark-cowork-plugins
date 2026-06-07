@@ -1,52 +1,52 @@
-# Product Management Plugin
+# Plugin Quản lý Sản phẩm (Product Management)
 
-A product management plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. Covers the full PM workflow: writing feature specs, managing roadmaps, communicating with stakeholders, synthesizing user research, analyzing competitors, and tracking product metrics.
+Plugin quản lý sản phẩm được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agent của Anthropic — dù vậy nó cũng hoạt động tốt trong Claude Code. Bao quát toàn bộ luồng công việc của PM: viết feature spec, quản lý roadmap, trao đổi với các bên liên quan, tổng hợp nghiên cứu người dùng, phân tích đối thủ và theo dõi chỉ số sản phẩm.
 
-## Installation
+## Cài đặt
 
 ```
 claude plugins add knowledge-work-plugins/product-management
 ```
 
-## What It Does
+## Tính năng
 
-This plugin gives you an AI-powered product management partner that can help with:
+Plugin này mang đến cho bạn một cộng sự quản lý sản phẩm được hỗ trợ bởi AI, có thể giúp bạn với:
 
-- **Feature Specs & PRDs** — Generate structured product requirements documents from a problem statement or feature idea. Includes user stories, requirements prioritization, success metrics, and scope management.
-- **Roadmap Planning** — Create, update, and reprioritize your product roadmap. Supports Now/Next/Later, quarterly themes, and OKR-aligned formats with dependency mapping.
-- **Stakeholder Updates** — Generate status updates tailored to your audience (executives, engineering, customers). Pulls context from connected tools to save you the weekly update grind.
-- **User Research Synthesis** — Turn interview notes, survey data, and support tickets into structured insights. Identifies themes, builds personas, and surfaces opportunity areas with supporting evidence.
-- **Competitive Analysis** — Research competitors and generate briefs with feature comparisons, positioning analysis, and strategic implications.
-- **Metrics Review** — Analyze product metrics, identify trends, compare against targets, and surface actionable insights.
-- **Product Brainstorming** — Explore problem spaces, generate ideas, and stress-test product thinking with a sharp sparring partner. Supports divergent ideation, assumption testing, and strategy exploration using frameworks like How Might We, Jobs-to-be-Done, First Principles, and Opportunity Solution Trees.
+- **Feature Spec & PRD** — Tạo tài liệu yêu cầu sản phẩm có cấu trúc từ một phát biểu vấn đề hoặc một ý tưởng tính năng. Bao gồm user story, ưu tiên hoá yêu cầu, chỉ số thành công và quản lý phạm vi.
+- **Lập kế hoạch Roadmap** — Tạo, cập nhật và sắp xếp lại ưu tiên cho roadmap sản phẩm của bạn. Hỗ trợ định dạng Now/Next/Later, các chủ đề theo quý, và định dạng gắn với OKR cùng bản đồ phụ thuộc.
+- **Cập nhật cho các bên liên quan** — Tạo các cập nhật trạng thái phù hợp với đối tượng của bạn (lãnh đạo, kỹ thuật, khách hàng). Lấy ngữ cảnh từ các công cụ đã kết nối để bạn khỏi phải vật lộn với việc cập nhật hàng tuần.
+- **Tổng hợp nghiên cứu người dùng** — Biến ghi chú phỏng vấn, dữ liệu khảo sát và support ticket thành các insight có cấu trúc. Nhận diện chủ đề, xây dựng persona và làm nổi bật các vùng cơ hội với bằng chứng hỗ trợ.
+- **Phân tích đối thủ** — Nghiên cứu đối thủ và tạo các bản brief với so sánh tính năng, phân tích định vị và hàm ý chiến lược.
+- **Đánh giá chỉ số (Metrics Review)** — Phân tích chỉ số sản phẩm, nhận diện xu hướng, so sánh với mục tiêu và làm nổi bật các insight có thể hành động.
+- **Brainstorm sản phẩm** — Khám phá không gian vấn đề, tạo ý tưởng và thử thách tư duy sản phẩm cùng một đối tác phản biện sắc bén. Hỗ trợ ý tưởng phân kỳ, kiểm tra giả định và khám phá chiến lược bằng các framework như How Might We, Jobs-to-be-Done, First Principles và Opportunity Solution Trees.
 
-## Commands
+## Lệnh
 
-| Command | What It Does |
+| Lệnh | Tính năng |
 |---|---|
-| `/write-spec` | Write a feature spec or PRD from a problem statement |
-| `/roadmap-update` | Update, create, or reprioritize your roadmap |
-| `/stakeholder-update` | Generate a stakeholder update (weekly, monthly, launch) |
-| `/synthesize-research` | Synthesize user research from interviews, surveys, and tickets |
-| `/competitive-brief` | Create a competitive analysis brief |
-| `/metrics-review` | Review and analyze product metrics |
-| `/brainstorm` | Brainstorm a product idea, problem space, or strategic question with a thinking partner |
+| `/write-spec` | Viết một feature spec hoặc PRD từ một phát biểu vấn đề |
+| `/roadmap-update` | Cập nhật, tạo hoặc sắp xếp lại ưu tiên cho roadmap của bạn |
+| `/stakeholder-update` | Tạo một cập nhật cho các bên liên quan (hàng tuần, hàng tháng, ra mắt) |
+| `/synthesize-research` | Tổng hợp nghiên cứu người dùng từ phỏng vấn, khảo sát và ticket |
+| `/competitive-brief` | Tạo một bản brief phân tích đối thủ |
+| `/metrics-review` | Xem lại và phân tích chỉ số sản phẩm |
+| `/brainstorm` | Brainstorm một ý tưởng sản phẩm, không gian vấn đề hoặc câu hỏi chiến lược cùng một đối tác tư duy |
 
-## Skills
+## Kỹ năng
 
-| Skill | What It Covers |
+| Kỹ năng | Nội dung bao quát |
 |---|---|
-| `feature-spec` | PRD structure, user stories, requirements categorization, acceptance criteria |
-| `roadmap-management` | Prioritization frameworks (RICE, MoSCoW), roadmap formats, dependency mapping |
-| `stakeholder-comms` | Update templates by audience, risk communication, decision documentation |
-| `user-research-synthesis` | Thematic analysis, affinity mapping, persona development, opportunity sizing |
-| `competitive-analysis` | Feature comparison matrices, positioning analysis, win/loss analysis |
-| `metrics-tracking` | Product metrics hierarchy, goal setting (OKRs), dashboard design, review cadences |
-| `product-brainstorming` | Brainstorming modes (problem exploration, solution ideation, assumption testing, strategy), PM frameworks, session structure, thinking partner behaviors |
+| `feature-spec` | Cấu trúc PRD, user story, phân loại yêu cầu, tiêu chí nghiệm thu |
+| `roadmap-management` | Các framework ưu tiên hoá (RICE, MoSCoW), định dạng roadmap, bản đồ phụ thuộc |
+| `stakeholder-comms` | Mẫu cập nhật theo đối tượng, truyền thông rủi ro, tài liệu hoá quyết định |
+| `user-research-synthesis` | Phân tích theo chủ đề, affinity mapping, phát triển persona, định lượng cơ hội |
+| `competitive-analysis` | Ma trận so sánh tính năng, phân tích định vị, phân tích win/loss |
+| `metrics-tracking` | Phân cấp chỉ số sản phẩm, đặt mục tiêu (OKR), thiết kế dashboard, nhịp đánh giá |
+| `product-brainstorming` | Các chế độ brainstorm (khám phá vấn đề, ý tưởng giải pháp, kiểm tra giả định, chiến lược), các framework PM, cấu trúc phiên làm việc, hành vi của một đối tác tư duy |
 
-## Example Workflows
+## Quy trình mẫu
 
-### Writing a PRD
+### Viết một PRD
 
 ```
 You: /write-spec
@@ -56,7 +56,7 @@ Claude: [Asks about target users, constraints, success metrics]
 Claude: [Generates full PRD with problem statement, user stories, requirements, success metrics, open questions]
 ```
 
-### Preparing a Stakeholder Update
+### Chuẩn bị một cập nhật cho các bên liên quan
 
 ```
 You: /stakeholder-update
@@ -66,7 +66,7 @@ Claude: [Pulls context from project management tool, chat, and docs]
 Claude: [Generates executive summary with progress, decisions, risks, and next milestones]
 ```
 
-### Synthesizing User Research
+### Tổng hợp nghiên cứu người dùng
 
 ```
 You: /synthesize-research
@@ -76,7 +76,7 @@ Claude: [Identifies themes, patterns, and insights across interviews]
 Claude: [Generates synthesis with key findings, personas, opportunity areas, and evidence]
 ```
 
-### Brainstorming a Product Idea
+### Brainstorm một ý tưởng sản phẩm
 
 ```
 You: /brainstorm Should we add AI-powered search to our product?
@@ -88,7 +88,7 @@ Claude: [Generates 5 distinct approaches ranging from better taxonomy to AI sear
 Claude: [Challenges assumptions, suggests cheapest experiment to test the riskiest one]
 ```
 
-### Competitive Analysis
+### Phân tích đối thủ
 
 ```
 You: /competitive-brief
@@ -98,20 +98,28 @@ Claude: [Researches competitor onboarding approaches]
 Claude: [Generates brief with feature comparison, strengths/weaknesses, and strategic implications]
 ```
 
-## Data Sources
+## Nguồn dữ liệu
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra công cụ nào đang được kết nối, hãy xem [CONNECTORS.md](CONNECTORS.md).
 
-Connect your project management and communication tools for the best experience. Without them, provide context manually.
+Kết nối các công cụ quản lý dự án và giao tiếp của bạn để có trải nghiệm tốt nhất. Nếu không có chúng, hãy cung cấp ngữ cảnh thủ công.
 
-**Included MCP connections:**
-- Chat (Lark IM) for team context and stakeholder threads
-- Project tracker (Lark Task, Lark Task, Lark Base, Lark Task, Lark) for roadmap integration, ticket context, and status tracking
-- Knowledge base (Lark Wiki) for existing specs, research, and meeting notes
-- Design (Figma) for design context and handoff
-- Product analytics (Amplitude, Pendo) for usage data, metrics, and behavioral analysis
-- User feedback (Intercom) for support tickets, feature requests, and user conversations
-- Meeting transcription (Lark Minutes) for meeting notes and discussion context
+**Các kết nối MCP đi kèm:**
+- Chat (Lark IM) cho ngữ cảnh team và các luồng trao đổi với các bên liên quan
+- Project tracker (Lark Task, Lark Task, Lark Base, Lark Task, Lark) để tích hợp roadmap, ngữ cảnh ticket và theo dõi trạng thái
+- Cơ sở tri thức (Lark Wiki) cho các spec, nghiên cứu và ghi chú họp có sẵn
+- Thiết kế (Figma) cho ngữ cảnh thiết kế và bàn giao
+- Phân tích sản phẩm (Amplitude, Pendo) cho dữ liệu sử dụng, chỉ số và phân tích hành vi
+- Phản hồi người dùng (Intercom) cho support ticket, yêu cầu tính năng và hội thoại với người dùng
+- Phiên âm cuộc họp (Lark Minutes) cho ghi chú họp và ngữ cảnh thảo luận
 
-**Additional options:**
-- See [CONNECTORS.md](CONNECTORS.md) for alternative tools in each category
+**Lựa chọn bổ sung:**
+- Xem [CONNECTORS.md](CONNECTORS.md) để biết các công cụ thay thế trong mỗi danh mục
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

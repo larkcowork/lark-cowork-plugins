@@ -1,120 +1,129 @@
-# HR Plugin
+# Plugin Nhân sự (HR)
 
-A people operations plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. Helps with recruiting, onboarding, performance management, policy guidance, and compensation analysis. Works with any HR team — standalone with your input, supercharged when you connect your HRIS, ATS, and other tools.
+Plugin vận hành nhân sự được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork) — ứng
+dụng desktop agentic của Anthropic — nhưng cũng chạy được trong Claude Code. Hỗ trợ tuyển dụng,
+onboarding, quản lý hiệu suất, tra cứu chính sách và phân tích lương thưởng. Dùng được với mọi đội
+nhân sự — chạy độc lập với thông tin bạn cung cấp, và mạnh hơn nhiều khi bạn kết nối HRIS, ATS cùng
+các công cụ khác.
 
-## Installation
+## Cài đặt
 
 ```bash
 claude plugins add knowledge-work-plugins/human-resources
 ```
 
-## Commands
+## Lệnh
 
-Explicit workflows you invoke with a slash command:
+Các quy trình rõ ràng bạn gọi bằng lệnh slash:
 
-| Command | Description |
+| Lệnh | Mô tả |
 |---|---|
-| `/draft-offer` | Draft an offer letter with compensation details, start date, and terms |
-| `/onboarding` | Generate an onboarding checklist and first-week plan for a new hire |
-| `/performance-review` | Structure a performance review — self-assessment prompts, manager template, calibration prep |
-| `/policy-lookup` | Find and explain company policies — PTO, benefits, expense, travel, remote work |
-| `/comp-analysis` | Analyze compensation data — benchmarking, band placement, equity refresh modeling |
-| `/people-report` | Generate headcount, attrition, diversity, or org health reports |
+| `/draft-offer` | Soạn thư mời nhận việc kèm chi tiết lương thưởng, ngày bắt đầu và điều khoản |
+| `/onboarding` | Tạo checklist onboarding và kế hoạch tuần đầu cho nhân viên mới |
+| `/performance-review` | Dựng khung đánh giá hiệu suất — câu hỏi tự đánh giá, mẫu cho quản lý, chuẩn bị calibration |
+| `/policy-lookup` | Tìm và giải thích chính sách công ty — nghỉ phép, phúc lợi, chi phí, công tác, làm việc từ xa |
+| `/comp-analysis` | Phân tích dữ liệu lương thưởng — đối chuẩn thị trường, xếp dải lương, mô hình refresh cổ phần |
+| `/people-report` | Tạo báo cáo nhân sự, tỷ lệ nghỉ việc, đa dạng, hoặc sức khỏe tổ chức |
 
-All commands work **standalone** (provide context and details) and get **supercharged** with MCP connectors.
+Mọi lệnh đều chạy **độc lập** (bạn cung cấp ngữ cảnh và chi tiết) và **mạnh hơn** khi có connector MCP.
 
-## Skills
+## Kỹ năng
 
-Domain knowledge Claude uses automatically when relevant:
+Kiến thức chuyên môn Claude tự dùng khi phù hợp:
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |---|---|
-| `recruiting-pipeline` | Track and manage recruiting pipeline — source, screen, interview, offer stages |
-| `employee-handbook` | Answer questions about company policies, benefits, and procedures |
-| `compensation-benchmarking` | Benchmark compensation against market data — base, equity, total comp |
-| `org-planning` | Headcount planning, org design, and team structure optimization |
-| `people-analytics` | Analyze workforce data — attrition trends, engagement signals, diversity metrics |
-| `interview-prep` | Create structured interview plans — competency-based questions, scorecards, debrief templates |
+| `recruiting-pipeline` | Theo dõi và quản lý pipeline tuyển dụng — các bước tìm nguồn, sàng lọc, phỏng vấn, đề nghị |
+| `employee-handbook` | Trả lời câu hỏi về chính sách, phúc lợi và quy trình công ty |
+| `compensation-benchmarking` | Đối chuẩn lương thưởng với dữ liệu thị trường — lương cơ bản, cổ phần, tổng thu nhập |
+| `org-planning` | Hoạch định nhân sự, thiết kế tổ chức và tối ưu cấu trúc đội nhóm |
+| `people-analytics` | Phân tích dữ liệu lực lượng lao động — xu hướng nghỉ việc, tín hiệu gắn kết, chỉ số đa dạng |
+| `interview-prep` | Tạo kế hoạch phỏng vấn có cấu trúc — câu hỏi theo năng lực, scorecard, mẫu debrief |
 
-## Example Workflows
+## Quy trình mẫu
 
-### Drafting an Offer
+### Soạn thư mời nhận việc
 
 ```
 /draft-offer
 ```
 
-Tell me the role, level, location, and comp details. Get a complete offer letter draft with terms, equity breakdown, and benefits summary.
+Cho tôi biết vị trí, cấp bậc, địa điểm và chi tiết lương thưởng. Bạn sẽ nhận một bản nháp thư mời hoàn
+chỉnh kèm điều khoản, phân bổ cổ phần và tóm tắt phúc lợi.
 
-### Onboarding a New Hire
+### Onboarding nhân viên mới
 
 ```
 /onboarding
 ```
 
-Provide the new hire's name, role, team, and start date. Get a comprehensive onboarding checklist, first-week calendar, tool access list, and buddy assignment template.
+Cung cấp tên, vị trí, đội nhóm và ngày bắt đầu của nhân viên mới. Bạn sẽ nhận checklist onboarding đầy
+đủ, lịch tuần đầu, danh sách quyền truy cập công cụ và mẫu phân công người kèm cặp (buddy).
 
-### Preparing for Performance Reviews
+### Chuẩn bị đánh giá hiệu suất
 
 ```
 /performance-review
 ```
 
-Get templates for self-assessments, manager reviews, and calibration. I'll help structure feedback that's specific, actionable, and fair.
+Nhận các mẫu tự đánh giá, đánh giá của quản lý và calibration. Tôi sẽ giúp bạn dựng khung phản hồi cụ
+thể, khả thi và công bằng.
 
-### Understanding Benefits
+### Hiểu rõ phúc lợi
 
-Just ask naturally:
+Cứ hỏi tự nhiên:
 ```
-What's our parental leave policy?
+Chính sách nghỉ thai sản của công ty mình thế nào?
 ```
 
-The `employee-handbook` skill triggers automatically and searches your connected knowledge base for the answer.
+Kỹ năng `employee-handbook` tự kích hoạt và tìm câu trả lời trong cơ sở tri thức đã kết nối của bạn.
 
-### Compensation Benchmarking
+### Đối chuẩn lương thưởng
 
 ```
 /comp-analysis
 ```
 
-Upload comp data or describe your bands. Get market comparisons, band placement analysis, and recommendations for adjustments.
+Tải lên dữ liệu lương hoặc mô tả các dải lương của bạn. Nhận so sánh thị trường, phân tích xếp dải và
+khuyến nghị điều chỉnh.
 
-## Standalone + Supercharged
+## Dùng độc lập + Tăng sức mạnh
 
-Every command and skill works without any integrations:
+Mọi lệnh và kỹ năng đều chạy được mà không cần tích hợp:
 
-| What You Can Do | Standalone | Supercharged With |
-|-----------------|------------|-------------------|
-| Draft offers | Provide details manually | HRIS, ATS for auto-fill |
-| Onboarding checklists | Describe your process | HRIS, Knowledge base for templates |
-| Performance reviews | Manual input | HRIS for review history |
-| Policy lookup | Paste handbook content | Knowledge base |
-| Comp analysis | Upload CSV, describe bands | Compensation data MCP |
-| People reports | Upload data | HRIS for live data |
+| Bạn làm được gì | Độc lập | Tăng sức mạnh với |
+|-----------------|---------|-------------------|
+| Soạn thư mời | Cung cấp chi tiết thủ công | HRIS, ATS để tự điền |
+| Checklist onboarding | Mô tả quy trình của bạn | HRIS, Cơ sở tri thức để lấy mẫu |
+| Đánh giá hiệu suất | Nhập thủ công | HRIS để lấy lịch sử đánh giá |
+| Tra cứu chính sách | Dán nội dung sổ tay | Cơ sở tri thức |
+| Phân tích lương | Tải CSV, mô tả dải lương | MCP dữ liệu lương thưởng |
+| Báo cáo nhân sự | Tải dữ liệu lên | HRIS để lấy dữ liệu trực tiếp |
 
-## MCP Integrations
+## Tích hợp MCP
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu thấy placeholder lạ hoặc cần kiểm tra công cụ nào đang kết nối, xem [CONNECTORS.md](CONNECTORS.md).
 
-Connect your tools for a richer experience:
+Kết nối công cụ của bạn để có trải nghiệm phong phú hơn:
 
-| Category | Examples | What It Enables |
+| Danh mục | Ví dụ | Mở khóa điều gì |
 |---|---|---|
-| **HRIS** | Workday, BambooHR, Rippling | Employee data, org structure, PTO balances |
-| **ATS** | Greenhouse, Lever, Ashby | Candidate pipeline, interview schedules, offer tracking |
-| **Compensation** | Pave, Radford | Market benchmarks, comp band data |
-| **Chat** | Lark IM, Teams | Team announcements, candidate coordination |
-| **Calendar** | Lark Calendar, Lark | Interview scheduling, onboarding calendar |
-| **Email** | Lark Mail, Lark | Offer letters, candidate communications |
+| **HRIS** | Workday, BambooHR, Rippling | Dữ liệu nhân viên, cấu trúc tổ chức, số dư nghỉ phép |
+| **ATS** | Greenhouse, Lever, Ashby | Pipeline ứng viên, lịch phỏng vấn, theo dõi thư mời |
+| **Lương thưởng** | Pave, Radford | Đối chuẩn thị trường, dữ liệu dải lương |
+| **Chat** | Lark IM, Teams | Thông báo nội bộ, điều phối ứng viên |
+| **Lịch** | Lark Calendar, Lark | Sắp lịch phỏng vấn, lịch onboarding |
+| **Email** | Lark Mail, Lark | Thư mời nhận việc, trao đổi với ứng viên |
 
-See [CONNECTORS.md](CONNECTORS.md) for the full list of supported integrations.
+Xem [CONNECTORS.md](CONNECTORS.md) để biết danh sách đầy đủ các tích hợp được hỗ trợ.
 
-## Settings
+## Cấu hình
 
-Create a `settings.local.json` file to personalize:
+Tạo file `settings.local.json` để cá nhân hóa:
 
-- **Cowork**: Save it in any folder you've shared with Cowork (via the folder picker). The plugin finds it automatically.
-- **Claude Code**: Save it at `human-resources/.claude/settings.local.json`.
+- **Cowork**: Lưu trong bất kỳ thư mục nào bạn đã chia sẻ với Cowork (qua bộ chọn thư mục). Plugin tự
+  tìm thấy.
+- **Claude Code**: Lưu tại `human-resources/.claude/settings.local.json`.
 
 ```json
 {
@@ -134,4 +143,12 @@ Create a `settings.local.json` file to personalize:
 }
 ```
 
-The plugin will ask you for this information interactively if it's not configured.
+Plugin sẽ hỏi bạn các thông tin này một cách tương tác nếu chưa được cấu hình.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

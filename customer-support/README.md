@@ -1,139 +1,147 @@
-# Customer Support Plugin
+# Plugin Hỗ trợ Khách hàng (Customer Support)
 
-A customer support plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. Provides ticket triage, escalation management, response drafting, customer research, and knowledge base authoring for support teams.
+Plugin hỗ trợ khách hàng được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agent của Anthropic — nhưng cũng hoạt động được trong Claude Code. Plugin cung cấp khả năng phân loại (triage) ticket, quản lý leo thang (escalation), soạn thảo phản hồi, nghiên cứu khách hàng và biên soạn bài viết cho cơ sở tri thức (knowledge base) dành cho các đội hỗ trợ.
 
-## Installation
+## Cài đặt
 
 ```
 claude plugins add knowledge-work-plugins/customer-support
 ```
 
-## What It Does
+## Tính năng
 
-This plugin turns Claude into a customer support co-pilot. It helps you:
+Plugin này biến Claude thành trợ lý song hành (co-pilot) cho công việc hỗ trợ khách hàng. Nó giúp bạn:
 
-- **Triage incoming tickets** with structured categorization, priority assessment, and routing recommendations
-- **Research customer questions** by synthesizing information from multiple sources with confidence scoring
-- **Draft professional responses** tailored to the situation, urgency, and communication channel
-- **Package escalations** with full context, reproduction steps, and business impact for engineering or product
-- **Write KB articles** from resolved issues to reduce future ticket volume
+- **Phân loại ticket đến** với việc phân nhóm có cấu trúc, đánh giá mức độ ưu tiên và đề xuất định tuyến (routing)
+- **Nghiên cứu câu hỏi của khách hàng** bằng cách tổng hợp thông tin từ nhiều nguồn, kèm theo điểm tin cậy (confidence scoring)
+- **Soạn thảo phản hồi chuyên nghiệp** phù hợp với từng tình huống, mức độ khẩn cấp và kênh giao tiếp
+- **Đóng gói các yêu cầu leo thang** với đầy đủ ngữ cảnh, các bước tái hiện lỗi và tác động kinh doanh để chuyển cho đội kỹ thuật hoặc sản phẩm
+- **Viết bài cho cơ sở tri thức (KB)** từ các vấn đề đã được giải quyết nhằm giảm số lượng ticket trong tương lai
 
-## Commands
+## Lệnh
 
-| Command | Description |
+| Lệnh | Mô tả |
 |---|---|
-| `/triage` | Categorize, prioritize, and route a support ticket or customer issue |
-| `/research` | Multi-source research on a customer question or topic |
-| `/draft-response` | Draft a customer-facing response for any situation |
-| `/escalate` | Package an escalation for engineering, product, or leadership |
-| `/kb-article` | Draft a knowledge base article from a resolved issue |
+| `/triage` | Phân nhóm, xếp ưu tiên và định tuyến một ticket hỗ trợ hoặc vấn đề của khách hàng |
+| `/research` | Nghiên cứu đa nguồn về một câu hỏi hoặc chủ đề của khách hàng |
+| `/draft-response` | Soạn bản nháp phản hồi gửi khách hàng cho bất kỳ tình huống nào |
+| `/escalate` | Đóng gói một yêu cầu leo thang để chuyển cho đội kỹ thuật, sản phẩm hoặc ban lãnh đạo |
+| `/kb-article` | Soạn bản nháp bài viết cơ sở tri thức từ một vấn đề đã được giải quyết |
 
-## Skills
+## Kỹ năng
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |---|---|
-| `ticket-triage` | Category taxonomy, priority framework (P1-P4), routing rules, duplicate detection |
-| `customer-research` | Multi-source research methodology, source prioritization, answer synthesis |
-| `response-drafting` | Communication best practices, tone guidelines, templates for common scenarios |
-| `escalation` | Escalation tiers, structured escalation format, impact assessment, follow-up cadence |
-| `knowledge-management` | Article structure standards, writing for searchability, review cadence, maintenance |
+| `ticket-triage` | Hệ thống phân loại danh mục, khung ưu tiên (P1-P4), quy tắc định tuyến, phát hiện trùng lặp |
+| `customer-research` | Phương pháp nghiên cứu đa nguồn, xếp ưu tiên nguồn, tổng hợp câu trả lời |
+| `response-drafting` | Thực hành tốt nhất trong giao tiếp, hướng dẫn giọng điệu, mẫu cho các tình huống phổ biến |
+| `escalation` | Các cấp độ leo thang, định dạng leo thang có cấu trúc, đánh giá tác động, nhịp theo dõi (follow-up) |
+| `knowledge-management` | Tiêu chuẩn cấu trúc bài viết, cách viết để dễ tìm kiếm, nhịp rà soát, bảo trì |
 
-## Data Sources
+## Nguồn dữ liệu
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra công cụ nào đang được kết nối, xem [CONNECTORS.md](CONNECTORS.md).
 
-Connect your support platform, knowledge base, and communication tools for the best experience. Without them, provide customer context manually.
+Hãy kết nối nền tảng hỗ trợ, cơ sở tri thức và các công cụ giao tiếp của bạn để có trải nghiệm tốt nhất. Nếu không có chúng, bạn cần cung cấp ngữ cảnh khách hàng theo cách thủ công.
 
-**Included MCP connections:**
-- Chat (Lark IM) for internal discussions and customer channel context
-- Support platform (Intercom) for ticket history and customer conversations
-- CRM (HubSpot) for account details and contact information
-- Knowledge base (Lark Wiki, Lark Wiki) for internal documentation and runbooks
-- Project tracker (Lark) for bug reports and feature requests
-- Email and cloud storage (Lark) for customer correspondence
+**Các kết nối MCP đi kèm:**
+- Chat (Lark IM) cho các thảo luận nội bộ và ngữ cảnh kênh khách hàng
+- Nền tảng hỗ trợ (Intercom) cho lịch sử ticket và các cuộc hội thoại với khách hàng
+- CRM (HubSpot) cho chi tiết tài khoản và thông tin liên hệ
+- Cơ sở tri thức (Lark Wiki, Lark Wiki) cho tài liệu nội bộ và runbook
+- Công cụ theo dõi dự án (Lark) cho báo cáo lỗi và yêu cầu tính năng
+- Email và lưu trữ đám mây (Lark) cho thư từ với khách hàng
 
-**Additional options:**
-- See [CONNECTORS.md](CONNECTORS.md) for alternative tools in each category
+**Tùy chọn bổ sung:**
+- Xem [CONNECTORS.md](CONNECTORS.md) để biết các công cụ thay thế trong từng danh mục
 
-## Example Workflows
+## Quy trình mẫu
 
-### Triaging an Incoming Ticket
-
-```
-You: /triage Customer says their dashboard has been showing a blank
-     page since this morning — they're on the Enterprise plan
-
-Claude: Analyzing the issue...
-
-## Triage: Dashboard blank page — Enterprise customer
-
-**Category:** Bug
-**Priority:** P2 — High (core feature broken, enterprise customer)
-**Product area:** Dashboard / Frontend
-
-### Routing Recommendation
-Route to: Tier 2 Support (investigate browser/account specifics,
-then escalate to Engineering if reproducible)
-
-### Suggested Initial Response
-[Draft acknowledging the issue, asking clarifying questions
-about browser and any recent changes, offering status page link]
-```
-
-### Researching a Customer Question
+### Phân loại một ticket đến
 
 ```
-You: /research Does our platform support SSO with Okta?
+Bạn: /triage Khách hàng nói dashboard của họ hiển thị trang trắng
+     từ sáng nay — họ đang dùng gói Enterprise
 
-Claude: Let me check across available sources...
+Claude: Đang phân tích vấn đề...
 
-[Searches docs, knowledge base, previous conversations,
- and web sources — synthesizes answer with confidence
- level and source attribution]
+## Triage: Dashboard trang trắng — khách hàng Enterprise
+
+**Danh mục:** Bug (Lỗi)
+**Mức ưu tiên:** P2 — Cao (tính năng cốt lõi bị hỏng, khách hàng enterprise)
+**Khu vực sản phẩm:** Dashboard / Frontend
+
+### Đề xuất định tuyến
+Chuyển đến: Hỗ trợ Tier 2 (điều tra chi tiết trình duyệt/tài khoản,
+sau đó leo thang lên Kỹ thuật nếu tái hiện được lỗi)
+
+### Phản hồi ban đầu gợi ý
+[Bản nháp ghi nhận vấn đề, hỏi các câu hỏi làm rõ
+về trình duyệt và mọi thay đổi gần đây, gửi kèm link trang trạng thái]
 ```
 
-### Packaging an Escalation
+### Nghiên cứu một câu hỏi của khách hàng
 
 ```
-You: /escalate API returning 500 errors intermittently — 3
-     Enterprise customers reported this week
+Bạn: /research Nền tảng của chúng ta có hỗ trợ SSO với Okta không?
 
-Claude: I'll gather context and build the escalation brief...
+Claude: Để tôi kiểm tra qua các nguồn hiện có...
 
-[Pulls ticket history, identifies affected accounts,
- structures reproduction steps, assesses business impact,
- and generates a structured escalation for engineering]
+[Tìm kiếm trong tài liệu, cơ sở tri thức, các cuộc hội thoại trước đây,
+ và các nguồn trên web — tổng hợp câu trả lời kèm theo mức độ
+ tin cậy và trích dẫn nguồn]
 ```
 
-### Drafting a Response
+### Đóng gói một yêu cầu leo thang
 
 ```
-You: /draft-response Customer escalation — their integration
-     has been down for 2 days and they're frustrated
+Bạn: /escalate API trả về lỗi 500 không liên tục — 3 khách hàng
+     Enterprise đã báo cáo trong tuần này
 
-Claude: [Generates empathetic, professional response acknowledging
- the frustration, taking ownership, providing a clear action
- plan with timeline, and offering a call]
+Claude: Tôi sẽ thu thập ngữ cảnh và dựng bản tóm tắt leo thang...
+
+[Lấy lịch sử ticket, xác định các tài khoản bị ảnh hưởng,
+ cấu trúc các bước tái hiện lỗi, đánh giá tác động kinh doanh,
+ và tạo một yêu cầu leo thang có cấu trúc cho đội kỹ thuật]
 ```
 
-### Writing a KB Article
+### Soạn thảo một phản hồi
 
 ```
-You: /kb-article How to configure webhook notifications —
-     just resolved this for the third customer this month
+Bạn: /draft-response Khách hàng leo thang — tích hợp của họ
+     đã ngừng hoạt động 2 ngày và họ đang bực bội
 
-Claude: [Generates a structured how-to article with prerequisites,
- step-by-step instructions, verification steps, and common
- issues — optimized for search]
+Claude: [Tạo phản hồi đồng cảm, chuyên nghiệp, ghi nhận
+ sự bực bội, nhận trách nhiệm, đưa ra kế hoạch hành động
+ rõ ràng kèm mốc thời gian, và đề nghị một cuộc gọi]
 ```
 
-## Configuration
+### Viết một bài KB
 
-The plugin works out of the box with the included MCP connections. For the richest experience, connect additional data sources through your Claude settings:
+```
+Bạn: /kb-article Cách cấu hình thông báo webhook —
+     vừa xử lý xong cho khách hàng thứ ba trong tháng này
 
-1. **Support platform**: Add your ticketing system for ticket history and customer context
-2. **Knowledge base**: Add your wiki for internal documentation and existing KB articles
-3. **Project tracker**: Add your issue tracker for bug reports and feature requests
-4. **CRM**: Add your CRM for account details and contact information
+Claude: [Tạo một bài hướng dẫn có cấu trúc với các điều kiện tiên quyết,
+ hướng dẫn từng bước, các bước xác minh và những
+ vấn đề thường gặp — tối ưu cho tìm kiếm]
+```
 
-Without these connections, the plugin will ask you to provide context manually and offer frameworks and templates you can fill in with your own data.
+## Cấu hình
+
+Plugin hoạt động ngay từ đầu (out of the box) với các kết nối MCP đi kèm. Để có trải nghiệm phong phú nhất, hãy kết nối thêm nguồn dữ liệu thông qua phần cài đặt Claude của bạn:
+
+1. **Nền tảng hỗ trợ**: Thêm hệ thống ticket của bạn để có lịch sử ticket và ngữ cảnh khách hàng
+2. **Cơ sở tri thức**: Thêm wiki của bạn để có tài liệu nội bộ và các bài KB hiện có
+3. **Công cụ theo dõi dự án**: Thêm công cụ theo dõi vấn đề (issue tracker) của bạn để có báo cáo lỗi và yêu cầu tính năng
+4. **CRM**: Thêm CRM của bạn để có chi tiết tài khoản và thông tin liên hệ
+
+Nếu không có những kết nối này, plugin sẽ yêu cầu bạn cung cấp ngữ cảnh theo cách thủ công và cung cấp các khung làm việc cùng mẫu để bạn điền dữ liệu của riêng mình.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

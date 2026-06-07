@@ -1,37 +1,45 @@
-# lark-cli Dev Tools Plugin
+# Plugin Công cụ Phát triển lark-cli (lark-cli Dev Tools)
 
-A focused toolkit for building, debugging, and extending the built-in MCP bridge that ships inside `lark-cli` (`cmd/mcp/`). This plugin is for developers working on the bridge itself — adding tools, fixing schemas, and keeping MCP hosts connected — not for end users running Lark workflows.
+Bộ công cụ chuyên biệt để xây dựng, gỡ lỗi và mở rộng cầu nối MCP tích hợp sẵn bên trong `lark-cli` (`cmd/mcp/`). Plugin này dành cho các lập trình viên đang làm việc trên chính cầu nối đó — thêm công cụ, sửa schema, và giữ cho các MCP host luôn kết nối — chứ không dành cho người dùng cuối đang chạy các quy trình Lark.
 
-## Installation
+## Cài đặt
 
 ```
 claude plugins add lark-cowork/lark-cli-dev
 ```
 
-## What It Does
+## Tính năng
 
-This plugin gives Claude the mental model and the muscle memory for working on `cmd/mcp/`:
+Plugin này trang bị cho Claude mô hình tư duy và phản xạ thành thạo khi làm việc trên `cmd/mcp/`:
 
-- **The `lark-cli-mcp` skill** — Teaches Claude how the bridge actually works: a stateless stdio JSON-RPC server (`lark-cli mcp serve`) that turns each `tools/call` into an `os/exec` of a `lark-cli` shortcut, which in turn hits the Lark/Feishu Open API. It encodes the hard rules — stdout is JSON-RPC only (log to stderr via `s.logf`), no third-party MCP library, one MCP tool ≈ one shortcut (don't compose flows), and always verify flag names against `shortcuts/<domain>/*.go` before shipping.
-- **Six commands** — A full dev loop: scaffold a new tool, rebuild and reinstall the binary, smoke-test the handshake, invoke a single tool end-to-end, inspect the live catalogue, and run a one-page health report across every layer of the bridge.
+- **Kỹ năng `lark-cli-mcp`** — Dạy Claude cách cầu nối thực sự hoạt động: một máy chủ JSON-RPC stdio không trạng thái (`lark-cli mcp serve`) biến mỗi `tools/call` thành một lệnh `os/exec` của một shortcut `lark-cli`, mà shortcut này lần lượt gọi đến Lark/Feishu Open API. Nó mã hóa các quy tắc cứng — stdout chỉ dành cho JSON-RPC (ghi log vào stderr qua `s.logf`), không dùng thư viện MCP bên thứ ba, một công cụ MCP ≈ một shortcut (đừng kết hợp nhiều luồng), và luôn xác minh tên cờ (flag) đối chiếu với `shortcuts/<domain>/*.go` trước khi phát hành.
+- **Sáu lệnh** — Một vòng phát triển đầy đủ: dựng khung một công cụ mới, build lại và cài lại binary, kiểm thử nhanh phần bắt tay (handshake), gọi một công cụ đơn lẻ từ đầu đến cuối, kiểm tra danh mục đang chạy, và chạy một báo cáo tình trạng một trang trên mọi lớp của cầu nối.
 
-## Skills
+## Kỹ năng
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |-------|-------------|
-| `lark-cli-mcp` | Build/debug/extend the lark-cli MCP bridge in cmd/mcp/. Triggers MCP tool add/remove/refine, Claude Desktop disconnects, tool schema changes. |
+| `lark-cli-mcp` | Xây dựng/gỡ lỗi/mở rộng cầu nối MCP của lark-cli trong cmd/mcp/. Kích hoạt khi thêm/xóa/tinh chỉnh công cụ MCP, Claude Desktop mất kết nối, thay đổi schema công cụ. |
 
-## Commands
+## Lệnh
 
-| Command | What it does |
+| Lệnh | Tính năng |
 |---------|--------------|
-| `/mcp-add` | Walk through adding a new tool to the lark-cli MCP bridge |
-| `/mcp-call` | Invoke one MCP tool end-to-end (handshake + tools/call) and print the result |
-| `/mcp-doctor` | One-page health report for the MCP bridge — build, handshake, sample call, host config, logs |
-| `/mcp-rebuild` | Rebuild lark-cli and reinstall the binary so Claude Desktop picks up changes |
-| `/mcp-test` | Smoke-test the lark-cli MCP server (initialize + tools/list + optional tools/call) |
-| `/mcp-tools` | List the MCP tools currently exposed by `lark-cli mcp serve` |
+| `/mcp-add` | Hướng dẫn từng bước thêm một công cụ mới vào cầu nối MCP của lark-cli |
+| `/mcp-call` | Gọi một công cụ MCP từ đầu đến cuối (bắt tay + tools/call) và in ra kết quả |
+| `/mcp-doctor` | Báo cáo tình trạng một trang cho cầu nối MCP — build, bắt tay, lệnh gọi mẫu, cấu hình host, log |
+| `/mcp-rebuild` | Build lại lark-cli và cài lại binary để Claude Desktop nhận thay đổi |
+| `/mcp-test` | Kiểm thử nhanh máy chủ MCP của lark-cli (initialize + tools/list + tùy chọn tools/call) |
+| `/mcp-tools` | Liệt kê các công cụ MCP hiện đang được `lark-cli mcp serve` cung cấp |
 
-## Requirements
+## Yêu cầu
 
-This plugin assumes a local clone of the `lark-cli` Go source — specifically `cmd/mcp/` (the bridge) and `shortcuts/` (the underlying commands) — plus a working Go toolchain. The commands run `go build` and drive `lark-cli mcp serve` against that source, so they expect to operate from the repository root with `go` on your `PATH`. It does **not** bundle the runtime `lark` MCP server; it is dev tooling for the bridge code.
+Plugin này giả định bạn đã có một bản clone cục bộ của mã nguồn Go `lark-cli` — cụ thể là `cmd/mcp/` (cầu nối) và `shortcuts/` (các lệnh nền tảng) — cùng với một bộ công cụ Go (toolchain) hoạt động. Các lệnh sẽ chạy `go build` và điều khiển `lark-cli mcp serve` dựa trên mã nguồn đó, nên chúng mong đợi được vận hành từ thư mục gốc của repository với `go` nằm trong `PATH` của bạn. Nó **không** đóng gói kèm máy chủ MCP `lark` lúc chạy (runtime); đây là công cụ phát triển cho mã nguồn của cầu nối.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

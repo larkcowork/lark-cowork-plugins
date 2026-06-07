@@ -63,3 +63,11 @@ Chạy bộ kiểm thử tự động — phải xanh hết:
 Báo cáo chất lượng đầy đủ: [`../QC-AUDIT.md`](../QC-AUDIT.md).
 
 ➡️ Đã sẵn sàng? Xem việc cụ thể cho nghề của bạn ở [3. Danh mục theo phòng ban](./03-danh-muc-theo-phong-ban.md).
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

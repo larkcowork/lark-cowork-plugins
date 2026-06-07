@@ -1,91 +1,99 @@
-# Approvals & Governance Plugin
+# Plugin Phê duyệt & Quản trị
 
-A governance plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. It keeps Lark operations clean and accountable: faster approval throughput, healthier permission hygiene, and traceable decision provenance — so the things your team agrees, approves, and shares never get lost or quietly drift out of policy.
+Một plugin quản trị được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agent của Anthropic — nhưng cũng hoạt động được trong Claude Code. Plugin giúp giữ cho hoạt động trên Lark luôn gọn gàng và có trách nhiệm giải trình: thông lượng phê duyệt nhanh hơn, vệ sinh phân quyền lành mạnh hơn, và nguồn gốc quyết định có thể truy vết — để những gì team đã thống nhất, đã duyệt và đã chia sẻ không bao giờ bị thất lạc hay âm thầm trôi ra ngoài chính sách.
 
-## Installation
+## Cài đặt
 
 ```
 claude plugins add lark-cowork/governance
 ```
 
-## What It Does
+## Tính năng
 
-This plugin gives Claude a governance lens over your Lark workspace:
+Plugin này trao cho Claude một lăng kính quản trị trên không gian làm việc Lark của bạn:
 
-- **approval-triage** — Works the pending approval queue item by item, recommending approve / reject / ask-more for each request with a cited policy reference. Agent reads and rationalizes; you decide.
-- **approval-flow-sla** — A process-owner view of the whole approval flow: pinpoints the bottleneck node/approver, reports p50/p90 dwell, flags SLA breaches, and audits already-approved items.
-- **permission-audit** — A read-only scan across Drive/Doc/Wiki/Base for public, external, and PII exposure, returned as one severity-ranked report. No auto-fix, no auto-revoke.
-- **decision-logger** — Detects decisions in IM and Minutes and promotes them into a structured Base table, so "we decided this but nobody remembers where" stops happening.
+- **approval-triage** — Xử lý hàng đợi phê duyệt đang chờ theo từng mục, đề xuất phê duyệt / từ chối / hỏi thêm cho mỗi yêu cầu kèm trích dẫn chính sách. Agent đọc và lý giải; bạn quyết định.
+- **approval-flow-sla** — Góc nhìn của người sở hữu quy trình trên toàn bộ luồng phê duyệt: chỉ ra chính xác node/người duyệt đang gây nghẽn, báo cáo thời gian tồn p50/p90, đánh dấu vi phạm SLA, và rà soát các mục đã được duyệt.
+- **permission-audit** — Quét chỉ-đọc xuyên suốt Drive/Doc/Wiki/Base để phát hiện phơi nhiễm công khai, bên ngoài và PII, trả về dưới dạng một báo cáo duy nhất xếp hạng theo mức độ nghiêm trọng. Không tự động sửa, không tự động thu hồi.
+- **decision-logger** — Phát hiện các quyết định trong IM và Minutes rồi đưa chúng vào một bảng Base có cấu trúc, để chấm dứt tình trạng "đã chốt việc này rồi nhưng không ai nhớ chốt ở đâu".
 
-## Skills
+## Kỹ năng
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |-------|-------------|
-| `approval-triage` | Triage the pending Lark Approval queue — recommend approve/reject/ask-more per item with policy citation |
-| `approval-flow-sla` | Measure the approval flow — detect bottleneck node/approver, audit approved data, build & score SLAs |
-| `permission-audit` | Read-only scan of Drive/Doc/Wiki/Base for risky permissions (public, external, PII) |
-| `decision-logger` | Detect decisions in IM/Minutes and promote them to a structured Base table |
+| `approval-triage` | Triage hàng đợi Lark Approval đang chờ — đề xuất phê duyệt/từ chối/hỏi thêm cho từng mục kèm trích dẫn chính sách |
+| `approval-flow-sla` | Đo lường luồng phê duyệt — phát hiện node/người duyệt gây nghẽn, rà soát dữ liệu đã duyệt, dựng & chấm điểm SLA |
+| `permission-audit` | Quét chỉ-đọc Drive/Doc/Wiki/Base để tìm quyền rủi ro (công khai, bên ngoài, PII) |
+| `decision-logger` | Phát hiện quyết định trong IM/Minutes và đưa vào bảng Base có cấu trúc |
 
-## Example Workflows
+## Quy trình mẫu
 
-### Clearing the Approval Queue
+### Dọn sạch hàng đợi phê duyệt
 
 ```
-You: có gì cần duyệt?
+Bạn: có gì cần duyệt?
 
-Claude: [Lists 8 pending approvals via the lark-approval skill]
-        [Per item: ✅ APPROVE / ⚠️ NEEDS CHECK / ❌ REJECT + policy §]
-        [Groups batch-approvable items, flags 2 over threshold]
+Claude: [Liệt kê 8 phê duyệt đang chờ qua kỹ năng lark-approval]
+        [Mỗi mục: ✅ APPROVE / ⚠️ NEEDS CHECK / ❌ REJECT + chính sách §]
+        [Gom các mục có thể duyệt theo lô, đánh dấu 2 mục vượt ngưỡng]
         "Approve batch of 5? (reply 'approve lô 1')"
 ```
 
-### Finding the Bottleneck
+### Tìm điểm nghẽn
 
 ```
-You: nghẽn duyệt ở đâu?
+Bạn: nghẽn duyệt ở đâu?
 
-Claude: [Pulls 30d of instances, computes per-node dwell]
+Claude: [Lấy dữ liệu instance 30 ngày, tính thời gian tồn theo từng node]
         "Node 'Finance review' / Linh ngâm p90 = 18h, breach SLA 6h.
          3 đơn cụ thể đang kẹt. Remind hay transfer?"
 ```
 
-### Logging a Decision
+### Ghi nhật ký một quyết định
 
 ```
-You: chốt cái này — log lại decision
+Bạn: chốt cái này — log lại decision
 
-Claude: [Extracts decision from the IM thread, resolves decider + stakeholders]
-        [Echoes Title/Decision/Decided by/Date/Source/Area]
+Claude: [Trích quyết định từ luồng IM, xác định người quyết + các bên liên quan]
+        [Phản hồi lại Tiêu đề/Quyết định/Người quyết/Ngày/Nguồn/Lĩnh vực]
         "Confirm Status=Active, Review date 90d? Write to decisions Base?"
 ```
 
-## Companion plugins
+## Plugin đồng hành
 
-These skills belong to the **lark-cowork** workflow suite and reference skills in sibling
-plugins. Skill names resolve globally, so a reference works automatically when the companion
-plugin is installed; when a companion is absent the reference **degrades gracefully** (the step
-is skipped or offered as a suggestion, never an error). Install the companions below for the full
-experience — see [`../connectors/LARK-FUSION.md`](../connectors/LARK-FUSION.md).
+Các kỹ năng này thuộc bộ quy trình **lark-cowork** và tham chiếu đến các kỹ năng ở những plugin
+anh em. Tên kỹ năng được phân giải toàn cục, nên một tham chiếu sẽ tự động hoạt động khi plugin
+đồng hành được cài đặt; khi vắng plugin đồng hành, tham chiếu **suy giảm một cách mượt mà** (bước đó
+bị bỏ qua hoặc được đưa ra như một gợi ý, không bao giờ báo lỗi). Hãy cài các plugin đồng hành dưới
+đây để có trải nghiệm đầy đủ — xem [`../connectors/LARK-FUSION.md`](../connectors/LARK-FUSION.md).
 
-| This plugin's skill | References | In plugin |
+| Kỹ năng của plugin này | Tham chiếu | Trong plugin |
 |---|---|---|
 | `decision-logger` | `incident-retro`, `sprint-retro` | delivery-eng |
 | `decision-logger` | `meeting-prep`, `morning-brief` | daily-assistant |
 | `approval-flow-sla` | `morning-brief` (exec digest) | daily-assistant |
 
-## Data Sources
+## Nguồn dữ liệu
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra công cụ nào đang được kết nối, xem [CONNECTORS.md](CONNECTORS.md).
 
-Connect your approval, storage, and communication tools for the best experience. Without them, governance reviews must be done manually in the Lark UI.
+Hãy kết nối các công cụ phê duyệt, lưu trữ và giao tiếp của bạn để có trải nghiệm tốt nhất. Nếu không có chúng, việc rà soát quản trị phải làm thủ công trong giao diện Lark.
 
-**Included MCP connection:** the `lark` server (`lark-cli mcp serve`), one bridge covering every category —
-- Approvals (Lark Approval) via `lark_api` (approval/v4) or the installed `lark-approval` skill — there is no dedicated curated tool
-- Cloud storage + knowledge base (Lark Drive / Wiki / Docs) for read-only permission scanning
-- Database / records (Lark Base) for the decisions table
-- Chat and meeting intelligence (Lark IM + Lark Minutes) for decision detection
+**Kết nối MCP đi kèm:** server `lark` (`lark-cli mcp serve`), một cầu nối duy nhất bao phủ mọi hạng mục —
+- Phê duyệt (Lark Approval) qua `lark_api` (approval/v4) hoặc kỹ năng `lark-approval` đã cài — không có công cụ được tuyển chọn riêng
+- Lưu trữ đám mây + cơ sở tri thức (Lark Drive / Wiki / Docs) để quét quyền ở chế độ chỉ-đọc
+- Cơ sở dữ liệu / bản ghi (Lark Base) cho bảng decisions
+- Trí tuệ chat và cuộc họp (Lark IM + Lark Minutes) để phát hiện quyết định
 
-**Default posture:** read-only. Remind, transfer, approve, or write only after explicit confirmation.
+**Trạng thái mặc định:** chỉ-đọc. Chỉ nhắc, chuyển, duyệt hay ghi sau khi có xác nhận rõ ràng.
 
-**Additional options:**
-- See [CONNECTORS.md](CONNECTORS.md) for how each category resolves and the `lark_api` escape hatch
+**Tùy chọn bổ sung:**
+- Xem [CONNECTORS.md](CONNECTORS.md) để biết cách từng hạng mục được phân giải và lối thoát `lark_api`
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

@@ -85,3 +85,11 @@ Tất cả diễn ra trong Lark; câu 💬 là điều bạn gõ.
 4. **Mọi thứ dùng quyền của chính bạn** — không thấy dữ liệu bạn không được phép.
 
 ➡️ Lo về an toàn dữ liệu? Xem [5. An toàn & tin cậy](./05-an-toan-tin-cay.md).
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

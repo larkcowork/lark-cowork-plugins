@@ -1,88 +1,96 @@
-# CRM & Sales Plugin
+# Plugin CRM & Sales
 
-Run a lightweight CRM on Lark Base — pipeline visibility, post-call updates, and re-engagement of dormant clients — without leaving Lark. Primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application, though it also works in Claude Code. Drafts only: Claude prepares every customer-facing mail, and you approve every send.
+Vận hành một CRM gọn nhẹ trên Lark Base — hiển thị pipeline, cập nhật sau cuộc gọi, và tái kết nối các khách hàng đang ngủ đông — mà không cần rời khỏi Lark. Được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agent của Anthropic, nhưng cũng hoạt động được trong Claude Code. Chỉ tạo bản nháp: Claude chuẩn bị mọi email gửi khách hàng, và bạn phê duyệt từng lần gửi.
 
-## Installation
+## Cài đặt
 
 ```
 claude plugins add lark-cowork/crm-sales
 ```
 
-## What It Does
+## Tính năng
 
-This plugin treats a Lark Base table as your system-of-record and works the deals around it:
+Plugin này coi một bảng Lark Base là hệ thống ghi nhận chính (system-of-record) của bạn và xử lý các deal xoay quanh nó:
 
-- **Pipeline review** — A weekly scan that rolls deals up by stage, flags stuck deals (no touch in 14d+), surfaces what's closing soon (<30d), and tracks the win-rate trend — so you start Monday knowing what needs attention without reading the whole CRM.
-- **Deal update** — Post-call cleanup: pull the meeting minutes, extract pain / budget / timeline / next step, update the Base record (you confirm the diff), then draft a follow-up mail for your approval.
-- **Client follow-up** — Detect dormant contacts (>21 days no touch) and draft personalized re-engagement mail that references real history — drafts only, never auto-sent.
+- **Pipeline review** — Một lượt quét hàng tuần gom các deal theo giai đoạn, đánh dấu các deal đang kẹt (không có tương tác trong 14 ngày+), nêu ra những deal sắp chốt (<30 ngày), và theo dõi xu hướng tỷ lệ thắng — để bạn bắt đầu thứ Hai với việc biết rõ cái gì cần chú ý mà không phải đọc cả CRM.
+- **Deal update** — Dọn dẹp sau cuộc gọi: lấy biên bản cuộc họp, trích ra nỗi đau / ngân sách / dòng thời gian / bước tiếp theo, cập nhật bản ghi Base (bạn xác nhận phần thay đổi), rồi soạn email follow-up để bạn phê duyệt.
+- **Client follow-up** — Phát hiện các liên hệ đang ngủ đông (>21 ngày không tương tác) và soạn email tái kết nối được cá nhân hóa, tham chiếu lịch sử thực tế — chỉ là bản nháp, không bao giờ tự động gửi.
 
-## Skills
+## Kỹ năng
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |-------|-------------|
-| `pipeline-review` | Weekly pipeline scan — by stage, stuck deals, closing soon, win-rate trend |
-| `deal-update` | Post-call CRM update — pull minutes, extract pain/budget/timeline, update Base record, draft follow-up |
-| `client-followup` | Detect dormant contacts (>21d) and draft personalized re-engagement mail (drafts only) |
+| `pipeline-review` | Quét pipeline hàng tuần — theo giai đoạn, deal kẹt, sắp chốt, xu hướng tỷ lệ thắng |
+| `deal-update` | Cập nhật CRM sau cuộc gọi — lấy biên bản, trích nỗi đau/ngân sách/dòng thời gian, cập nhật bản ghi Base, soạn follow-up |
+| `client-followup` | Phát hiện liên hệ ngủ đông (>21 ngày) và soạn email tái kết nối được cá nhân hóa (chỉ bản nháp) |
 
-## Example Workflows
+## Quy trình mẫu
 
-### Weekly Pipeline Review
-
-```
-You: pipeline review
-
-Claude: [Rolls deals up by stage with count + $ value]
-        [Flags 3 stuck deals (>14d no touch) and 2 closing soon (<30d)]
-        [Shows win-rate this month vs last]
-        [Recommends top 3 focus actions for the week]
-```
-
-### Update After a Call
+### Rà soát pipeline hàng tuần
 
 ```
-You: just got off the call with Acme, update the deal
+Bạn: pipeline review
 
-Claude: [Pulls the Acme meeting minutes]
-        [Extracts: pain (manual reporting), budget ($40k), timeline (Q3)]
-        [Shows the Base record diff: Stage → Negotiation, Next step set]
-        [On confirm: updates the record, drafts a follow-up mail for review]
+Claude: [Gom các deal theo giai đoạn kèm số lượng + giá trị $]
+        [Đánh dấu 3 deal đang kẹt (>14 ngày không tương tác) và 2 deal sắp chốt (<30 ngày)]
+        [Hiển thị tỷ lệ thắng tháng này so với tháng trước]
+        [Khuyến nghị top 3 hành động cần tập trung trong tuần]
 ```
 
-### Re-engage Dormant Clients
+### Cập nhật sau một cuộc gọi
 
 ```
-You: who have I gone quiet on?
+Bạn: just got off the call with Acme, update the deal
 
-Claude: [Finds 6 contacts with no touch in 21+ days]
-        [Per client: last topic, days dormant, suggested angle]
-        [Drafts a personalized re-engagement mail for each]
-        [Reminds: review each draft in Lark Mail before sending — NOT sent]
+Claude: [Lấy biên bản cuộc họp với Acme]
+        [Trích ra: nỗi đau (báo cáo thủ công), ngân sách ($40k), dòng thời gian (Q3)]
+        [Hiển thị phần thay đổi của bản ghi Base: Stage → Negotiation, đặt Next step]
+        [Khi xác nhận: cập nhật bản ghi, soạn email follow-up để rà soát]
 ```
 
-## Companion plugins
+### Tái kết nối các khách hàng ngủ đông
 
-These skills belong to the **lark-cowork** workflow suite and reference skills in sibling
-plugins. Skill names resolve globally, so a reference works automatically when the companion
-plugin is installed; when a companion is absent the reference **degrades gracefully** (the step
-is skipped or offered as a suggestion, never an error). Install the companions below for the full
-experience — see [`../connectors/LARK-FUSION.md`](../connectors/LARK-FUSION.md).
+```
+Bạn: who have I gone quiet on?
 
-| This plugin's skill | References | In plugin |
+Claude: [Tìm 6 liên hệ không có tương tác trong 21+ ngày]
+        [Mỗi khách: chủ đề gần nhất, số ngày ngủ đông, góc tiếp cận gợi ý]
+        [Soạn một email tái kết nối được cá nhân hóa cho mỗi khách]
+        [Nhắc: rà soát từng bản nháp trong Lark Mail trước khi gửi — CHƯA gửi]
+```
+
+## Plugin đồng hành
+
+Các kỹ năng này thuộc bộ quy trình **lark-cowork** và tham chiếu đến các kỹ năng ở những plugin
+anh em. Tên kỹ năng được phân giải toàn cục, nên một tham chiếu sẽ tự động hoạt động khi plugin
+đồng hành được cài đặt; khi vắng plugin đồng hành, tham chiếu **suy giảm một cách mượt mà** (bước đó
+bị bỏ qua hoặc được đưa ra như một gợi ý, không bao giờ báo lỗi). Hãy cài các plugin đồng hành dưới
+đây để có trải nghiệm đầy đủ — xem [`../connectors/LARK-FUSION.md`](../connectors/LARK-FUSION.md).
+
+| Kỹ năng của plugin này | Tham chiếu | Trong plugin |
 |---|---|---|
-| `pipeline-review` | `morning-brief` (sales variant) | daily-assistant |
-| `deal-update` | `contact-360` (pre-call brief) | daily-assistant |
+| `pipeline-review` | `morning-brief` (biến thể sales) | daily-assistant |
+| `deal-update` | `contact-360` (brief trước cuộc gọi) | daily-assistant |
 
-## Data Sources
+## Nguồn dữ liệu
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra công cụ nào đang được kết nối, xem [CONNECTORS.md](CONNECTORS.md).
 
-**Included MCP connection:** the `lark` server (`lark-cli mcp serve`), one bridge covering every category —
+**Kết nối MCP đi kèm:** server `lark` (`lark-cli mcp serve`), một cầu nối duy nhất bao phủ mọi hạng mục —
 
-- **CRM** is a Lark Base table — read with `lark_base_search`, write via `lark_api` (bitable records) or the `lark-base` skill.
-- **Meeting intelligence** (Lark Minutes) feeds deal updates.
-- **Email** (Lark Mail) for follow-up and re-engagement — drafts only, you approve every send.
-- **Chat, Calendar, Directory** (Lark IM / Calendar / Contact) for context and resolving people.
+- **CRM** là một bảng Lark Base — đọc bằng `lark_base_search`, ghi qua `lark_api` (bitable records) hoặc kỹ năng `lark-base`.
+- **Trí tuệ cuộc họp** (Lark Minutes) cung cấp dữ liệu cho việc cập nhật deal.
+- **Email** (Lark Mail) cho follow-up và tái kết nối — chỉ bản nháp, bạn phê duyệt từng lần gửi.
+- **Chat, Lịch, Danh bạ** (Lark IM / Calendar / Contact) cho bối cảnh và phân giải con người.
 
-**Drafts-only posture:** no customer-facing mail is ever sent automatically. Claude prepares drafts in Lark Mail; you review and send.
+**Trạng thái chỉ-bản-nháp:** không có email gửi khách hàng nào từng được gửi tự động. Claude chuẩn bị bản nháp trong Lark Mail; bạn rà soát và gửi.
 
-See [CONNECTORS.md](CONNECTORS.md) for the full category-to-tool mapping and the shared Lark depth core.
+Xem [CONNECTORS.md](CONNECTORS.md) để biết bản đồ đầy đủ từ hạng mục đến công cụ và lõi chiều sâu Lark dùng chung.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

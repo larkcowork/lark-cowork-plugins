@@ -1,57 +1,57 @@
-# Bio-Research Plugin
+# Plugin Nghiên cứu Sinh học (Bio-Research)
 
-Connect to preclinical research tools and databases (literature search, genomics analysis, target prioritization) to accelerate early-stage life sciences R&D. Use with [Cowork](https://claude.com/product/cowork) or install directly in Claude Code.
+Kết nối tới các công cụ và cơ sở dữ liệu nghiên cứu tiền lâm sàng (tìm kiếm tài liệu, phân tích genomics, ưu tiên hóa mục tiêu thuốc) để tăng tốc R&D khoa học đời sống giai đoạn đầu. Dùng với [Cowork](https://claude.com/product/cowork) hoặc cài đặt trực tiếp trong Claude Code.
 
-This plugin consolidates 11 MCP server integrations and 5 analysis skills into a single package for life science researchers.
+Plugin này hợp nhất 11 tích hợp máy chủ MCP và 5 kỹ năng phân tích thành một gói duy nhất dành cho các nhà nghiên cứu khoa học đời sống.
 
-## What's Included
+## Những gì được bao gồm
 
-### MCP Servers (Data Sources & Tools)
+### Máy chủ MCP (Nguồn dữ liệu & Công cụ)
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra công cụ nào đang được kết nối, xem [CONNECTORS.md](CONNECTORS.md).
 
-| Provider | What It Does | Category/Placeholder |
+| Nhà cung cấp | Tính năng | Danh mục/Placeholder |
 |----------|-------------|---------------------|
-| U.S. National Library of Medicine | Search biomedical literature and research articles | `~~literature` |
-| deepsense.ai | Access preprints from bioRxiv and medRxiv | `~~literature` |
-| Consensus | AI-powered search and synthesis of peer-reviewed research | `~~literature` |
-| John Wiley & Sons | Access academic research and publications | `~~journal access` |
-| Sage Bionetworks | Collaborative research data management | `~~data repository` |
-| deepsense.ai | Bioactive drug-like compound database | `~~chemical database` |
-| OpenTargets | Drug target discovery and prioritization | `~~drug targets` |
-| deepsense.ai | NIH/NLM clinical trial registry | `~~clinical trials` |
-| BioRender | Scientific illustration creation | `~~scientific illustration` |
-| Owkin | AI for biology — histopathology and drug discovery | `~~AI research` |
-| Benchling\* | Lab data management platform | `~~lab platform` |
+| U.S. National Library of Medicine | Tìm kiếm tài liệu y sinh và bài báo nghiên cứu | `~~literature` |
+| deepsense.ai | Truy cập preprint từ bioRxiv và medRxiv | `~~literature` |
+| Consensus | Tìm kiếm và tổng hợp nghiên cứu đã bình duyệt bằng AI | `~~literature` |
+| John Wiley & Sons | Truy cập nghiên cứu học thuật và các ấn phẩm | `~~journal access` |
+| Sage Bionetworks | Quản lý dữ liệu nghiên cứu cộng tác | `~~data repository` |
+| deepsense.ai | Cơ sở dữ liệu hợp chất hoạt tính sinh học dạng thuốc | `~~chemical database` |
+| OpenTargets | Khám phá và ưu tiên hóa mục tiêu thuốc | `~~drug targets` |
+| deepsense.ai | Cơ quan đăng ký thử nghiệm lâm sàng NIH/NLM | `~~clinical trials` |
+| BioRender | Tạo minh họa khoa học | `~~scientific illustration` |
+| Owkin | AI cho sinh học — mô bệnh học và khám phá thuốc | `~~AI research` |
+| Benchling\* | Nền tảng quản lý dữ liệu phòng thí nghiệm | `~~lab platform` |
 
-### Optional Binary MCP Servers
+### Máy chủ MCP dạng Binary tùy chọn
 
-These require a separate binary download:
+Những máy chủ này yêu cầu tải về một binary riêng:
 
-- **10X Genomics txg-mcp** (`~~genomics platform`) — Cloud analysis data and workflows ([GitHub](https://github.com/10XGenomics/txg-mcp/releases))
-- **ToolUniverse** (`~~tool database`) — AI tools for scientific discovery from Harvard MIMS ([GitHub](https://github.com/mims-harvard/ToolUniverse/releases))
+- **10X Genomics txg-mcp** (`~~genomics platform`) — Dữ liệu và quy trình phân tích trên đám mây ([GitHub](https://github.com/10XGenomics/txg-mcp/releases))
+- **ToolUniverse** (`~~tool database`) — Các công cụ AI cho khám phá khoa học từ Harvard MIMS ([GitHub](https://github.com/mims-harvard/ToolUniverse/releases))
 
-### Skills (Analysis Workflows)
+### Kỹ năng (Quy trình phân tích)
 
 #### Single-Cell RNA QC
-Automated quality control for scRNA-seq data following scverse best practices. Supports `.h5ad` and `.h5` files with MAD-based filtering and comprehensive visualizations.
+Kiểm soát chất lượng tự động cho dữ liệu scRNA-seq theo các thực hành tốt nhất của scverse. Hỗ trợ tệp `.h5ad` và `.h5` với lọc dựa trên MAD và các biểu đồ trực quan toàn diện.
 
 #### scvi-tools
-Deep learning toolkit for single-cell omics. Covers scVI, scANVI, totalVI, PeakVI, MultiVI, DestVI, veloVI, and sysVI models for integration, batch correction, label transfer, and multi-modal analysis.
+Bộ công cụ học sâu cho omics đơn tế bào. Bao quát các mô hình scVI, scANVI, totalVI, PeakVI, MultiVI, DestVI, veloVI, và sysVI cho tích hợp, hiệu chỉnh batch, chuyển nhãn (label transfer), và phân tích đa phương thức.
 
 #### Nextflow Pipelines
-Run nf-core bioinformatics pipelines on local or public GEO/SRA sequencing data:
-- **rnaseq** — Gene expression and differential expression
-- **sarek** — Germline and somatic variant calling (WGS/WES)
-- **atacseq** — Chromatin accessibility analysis
+Chạy các pipeline tin sinh học nf-core trên dữ liệu giải trình tự cục bộ hoặc công khai từ GEO/SRA:
+- **rnaseq** — Biểu hiện gene và biểu hiện khác biệt (differential expression)
+- **sarek** — Phát hiện biến thể germline và somatic (WGS/WES)
+- **atacseq** — Phân tích khả năng tiếp cận chromatin
 
 #### Instrument Data to Allotrope
-Convert laboratory instrument output files (PDF, CSV, Excel, TXT) to Allotrope Simple Model (ASM) format. Supports 40+ instrument types including cell counters, spectrophotometers, plate readers, qPCR, and chromatography systems.
+Chuyển đổi các tệp đầu ra của thiết bị phòng thí nghiệm (PDF, CSV, Excel, TXT) sang định dạng Allotrope Simple Model (ASM). Hỗ trợ hơn 40 loại thiết bị bao gồm máy đếm tế bào, máy quang phổ, máy đọc đĩa (plate reader), qPCR, và các hệ thống sắc ký.
 
 #### Scientific Problem Selection
-Systematic framework for research problem selection based on Fischbach & Walsh's framework. Includes 9 skills covering ideation, risk assessment, optimization, decision trees, adversity planning, and synthesis.
+Khung làm việc có hệ thống để lựa chọn vấn đề nghiên cứu dựa trên khung của Fischbach & Walsh. Bao gồm 9 kỹ năng bao quát việc lên ý tưởng, đánh giá rủi ro, tối ưu hóa, cây quyết định, lập kế hoạch ứng phó nghịch cảnh, và tổng hợp.
 
-## Getting Started
+## Bắt đầu
 
 ```bash
 # Install the plugin
@@ -61,23 +61,31 @@ Systematic framework for research problem selection based on Fischbach & Walsh's
 /start
 ```
 
-## Common Workflows
+## Quy trình thường gặp
 
-**Literature Review**
-Search ~~literature database for papers, access full-text through ~~journal access, and create figures with ~~scientific illustration.
+**Tổng quan tài liệu (Literature Review)**
+Tìm kiếm bài báo trong cơ sở dữ liệu ~~literature, truy cập toàn văn qua ~~journal access, và tạo hình ảnh minh họa với ~~scientific illustration.
 
-**Single-Cell Analysis**
-Run QC on scRNA-seq data, then use scvi-tools for integration, batch correction, and cell type annotation.
+**Phân tích đơn tế bào (Single-Cell Analysis)**
+Chạy QC trên dữ liệu scRNA-seq, sau đó dùng scvi-tools để tích hợp, hiệu chỉnh batch, và chú thích loại tế bào (cell type annotation).
 
-**Sequencing Pipeline**
-Download public data from GEO/SRA, run nf-core pipelines (RNA-seq, variant calling, ATAC-seq), and verify outputs.
+**Pipeline giải trình tự (Sequencing Pipeline)**
+Tải dữ liệu công khai từ GEO/SRA, chạy các pipeline nf-core (RNA-seq, phát hiện biến thể, ATAC-seq), và kiểm tra đầu ra.
 
-**Drug Discovery**
-Search ~~chemical database for bioactive compounds, use ~~drug target database for target prioritization, and review clinical trial data.
+**Khám phá thuốc (Drug Discovery)**
+Tìm kiếm hợp chất hoạt tính sinh học trong cơ sở dữ liệu ~~chemical database, dùng cơ sở dữ liệu ~~drug target để ưu tiên hóa mục tiêu, và xem xét dữ liệu thử nghiệm lâm sàng.
 
-**Research Strategy**
-Pitch a new idea, troubleshoot a stuck project, or evaluate strategic decisions using the scientific problem selection framework.
+**Chiến lược nghiên cứu (Research Strategy)**
+Trình bày một ý tưởng mới, gỡ rối một dự án bị mắc kẹt, hoặc đánh giá các quyết định chiến lược bằng khung lựa chọn vấn đề khoa học.
 
-## License
+## Giấy phép
 
-Skills are licensed under Apache 2.0. MCP servers are provided by their respective authors — see individual server documentation for terms.
+Các kỹ năng được cấp phép theo Apache 2.0. Các máy chủ MCP do tác giả tương ứng của chúng cung cấp — xem tài liệu của từng máy chủ riêng để biết điều khoản.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

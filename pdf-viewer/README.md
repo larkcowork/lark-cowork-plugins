@@ -1,57 +1,65 @@
-# PDF Viewer Plugin
+# Plugin Xem PDF (PDF Viewer)
 
-View, annotate, and sign PDFs in a live interactive viewer. Mark up
-contracts, fill forms with visual feedback, stamp approvals, and place
-signatures — then download the annotated copy.
+Xem, chú thích và ký PDF trong một trình xem tương tác trực tiếp. Đánh dấu
+hợp đồng, điền form với phản hồi trực quan, đóng dấu phê duyệt và đặt
+chữ ký — rồi tải về bản đã chú thích.
 
-## What It Does
+## Tính năng
 
-- **Open PDFs** from local files or academic sources (arXiv, bioRxiv, etc.)
-- **Annotate collaboratively** — Claude proposes highlights, notes, and
-  stamps section by section; you review each batch in the viewer
-- **Fill forms** — guided field-by-field completion with live preview
-- **Sign documents** — place signature/initials images on the page
-- **Stamp approvals** — APPROVED, DRAFT, CONFIDENTIAL, or any custom label
-- **Download** — export the annotated PDF from the viewer toolbar
+- **Mở PDF** từ file cục bộ hoặc các nguồn học thuật (arXiv, bioRxiv, v.v.)
+- **Chú thích cộng tác** — Claude đề xuất các điểm tô sáng, ghi chú và
+  con dấu theo từng phần; bạn xem lại từng đợt trong trình xem
+- **Điền form** — hoàn thành theo từng field có hướng dẫn với xem trước trực tiếp
+- **Ký tài liệu** — đặt ảnh chữ ký/ký nháy lên trang
+- **Đóng dấu phê duyệt** — APPROVED, DRAFT, CONFIDENTIAL, hoặc bất kỳ nhãn tuỳ chỉnh nào
+- **Tải về** — xuất PDF đã chú thích từ thanh công cụ của trình xem
 
-## Commands
+## Lệnh
 
-| Command | What it does |
+| Lệnh | Tính năng |
 |---------|-------------|
-| `/pdf-viewer:open` | Open a PDF in the interactive viewer |
-| `/pdf-viewer:annotate` | Walk through the document, propose + apply markup, review together |
-| `/pdf-viewer:fill-form` | Fill PDF form fields interactively |
-| `/pdf-viewer:sign` | Place a signature or initials image on the page |
+| `/pdf-viewer:open` | Mở một PDF trong trình xem tương tác |
+| `/pdf-viewer:annotate` | Đi qua tài liệu, đề xuất + áp dụng đánh dấu, cùng nhau xem lại |
+| `/pdf-viewer:fill-form` | Điền các field của form PDF một cách tương tác |
+| `/pdf-viewer:sign` | Đặt một ảnh chữ ký hoặc ký nháy lên trang |
 
-## When to use this vs. just reading a PDF
+## Khi nào nên dùng plugin này thay vì chỉ đọc PDF
 
-This plugin is for **interactive, visual workflows** — when you want to
-see the document, mark it up, and download an annotated copy.
+Plugin này dành cho các **luồng công việc tương tác, trực quan** — khi bạn muốn
+nhìn thấy tài liệu, đánh dấu lên nó, và tải về một bản đã chú thích.
 
-If you just want Claude to **summarize or extract text** from a PDF,
-don't use this plugin. Claude can read PDF files natively and that's
-faster for pure ingestion.
+Nếu bạn chỉ muốn Claude **tóm tắt hoặc trích xuất văn bản** từ một PDF,
+đừng dùng plugin này. Claude có thể đọc file PDF một cách tự nhiên và điều đó
+nhanh hơn cho việc nạp dữ liệu thuần tuý.
 
-## How It Works
+## Cách hoạt động
 
-This plugin uses a **local MCP server** (`@modelcontextprotocol/server-pdf`)
-that runs on your machine via `npx`. No API keys or remote services —
-the PDF server starts automatically when the plugin loads.
+Plugin này sử dụng một **server MCP cục bộ** (`@modelcontextprotocol/server-pdf`)
+chạy trên máy của bạn thông qua `npx`. Không cần API key hay dịch vụ từ xa nào —
+server PDF tự động khởi động khi plugin được nạp.
 
-## Requirements
+## Yêu cầu
 
 - Node.js >= 18
-- Internet for remote PDFs (arXiv, etc.)
+- Internet cho các PDF từ xa (arXiv, v.v.)
 
-## Supported PDF Sources
+## Nguồn PDF được hỗ trợ
 
-- Local files (file paths in your working directory)
-- [arXiv](https://arxiv.org) — `/abs/` URLs auto-convert to PDF
-- Any direct HTTPS PDF URL (bioRxiv, Zenodo, OSF, etc. — use the PDF
-  link, not the landing page)
+- File cục bộ (đường dẫn file trong thư mục làm việc của bạn)
+- [arXiv](https://arxiv.org) — các URL `/abs/` tự động chuyển đổi sang PDF
+- Bất kỳ URL PDF qua HTTPS trực tiếp nào (bioRxiv, Zenodo, OSF, v.v. — dùng đường
+  link PDF, không phải trang đích)
 
-## Signature Disclaimer
+## Miễn trừ trách nhiệm về chữ ký
 
-`/pdf-viewer:sign` places a **visual** signature image on the page. It is not
-a certified or cryptographic digital signature. For legally binding
-e-signatures, use a dedicated signing service.
+`/pdf-viewer:sign` đặt một ảnh chữ ký **trực quan** lên trang. Đây không phải
+là một chữ ký số được chứng thực hay có tính mật mã. Với chữ ký điện tử
+có giá trị ràng buộc pháp lý, hãy dùng một dịch vụ ký chuyên dụng.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

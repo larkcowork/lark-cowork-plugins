@@ -60,3 +60,11 @@ công việc** — điều mà ghép nối Slack + Notion + Jira + Gmail rời r
 - **An toàn mặc định** — xem [trang 5](./05-an-toan-tin-cay.md).
 
 ➡️ Sẵn sàng thử? Sang [2. Bắt đầu trong vài phút](./02-bat-dau.md).
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

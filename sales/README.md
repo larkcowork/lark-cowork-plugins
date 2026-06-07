@@ -1,124 +1,124 @@
-# Sales Plugin
+# Plugin Bán hàng (Sales)
 
-A sales productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. Helps with prospecting, outreach, pipeline management, call preparation, and deal strategy. Works with any sales team — standalone with web search and your input, supercharged when you connect your CRM, email, and other tools.
+Plugin nâng cao năng suất bán hàng được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agent của Anthropic — dù vậy nó cũng hoạt động được trong Claude Code. Hỗ trợ tìm kiếm khách hàng tiềm năng, tiếp cận, quản lý pipeline, chuẩn bị cuộc gọi và chiến lược deal. Hoạt động được với mọi đội ngũ bán hàng — dùng độc lập với web search và thông tin bạn cung cấp, tăng sức mạnh khi bạn kết nối CRM, email và các công cụ khác.
 
-## Installation
+## Cài đặt
 
 ```bash
 claude plugins add knowledge-work-plugins/sales
 ```
 
-## Commands
+## Lệnh
 
-Explicit workflows you invoke with a slash command:
+Các quy trình tường minh bạn gọi bằng lệnh slash:
 
-| Command | Description |
+| Lệnh | Mô tả |
 |---|---|
-| `/call-summary` | Process call notes or transcript — extract action items, draft follow-up, generate internal summary |
-| `/forecast` | Generate a weighted sales forecast — upload CSV or describe your pipeline, set quota, get projections |
-| `/pipeline-review` | Analyze pipeline health — prioritize deals, flag risks, get weekly action plan |
+| `/call-summary` | Xử lý ghi chú hoặc bản ghi cuộc gọi — trích xuất các đầu việc, soạn email theo dõi, tạo bản tóm tắt nội bộ |
+| `/forecast` | Tạo dự báo bán hàng có trọng số — tải lên CSV hoặc mô tả pipeline, đặt chỉ tiêu (quota), nhận dự phóng |
+| `/pipeline-review` | Phân tích sức khỏe pipeline — ưu tiên hóa deal, đánh dấu rủi ro, nhận kế hoạch hành động tuần |
 
-All commands work **standalone** (paste notes, upload CSV, or describe your situation) and get **supercharged** with MCP connectors.
+Tất cả các lệnh đều hoạt động **độc lập** (dán ghi chú, tải lên CSV, hoặc mô tả tình huống của bạn) và được **tăng sức mạnh** với các connector MCP.
 
-## Skills
+## Kỹ năng
 
-Domain knowledge Claude uses automatically when relevant:
+Kiến thức chuyên môn mà Claude tự động dùng khi có liên quan:
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |---|---|
-| `account-research` | Research a company or person — web search for company intel, key contacts, recent news, hiring signals |
-| `call-prep` | Prepare for sales calls — account context, attendee research, suggested agenda, discovery questions |
-| `daily-briefing` | Prioritized daily sales briefing — meetings, pipeline alerts, email priorities, suggested actions |
-| `draft-outreach` | Research-first outreach — research the prospect, then draft personalized email and LinkedIn messages |
-| `competitive-intelligence` | Research competitors — product comparison, pricing intel, recent releases, differentiation matrix, sales talk tracks |
-| `create-an-asset` | Generate custom sales assets — landing pages, decks, one-pagers, workflow demos tailored to your prospect |
+| `account-research` | Nghiên cứu một công ty hoặc một người — web search để tìm thông tin công ty, các liên hệ chủ chốt, tin tức gần đây, tín hiệu tuyển dụng |
+| `call-prep` | Chuẩn bị cho các cuộc gọi bán hàng — bối cảnh tài khoản, nghiên cứu người tham dự, đề xuất chương trình họp, câu hỏi khám phá nhu cầu |
+| `daily-briefing` | Bản tóm tắt bán hàng hằng ngày được ưu tiên hóa — cuộc họp, cảnh báo pipeline, email ưu tiên, hành động đề xuất |
+| `draft-outreach` | Tiếp cận theo hướng nghiên cứu trước — nghiên cứu khách hàng tiềm năng, rồi soạn email và tin nhắn LinkedIn cá nhân hóa |
+| `competitive-intelligence` | Nghiên cứu đối thủ — so sánh sản phẩm, thông tin giá, các bản phát hành gần đây, ma trận khác biệt hóa, kịch bản trao đổi bán hàng |
+| `create-an-asset` | Tạo các ấn phẩm bán hàng tùy chỉnh — landing page, bộ slide, tờ một trang, demo quy trình được điều chỉnh cho đúng khách hàng tiềm năng của bạn |
 
-## Example Workflows
+## Quy trình mẫu
 
-### After a Call
+### Sau một cuộc gọi
 
 ```
 /call-summary
 ```
 
-Paste your notes or transcript. Get a structured summary, action items with owners, and a draft follow-up email. If CRM is connected, offers to log the activity and create tasks.
+Dán ghi chú hoặc bản ghi của bạn. Nhận bản tóm tắt có cấu trúc, các đầu việc kèm người phụ trách, và một email theo dõi dạng nháp. Nếu đã kết nối CRM, sẽ đề nghị ghi nhật ký hoạt động và tạo nhiệm vụ.
 
-### Weekly Forecast
+### Dự báo hằng tuần
 
 ```
 /forecast
 ```
 
-Upload a CSV export from your CRM (or paste your deals). Tell me your quota and timeline. Get a weighted forecast with best/likely/worst scenarios, commit vs. upside breakdown, and gap analysis.
+Tải lên một bản xuất CSV từ CRM của bạn (hoặc dán các deal). Cho tôi biết chỉ tiêu và mốc thời gian của bạn. Nhận dự báo có trọng số với các kịch bản tốt nhất/khả năng cao/xấu nhất, phân tách commit và upside, và phân tích khoảng cách (gap).
 
-### Pipeline Review
+### Rà soát Pipeline
 
 ```
 /pipeline-review
 ```
 
-Upload a CSV or describe your pipeline. Get a health score, deal prioritization, risk flags (stale deals, past close dates, single-threaded), and a weekly action plan.
+Tải lên CSV hoặc mô tả pipeline của bạn. Nhận điểm sức khỏe, ưu tiên hóa deal, cờ rủi ro (deal cũ, đã quá ngày dự kiến chốt, chỉ có một đầu mối liên hệ), và một kế hoạch hành động tuần.
 
-### Researching a Prospect
+### Nghiên cứu một khách hàng tiềm năng
 
-Just ask naturally:
+Chỉ cần hỏi một cách tự nhiên:
 ```
 Research Acme Corp before my call tomorrow
 ```
 
-The `account-research` skill triggers automatically and gives you company overview, key contacts, recent news, and recommended approach.
+Kỹ năng `account-research` sẽ tự động kích hoạt và cho bạn tổng quan công ty, các liên hệ chủ chốt, tin tức gần đây, và cách tiếp cận được khuyến nghị.
 
-### Drafting Outreach
+### Soạn email tiếp cận
 
 ```
 Draft an email to the VP of Engineering at TechStart
 ```
 
-The `draft-outreach` skill researches the prospect first, then generates personalized outreach with multiple angles.
+Kỹ năng `draft-outreach` sẽ nghiên cứu khách hàng tiềm năng trước, rồi tạo nội dung tiếp cận cá nhân hóa với nhiều góc tiếp cận khác nhau.
 
-### Competitive Intel
+### Thông tin cạnh tranh
 
 ```
 How do we compare to Competitor X?
 ```
 
-The `competitive-intelligence` skill researches both companies and builds a differentiation matrix with talk tracks.
+Kỹ năng `competitive-intelligence` sẽ nghiên cứu cả hai công ty và dựng một ma trận khác biệt hóa kèm các kịch bản trao đổi.
 
-## Standalone + Supercharged
+## Dùng độc lập + Tăng sức mạnh
 
-Every command and skill works without any integrations:
+Mọi lệnh và kỹ năng đều hoạt động được mà không cần bất kỳ tích hợp nào:
 
-| What You Can Do | Standalone | Supercharged With |
+| Việc bạn có thể làm | Dùng độc lập | Tăng sức mạnh với |
 |-----------------|------------|-------------------|
-| Process call notes | Paste notes/transcript | Transcripts MCP (e.g. Gong, Lark Minutes) |
-| Forecast pipeline | Upload CSV, paste deals | CRM MCP |
-| Review pipeline | Upload CSV, describe deals | CRM MCP |
-| Research prospects | Web search | Enrichment MCP (e.g. Clay, ZoomInfo) |
-| Prep for calls | Describe meeting | CRM, Email, Calendar MCPs |
-| Draft outreach | Web search + your context | CRM, Email MCPs |
-| Competitive intel | Web search | CRM (win/loss data), Docs (battlecards) |
+| Xử lý ghi chú cuộc gọi | Dán ghi chú/bản ghi | MCP bản ghi (vd Gong, Lark Minutes) |
+| Dự báo pipeline | Tải lên CSV, dán deal | MCP CRM |
+| Rà soát pipeline | Tải lên CSV, mô tả deal | MCP CRM |
+| Nghiên cứu khách hàng tiềm năng | Web search | MCP làm giàu dữ liệu (vd Clay, ZoomInfo) |
+| Chuẩn bị cho cuộc gọi | Mô tả cuộc họp | MCP CRM, Email, Calendar |
+| Soạn email tiếp cận | Web search + bối cảnh của bạn | MCP CRM, Email |
+| Thông tin cạnh tranh | Web search | CRM (dữ liệu thắng/thua), Docs (battlecard) |
 
-## MCP Integrations
+## Tích hợp MCP
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra công cụ nào đang được kết nối, xem [CONNECTORS.md](CONNECTORS.md).
 
-Connect your tools for a richer experience:
+Kết nối các công cụ của bạn để có trải nghiệm phong phú hơn:
 
-| Category | Examples | What It Enables |
+| Danh mục | Ví dụ | Khả năng mở khóa |
 |---|---|---|
-| **CRM** | HubSpot, Close | Pipeline data, account history, contact records |
-| **Transcripts** | Lark Minutes, Gong, Chorus | Call recordings, transcripts, key moments |
-| **Enrichment** | Clay, ZoomInfo, Apollo | Company and contact data enrichment |
-| **Chat** | Lark IM, Teams | Internal discussions, colleague intel |
+| **CRM** | HubSpot, Close | Dữ liệu pipeline, lịch sử tài khoản, bản ghi liên hệ |
+| **Bản ghi (Transcripts)** | Lark Minutes, Gong, Chorus | Bản ghi âm cuộc gọi, bản ghi nội dung, các khoảnh khắc quan trọng |
+| **Làm giàu dữ liệu (Enrichment)** | Clay, ZoomInfo, Apollo | Làm giàu dữ liệu công ty và liên hệ |
+| **Chat** | Lark IM, Teams | Thảo luận nội bộ, thông tin từ đồng nghiệp |
 
-See [CONNECTORS.md](CONNECTORS.md) for the full list of supported integrations, including email, calendar, and additional CRM options.
+Xem [CONNECTORS.md](CONNECTORS.md) để biết danh sách đầy đủ các tích hợp được hỗ trợ, bao gồm email, calendar, và các tùy chọn CRM bổ sung.
 
-## Settings
+## Cấu hình
 
-Create a `settings.local.json` file to personalize:
+Tạo một tệp `settings.local.json` để cá nhân hóa:
 
-- **Cowork**: Save it in any folder you've shared with Cowork (via the folder picker). The plugin finds it automatically.
-- **Claude Code**: Save it at `sales/.claude/settings.local.json`.
+- **Cowork**: Lưu nó trong bất kỳ thư mục nào bạn đã chia sẻ với Cowork (qua bộ chọn thư mục). Plugin sẽ tự tìm thấy nó.
+- **Claude Code**: Lưu nó tại `sales/.claude/settings.local.json`.
 
 ```json
 {
@@ -143,4 +143,12 @@ Create a `settings.local.json` file to personalize:
 }
 ```
 
-The plugin will ask you for this information interactively if it's not configured.
+Plugin sẽ hỏi bạn thông tin này một cách tương tác nếu nó chưa được cấu hình.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

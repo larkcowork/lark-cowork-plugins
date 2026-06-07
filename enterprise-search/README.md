@@ -1,55 +1,55 @@
-# Enterprise Search
+# Tìm kiếm Doanh nghiệp (Enterprise Search)
 
-An enterprise search plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. Search across all your company's tools in one place — email, chat, documents, and wikis — without switching between apps.
-
----
-
-## How It Works
-
-One query searches all your connected tools simultaneously. Claude decomposes your question, runs targeted searches across every source, and synthesizes the results into a single coherent answer with source attribution.
-
-```
-You: "What did we decide about the API redesign?"
-              ↓ Claude searches
-~~chat: #engineering thread from Tuesday with the decision
-~~email: Follow-up email from Sarah with the spec
-~~cloud storage: Updated API design doc (modified yesterday)
-              ↓ Claude synthesizes
-"The team decided on Tuesday to go with REST over GraphQL.
- Sarah sent the updated spec Thursday. The design doc
- reflects the final approach."
-```
-
-No tab switching. No remembering which tool has what. Ask the question, get the answer.
+Plugin tìm kiếm doanh nghiệp được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agent của Anthropic — nhưng cũng hoạt động được trong Claude Code. Tìm kiếm xuyên suốt mọi công cụ của công ty bạn tại một nơi duy nhất — email, chat, tài liệu và wiki — mà không cần chuyển qua lại giữa các ứng dụng.
 
 ---
 
-## What It Searches
+## Cách hoạt động
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+Một truy vấn tìm kiếm đồng thời trên tất cả các công cụ đã kết nối của bạn. Claude phân rã câu hỏi của bạn, chạy các tìm kiếm có chủ đích trên mọi nguồn, rồi tổng hợp kết quả thành một câu trả lời mạch lạc duy nhất kèm theo trích dẫn nguồn.
 
-Connect any combination of sources. The more you connect, the more complete your answers.
+```
+Bạn: "Chúng ta đã quyết định gì về việc thiết kế lại API?"
+              ↓ Claude tìm kiếm
+~~chat: thread #engineering hôm thứ Ba có quyết định
+~~email: Email theo dõi từ Sarah kèm bản đặc tả
+~~cloud storage: Tài liệu thiết kế API đã cập nhật (sửa hôm qua)
+              ↓ Claude tổng hợp
+"Đội đã quyết định vào thứ Ba chọn REST thay vì GraphQL.
+ Sarah gửi bản đặc tả cập nhật vào thứ Năm. Tài liệu thiết kế
+ phản ánh phương án cuối cùng."
+```
 
-| Source | What it finds |
+Không cần chuyển tab. Không cần nhớ công cụ nào chứa gì. Đặt câu hỏi, nhận câu trả lời.
+
+---
+
+## Phạm vi tìm kiếm
+
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra công cụ nào đang được kết nối, xem [CONNECTORS.md](CONNECTORS.md).
+
+Kết nối bất kỳ tổ hợp nguồn nào. Càng kết nối nhiều, câu trả lời của bạn càng đầy đủ.
+
+| Nguồn | Tìm được gì |
 |--------|---------------|
-| **~~chat** | Messages, threads, channels, DMs |
-| **~~email** | Emails, attachments, conversations |
-| **~~cloud storage** | Docs, sheets, slides, PDFs |
-| **Wiki / Knowledge Base** | Internal documentation, runbooks |
-| **Project Management** | Tasks, issues, epics, milestones |
-| **CRM** | Accounts, contacts, opportunities |
-| **Ticketing** | Support tickets, customer issues |
+| **~~chat** | Tin nhắn, thread, kênh, tin nhắn riêng (DM) |
+| **~~email** | Email, tệp đính kèm, các cuộc hội thoại |
+| **~~cloud storage** | Doc, sheet, slide, PDF |
+| **Wiki / Cơ sở tri thức** | Tài liệu nội bộ, runbook |
+| **Quản lý dự án** | Task, vấn đề (issue), epic, cột mốc (milestone) |
+| **CRM** | Tài khoản, liên hệ, cơ hội (opportunity) |
+| **Ticketing** | Ticket hỗ trợ, vấn đề của khách hàng |
 
-Each source is an MCP connection. Add more sources in your MCP settings to expand what Claude can search.
+Mỗi nguồn là một kết nối MCP. Thêm nhiều nguồn hơn trong phần cài đặt MCP của bạn để mở rộng phạm vi mà Claude có thể tìm kiếm.
 
 ---
 
-## Commands
+## Lệnh
 
-| Command | What it does |
+| Lệnh | Tác dụng |
 |---------|--------------|
-| `/search` | Search across all connected sources in one query |
-| `/digest` | Generate a daily or weekly digest of activity across all sources |
+| `/search` | Tìm kiếm xuyên suốt mọi nguồn đã kết nối trong một truy vấn |
+| `/digest` | Tạo bản tóm tắt (digest) hàng ngày hoặc hàng tuần về hoạt động trên tất cả các nguồn |
 
 ### Search
 
@@ -59,98 +59,106 @@ Each source is an MCP connection. Add more sources in your MCP settings to expan
 /enterprise-search:search decisions made in #product this week
 ```
 
-Supports filters: `from:`, `in:`, `after:`, `before:`, `type:` — applied intelligently across each source's native query syntax.
+Hỗ trợ các bộ lọc: `from:`, `in:`, `after:`, `before:`, `type:` — được áp dụng một cách thông minh theo cú pháp truy vấn gốc của từng nguồn.
 
 ### Digest
 
 ```
-/enterprise-search:digest --daily      # What happened today across all sources
-/enterprise-search:digest --weekly     # Weekly rollup grouped by project/topic
+/enterprise-search:digest --daily      # Những gì đã diễn ra hôm nay trên tất cả các nguồn
+/enterprise-search:digest --weekly     # Bản tổng hợp tuần nhóm theo dự án/chủ đề
 ```
 
-Highlights action items, decisions, and mentions of you. Groups activity by topic so you can skim what matters.
+Làm nổi bật các hạng mục cần hành động, các quyết định và những lần bạn được nhắc đến. Nhóm hoạt động theo chủ đề để bạn lướt nhanh phần quan trọng.
 
 ---
 
-## Skills
+## Kỹ năng
 
-Three skills power the search experience:
+Ba kỹ năng tạo nên trải nghiệm tìm kiếm:
 
-**Search Strategy** — Query decomposition and source-specific translation. Breaks your natural language question into targeted searches per source, handles ambiguity, and falls back gracefully when sources are unavailable.
+**Search Strategy** — Phân rã truy vấn và chuyển ngữ theo từng nguồn. Tách câu hỏi ngôn ngữ tự nhiên của bạn thành các tìm kiếm có chủ đích cho mỗi nguồn, xử lý sự mơ hồ và linh hoạt dự phòng khi nguồn không khả dụng.
 
-**Source Management** — Knows which MCP sources are available, guides you to connect new ones, manages source priority, and handles rate limits.
+**Source Management** — Biết những nguồn MCP nào đang khả dụng, hướng dẫn bạn kết nối nguồn mới, quản lý độ ưu tiên nguồn và xử lý giới hạn tốc độ (rate limit).
 
-**Knowledge Synthesis** — Combines results from multiple sources into coherent answers. Deduplicates cross-source information, attributes sources, scores confidence based on freshness and authority, and summarizes large result sets.
-
----
-
-## Example Workflows
-
-### Finding a decision
-
-```
-You: /enterprise-search:search when did we decide to switch to Postgres?
-
-Claude searches:
-  ~~chat → #engineering, #infrastructure for "postgres" "switch" "decision"
-  ~~email → threads with "postgres" in subject
-  ~~cloud storage → docs mentioning database migration
-
-Result: "The decision was made March 3 in #infrastructure (link).
-         Sarah's email on March 4 confirmed the timeline.
-         The migration plan doc was updated March 5."
-```
-
-### Catching up after time off
-
-```
-You: /enterprise-search:digest --weekly
-
-Claude scans:
-  ~~chat → channels you're in, DMs, mentions
-  ~~email → inbox activity
-  ~~cloud storage → docs shared with you or modified
-
-Result: Grouped summary by project with action items
-        flagged and decisions highlighted.
-```
-
-### Finding an expert
-
-```
-You: /enterprise-search:search who knows about our Kubernetes setup?
-
-Claude searches:
-  ~~chat → messages about Kubernetes, k8s, clusters
-  ~~cloud storage → docs authored about infrastructure
-  Wiki → runbooks and architecture docs
-
-Result: "Based on message history and doc authorship,
-         Alex and Priya are your go-to people for k8s.
-         Here's the main runbook (link)."
-```
+**Knowledge Synthesis** — Kết hợp kết quả từ nhiều nguồn thành câu trả lời mạch lạc. Loại bỏ thông tin trùng lặp giữa các nguồn, trích dẫn nguồn, chấm điểm tin cậy dựa trên độ mới và độ uy tín, và tóm tắt các tập kết quả lớn.
 
 ---
 
-## Getting Started
+## Quy trình mẫu
+
+### Tìm một quyết định
+
+```
+Bạn: /enterprise-search:search khi nào chúng ta quyết định chuyển sang Postgres?
+
+Claude tìm kiếm:
+  ~~chat → #engineering, #infrastructure với "postgres" "switch" "decision"
+  ~~email → các thread có "postgres" trong tiêu đề
+  ~~cloud storage → các tài liệu nhắc đến việc di chuyển cơ sở dữ liệu
+
+Kết quả: "Quyết định được đưa ra ngày 3 tháng 3 trong #infrastructure (link).
+         Email của Sarah ngày 4 tháng 3 xác nhận mốc thời gian.
+         Tài liệu kế hoạch di chuyển được cập nhật ngày 5 tháng 3."
+```
+
+### Bắt kịp sau khi nghỉ phép
+
+```
+Bạn: /enterprise-search:digest --weekly
+
+Claude quét:
+  ~~chat → các kênh bạn tham gia, DM, các lượt nhắc đến bạn
+  ~~email → hoạt động hộp thư
+  ~~cloud storage → các tài liệu được chia sẻ với bạn hoặc đã chỉnh sửa
+
+Kết quả: Bản tóm tắt nhóm theo dự án với các hạng mục cần hành động
+        được đánh dấu và các quyết định được làm nổi bật.
+```
+
+### Tìm một chuyên gia
+
+```
+Bạn: /enterprise-search:search ai am hiểu về cấu hình Kubernetes của chúng ta?
+
+Claude tìm kiếm:
+  ~~chat → tin nhắn về Kubernetes, k8s, cluster
+  ~~cloud storage → các tài liệu được viết về hạ tầng
+  Wiki → runbook và tài liệu kiến trúc
+
+Kết quả: "Dựa trên lịch sử tin nhắn và quyền tác giả tài liệu,
+         Alex và Priya là những người bạn nên hỏi về k8s.
+         Đây là runbook chính (link)."
+```
+
+---
+
+## Bắt đầu
 
 ```bash
-# 1. Install
+# 1. Cài đặt
 claude plugins add knowledge-work-plugins/enterprise-search
 
-# 2. Search across everything
-/enterprise-search:search [your question here]
+# 2. Tìm kiếm xuyên suốt mọi thứ
+/enterprise-search:search [câu hỏi của bạn ở đây]
 
-# 3. Get a digest
+# 3. Nhận bản tóm tắt
 /enterprise-search:digest --daily
 ```
 
-The more sources you connect via MCP, the more complete your search results. Start with ~~chat, ~~email, and ~~cloud storage, then add your wiki, project management tool, and CRM as needed.
+Càng kết nối nhiều nguồn qua MCP, kết quả tìm kiếm của bạn càng đầy đủ. Bắt đầu với ~~chat, ~~email và ~~cloud storage, sau đó thêm wiki, công cụ quản lý dự án và CRM khi cần.
 
 ---
 
-## Philosophy
+## Triết lý
 
-Knowledge workers spend hours every week hunting for information scattered across tools. The answer exists somewhere — in a Lark IM thread, an email chain, a doc, a wiki page — but finding it means searching each tool individually, cross-referencing results, and hoping you checked the right place.
+Người làm tri thức (knowledge worker) tiêu tốn hàng giờ mỗi tuần để truy lùng thông tin rải rác khắp các công cụ. Câu trả lời tồn tại ở đâu đó — trong một thread Lark IM, một chuỗi email, một tài liệu, một trang wiki — nhưng để tìm được nó thì phải tìm trong từng công cụ riêng lẻ, đối chiếu kết quả, và hy vọng đã kiểm tra đúng chỗ.
 
-Enterprise Search treats all your tools as one searchable knowledge base. One query, all sources, synthesized results. Your company's knowledge shouldn't be locked in silos. Search everything at once.
+Enterprise Search xem tất cả công cụ của bạn như một cơ sở tri thức duy nhất có thể tìm kiếm được. Một truy vấn, mọi nguồn, kết quả đã được tổng hợp. Tri thức của công ty bạn không nên bị khóa trong các silo riêng lẻ. Hãy tìm kiếm mọi thứ cùng một lúc.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

@@ -1,38 +1,38 @@
-# Marketing Plugin
+# Plugin Marketing
 
-A marketing plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. Content creation, campaign planning, brand voice management, competitive analysis, and performance reporting.
+Một plugin marketing được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agent của Anthropic — nhưng cũng hoạt động được trong Claude Code. Sáng tạo nội dung, lập kế hoạch chiến dịch, quản lý giọng điệu thương hiệu, phân tích cạnh tranh và báo cáo hiệu suất.
 
-## Installation
+## Cài đặt
 
 ```bash
 claude plugins add knowledge-work-plugins/marketing
 ```
 
-## Commands
+## Lệnh
 
-| Command | Description |
+| Lệnh | Mô tả |
 |---|---|
-| `/draft-content` | Draft blog posts, social media, email newsletters, landing pages, press releases, and case studies |
-| `/campaign-plan` | Generate a full campaign brief with objectives, channels, content calendar, and success metrics |
-| `/brand-review` | Review content against your brand voice, style guide, and messaging pillars |
-| `/competitive-brief` | Research competitors and generate a positioning and messaging comparison |
-| `/performance-report` | Build a marketing performance report with key metrics, trends, and optimization recommendations |
-| `/seo-audit` | Run a comprehensive SEO audit — keyword research, on-page analysis, content gaps, technical checks, and competitor comparison |
-| `/email-sequence` | Design and draft multi-email sequences for nurture flows, onboarding, drip campaigns, and more |
+| `/draft-content` | Soạn bản nháp bài blog, mạng xã hội, email newsletter, landing page, thông cáo báo chí và case study |
+| `/campaign-plan` | Tạo bản brief chiến dịch đầy đủ với mục tiêu, kênh, lịch nội dung và chỉ số thành công |
+| `/brand-review` | Rà soát nội dung theo giọng điệu thương hiệu, cẩm nang phong cách và các trụ thông điệp của bạn |
+| `/competitive-brief` | Nghiên cứu đối thủ và tạo bản so sánh định vị và thông điệp |
+| `/performance-report` | Dựng báo cáo hiệu suất marketing với các chỉ số chính, xu hướng và khuyến nghị tối ưu |
+| `/seo-audit` | Chạy audit SEO toàn diện — nghiên cứu từ khóa, phân tích on-page, lỗ hổng nội dung, kiểm tra kỹ thuật và so sánh với đối thủ |
+| `/email-sequence` | Thiết kế và soạn các chuỗi email nhiều bước cho luồng nuôi dưỡng, onboarding, drip campaign và hơn thế nữa |
 
-## Skills
+## Kỹ năng
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |---|---|
-| `content-creation` | Content type templates, writing best practices by channel, SEO fundamentals, headline formulas, and CTA guidance |
-| `campaign-planning` | Campaign frameworks, channel selection, content calendar creation, budget allocation, and success metrics |
-| `brand-voice` | Brand voice documentation, voice attributes, tone adaptation, style guide enforcement, and terminology management |
-| `competitive-analysis` | Competitive research methodology, messaging comparison, content gap analysis, positioning, and battlecard creation |
-| `performance-analytics` | Key metrics by channel, reporting templates, trend analysis, attribution modeling, and optimization frameworks |
+| `content-creation` | Mẫu cho từng loại nội dung, best practice viết theo từng kênh, nền tảng SEO, công thức tiêu đề và hướng dẫn CTA |
+| `campaign-planning` | Khung chiến dịch, lựa chọn kênh, tạo lịch nội dung, phân bổ ngân sách và chỉ số thành công |
+| `brand-voice` | Tài liệu giọng điệu thương hiệu, thuộc tính giọng nói, điều chỉnh tông, thực thi cẩm nang phong cách và quản lý thuật ngữ |
+| `competitive-analysis` | Phương pháp nghiên cứu cạnh tranh, so sánh thông điệp, phân tích lỗ hổng nội dung, định vị và tạo battlecard |
+| `performance-analytics` | Chỉ số chính theo từng kênh, mẫu báo cáo, phân tích xu hướng, mô hình attribution và khung tối ưu |
 
-## Example Workflows
+## Quy trình mẫu
 
-### Drafting a Blog Post
+### Soạn một bài blog
 
 ```
 > /draft-content
@@ -44,9 +44,9 @@ Tone: Authoritative but approachable
 Length: 1200 words
 ```
 
-Claude will generate a structured blog post draft with an engaging headline, introduction with a hook, organized sections, SEO-optimized subheadings, and a clear call to action.
+Claude sẽ tạo một bản nháp bài blog có cấu trúc với tiêu đề cuốn hút, phần mở đầu có móc câu, các mục được tổ chức rõ ràng, các tiêu đề phụ tối ưu SEO và một lời kêu gọi hành động rõ ràng.
 
-### Planning a Campaign
+### Lập kế hoạch một chiến dịch
 
 ```
 > /campaign-plan
@@ -56,34 +56,42 @@ Timeline: 6 weeks
 Budget range: $20,000-$30,000
 ```
 
-Claude will produce a campaign brief covering objectives, audience segmentation, key messages, channel strategy, a week-by-week content calendar, and KPIs to track.
+Claude sẽ tạo một bản brief chiến dịch bao gồm mục tiêu, phân khúc đối tượng, các thông điệp chính, chiến lược kênh, lịch nội dung theo từng tuần và các KPI cần theo dõi.
 
-### Reviewing Content Against Brand Guidelines
+### Rà soát nội dung theo hướng dẫn thương hiệu
 
 ```
 > /brand-review
-[paste your draft content]
+[dán nội dung bản nháp của bạn]
 ```
 
-If your brand style guide is configured in local settings, Claude will check your content against voice, tone, terminology, and messaging pillars. If not configured, Claude will ask about your guidelines or provide a generic review for clarity, consistency, and professionalism.
+Nếu cẩm nang phong cách thương hiệu của bạn được cấu hình trong cài đặt cục bộ, Claude sẽ kiểm tra nội dung theo giọng điệu, tông, thuật ngữ và các trụ thông điệp. Nếu chưa cấu hình, Claude sẽ hỏi về hướng dẫn của bạn hoặc đưa ra một bản rà soát tổng quát về độ rõ ràng, nhất quán và tính chuyên nghiệp.
 
-## Configuration
+## Cấu hình
 
-Configure your brand voice, style guide, and target personas in a local settings file for personalized output. This allows commands like `/draft-content` and `/brand-review` to automatically apply your brand standards without prompting each time.
+Cấu hình giọng điệu thương hiệu, cẩm nang phong cách và các persona mục tiêu trong một file cài đặt cục bộ để có kết quả được cá nhân hóa. Điều này cho phép các lệnh như `/draft-content` và `/brand-review` tự động áp dụng các chuẩn thương hiệu của bạn mà không cần hỏi lại mỗi lần.
 
-## MCP Integrations
+## Tích hợp MCP
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra công cụ nào đang được kết nối, xem [CONNECTORS.md](CONNECTORS.md).
 
-This plugin works with the following MCP servers:
+Plugin này hoạt động với các server MCP sau:
 
-- **Lark IM** — Share drafts, reports, and briefs with your team
-- **Canva** — Create and edit design assets
-- **Figma** — Access design files and brand assets
-- **HubSpot** — Pull campaign data, manage contacts, and track marketing automation
-- **Amplitude** — Pull product analytics and user behavior data for performance reporting
-- **Lark Wiki** — Access briefs, style guides, and campaign documents
-- **Ahrefs** — SEO keyword research, backlink analysis, and site audits
-- **Similarweb** — Competitive traffic analysis and market benchmarking
-- **Klaviyo** — Draft and review email marketing sequences and campaigns
-- **Supermetrics** — Pull marketing data from multiple platforms for analytics and reporting
+- **Lark IM** — Chia sẻ bản nháp, báo cáo và brief với team của bạn
+- **Canva** — Tạo và chỉnh sửa tài sản thiết kế
+- **Figma** — Truy cập file thiết kế và tài sản thương hiệu
+- **HubSpot** — Lấy dữ liệu chiến dịch, quản lý liên hệ và theo dõi tự động hóa marketing
+- **Amplitude** — Lấy dữ liệu phân tích sản phẩm và hành vi người dùng cho báo cáo hiệu suất
+- **Lark Wiki** — Truy cập brief, cẩm nang phong cách và tài liệu chiến dịch
+- **Ahrefs** — Nghiên cứu từ khóa SEO, phân tích backlink và audit website
+- **Similarweb** — Phân tích lưu lượng cạnh tranh và đối chuẩn thị trường
+- **Klaviyo** — Soạn và rà soát các chuỗi và chiến dịch email marketing
+- **Supermetrics** — Lấy dữ liệu marketing từ nhiều nền tảng để phân tích và báo cáo
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

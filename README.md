@@ -5,8 +5,11 @@ vai trò — chat, mail, lịch, tài liệu/wiki, công việc, Base, drive, bi
 qua cầu nối MCP `lark-cli`.
 
 > 📘 **Bạn là người dùng nghiệp vụ (không chuyên kỹ thuật)? Bắt đầu tại đây →**
-> [`docs/`](./docs/README.md) — giới thiệu, hướng dẫn bắt đầu, **danh mục theo phòng ban** (kèm câu
-> lệnh tiếng Việt mẫu), kịch bản thực tế, an toàn dữ liệu, FAQ và thuật ngữ.
+> [`docs/`](./docs/README.md) — bộ tài liệu tiếng Việt đầy đủ: giới thiệu, hướng dẫn bắt đầu,
+> **danh mục theo phòng ban**, **giới thiệu chi tiết tất cả plugin** ([trang 8](./docs/08-tat-ca-plugin.md)),
+> **cách vận hành** ([trang 9](./docs/09-cach-van-hanh.md)), **cách tùy biến/custom**
+> ([trang 10](./docs/10-tuy-bien.md)), **best practice — nên dùng & custom sao**
+> ([trang 11](./docs/11-best-practice.md)), kịch bản thực tế, an toàn dữ liệu, FAQ và thuật ngữ.
 
 > Tùy biến từ bộ [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) mã
 > nguồn mở của Anthropic. Bộ gốc nhắm tới Slack / Notion / Google / Jira. Bản fork này **đấu lại
@@ -156,7 +159,7 @@ Bộ plugin mặc định dùng profile **stdio**. Có thể đổi bất kỳ l
 
 **Claude Code**
 ```bash
-claude plugin marketplace add /Users/jimmy/Downloads/2026-NEW/GO!/lark-cowork-plugins
+claude plugin marketplace add .          # chạy từ thư mục gốc của kho này
 claude plugin install productivity@lark-cowork
 ```
 

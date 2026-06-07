@@ -44,3 +44,11 @@ Trang này giải thích bằng ngôn ngữ thường, để bạn (và sếp/IT
 - Bộ kiểm thử QC: `./tools/audit.sh --live` (chi tiết [`../QC-AUDIT.md`](../QC-AUDIT.md)).
 
 ➡️ Còn thắc mắc? Xem [6. Câu hỏi thường gặp](./06-faq.md).
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

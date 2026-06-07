@@ -1,124 +1,124 @@
-# Engineering Plugin
+# Plugin Kỹ thuật (Engineering)
 
-A software engineering plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. Helps with standups, code review, architecture decisions, incident response, debugging, and technical documentation. Works with any engineering team — standalone with your input, supercharged when you connect your source control, project tracker, and monitoring tools.
+Một plugin kỹ thuật phần mềm được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agent của Anthropic — tuy nhiên cũng hoạt động được trong Claude Code. Hỗ trợ họp standup, review code, ra quyết định kiến trúc, ứng phó sự cố, gỡ lỗi và viết tài liệu kỹ thuật. Hoạt động với mọi đội ngũ kỹ thuật — dùng độc lập với thông tin bạn cung cấp, và mạnh mẽ hơn nhiều khi bạn kết nối các công cụ quản lý mã nguồn, theo dõi dự án và giám sát hệ thống.
 
-## Installation
+## Cài đặt
 
 ```bash
 claude plugins add knowledge-work-plugins/engineering
 ```
 
-## Commands
+## Lệnh
 
-Explicit workflows you invoke with a slash command:
+Các luồng công việc tường minh mà bạn gọi bằng lệnh slash:
 
-| Command | Description |
+| Lệnh | Mô tả |
 |---|---|
-| `/standup` | Generate a standup update from your recent activity — commits, PRs, tickets, and chat |
-| `/review` | Review code changes — security, performance, style, and correctness |
-| `/debug` | Structured debugging session — reproduce, isolate, diagnose, and fix |
-| `/architecture` | Create or evaluate architecture decisions — ADR format with trade-off analysis |
-| `/incident` | Run an incident response workflow — triage, communicate, mitigate, and write postmortem |
-| `/deploy-checklist` | Pre-deployment checklist — verify tests, review changes, check dependencies, confirm rollback plan |
+| `/standup` | Tạo bản cập nhật standup từ hoạt động gần đây của bạn — commit, PR, ticket và chat |
+| `/review` | Review các thay đổi code — bảo mật, hiệu năng, phong cách và tính đúng đắn |
+| `/debug` | Phiên gỡ lỗi có cấu trúc — tái hiện, khoanh vùng, chẩn đoán và sửa |
+| `/architecture` | Tạo hoặc đánh giá các quyết định kiến trúc — định dạng ADR kèm phân tích đánh đổi |
+| `/incident` | Chạy luồng ứng phó sự cố — triage, truyền thông, giảm thiểu và viết postmortem |
+| `/deploy-checklist` | Danh sách kiểm tra trước khi triển khai — xác minh test, review thay đổi, kiểm tra phụ thuộc, xác nhận kế hoạch rollback |
 
-All commands work **standalone** (paste code, describe your system, upload files) and get **supercharged** with MCP connectors.
+Tất cả các lệnh đều hoạt động **độc lập** (dán code, mô tả hệ thống, tải lên file) và trở nên **mạnh mẽ hơn** khi có các kết nối MCP.
 
-## Skills
+## Kỹ năng
 
-Domain knowledge Claude uses automatically when relevant:
+Kiến thức chuyên môn mà Claude tự động sử dụng khi phù hợp:
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |---|---|
-| `code-review` | Review code for bugs, security issues, performance, and maintainability |
-| `incident-response` | Triage and manage production incidents — status updates, runbooks, postmortems |
-| `system-design` | Design systems and services — architecture diagrams, API design, data modeling |
-| `tech-debt` | Identify, categorize, and prioritize technical debt — build a remediation plan |
-| `testing-strategy` | Design test strategies — unit, integration, e2e coverage, test plan creation |
-| `documentation` | Write and maintain technical documentation — READMEs, API docs, runbooks, onboarding guides |
+| `code-review` | Review code để tìm lỗi, vấn đề bảo mật, hiệu năng và khả năng bảo trì |
+| `incident-response` | Triage và quản lý sự cố production — cập nhật trạng thái, runbook, postmortem |
+| `system-design` | Thiết kế hệ thống và dịch vụ — sơ đồ kiến trúc, thiết kế API, mô hình hóa dữ liệu |
+| `tech-debt` | Xác định, phân loại và ưu tiên nợ kỹ thuật — xây dựng kế hoạch khắc phục |
+| `testing-strategy` | Thiết kế chiến lược kiểm thử — độ phủ unit, integration, e2e, lập kế hoạch test |
+| `documentation` | Viết và duy trì tài liệu kỹ thuật — README, tài liệu API, runbook, hướng dẫn onboarding |
 
-## Example Workflows
+## Quy trình mẫu
 
-### Morning Standup
+### Standup buổi sáng
 
 ```
 /standup
 ```
 
-If your tools are connected, I'll pull your recent commits, PR activity, and ticket updates. Otherwise, tell me what you worked on and I'll format it.
+Nếu các công cụ của bạn đã được kết nối, tôi sẽ kéo về các commit, hoạt động PR và cập nhật ticket gần đây của bạn. Nếu chưa, hãy cho tôi biết bạn đã làm những gì và tôi sẽ định dạng lại giúp bạn.
 
-### Code Review
+### Review Code
 
 ```
 /review https://github.com/org/repo/pull/123
 ```
 
-Share a PR link, paste a diff, or point to files. Get a structured review covering security, performance, correctness, and style.
+Chia sẻ một link PR, dán một diff, hoặc trỏ tới các file. Bạn sẽ nhận được một bản review có cấu trúc bao quát bảo mật, hiệu năng, tính đúng đắn và phong cách.
 
-### Debugging an Issue
+### Gỡ lỗi một sự cố
 
 ```
 /debug Users are getting 500 errors on the checkout page
 ```
 
-Walk through a structured debugging process: reproduce, isolate, diagnose, fix. I'll help you think through it systematically.
+Cùng đi qua một quy trình gỡ lỗi có cấu trúc: tái hiện, khoanh vùng, chẩn đoán, sửa. Tôi sẽ giúp bạn suy nghĩ về nó một cách có hệ thống.
 
-### Architecture Decision
+### Quyết định Kiến trúc
 
 ```
 /architecture Should we use a message queue or direct API calls between services?
 ```
 
-Get a structured ADR with options analysis, trade-offs, and a recommendation.
+Nhận một ADR có cấu trúc kèm phân tích các phương án, các đánh đổi và một khuyến nghị.
 
-### Incident Response
+### Ứng phó Sự cố
 
 ```
 /incident The payments service is returning 503s
 ```
 
-Start an incident workflow: triage severity, draft communications, track timeline, and generate a postmortem when resolved.
+Khởi động một luồng ứng phó sự cố: triage mức độ nghiêm trọng, soạn thảo truyền thông, theo dõi dòng thời gian, và tạo postmortem khi đã được xử lý xong.
 
-### Pre-Deploy Check
+### Kiểm tra Trước khi Triển khai
 
 ```
 /deploy-checklist auth-service v2.3.0
 ```
 
-Get a customized deployment checklist based on your service and what's changing.
+Nhận một danh sách kiểm tra triển khai được tùy chỉnh dựa trên dịch vụ của bạn và những gì đang thay đổi.
 
-## Standalone + Supercharged
+## Độc lập + Mạnh mẽ hơn
 
-Every command and skill works without any integrations:
+Mọi lệnh và kỹ năng đều hoạt động mà không cần bất kỳ tích hợp nào:
 
-| What You Can Do | Standalone | Supercharged With |
+| Bạn có thể làm gì | Độc lập | Mạnh mẽ hơn với |
 |-----------------|------------|-------------------|
-| Standup updates | Describe your work | Source control, Project tracker, Chat |
-| Code review | Paste diff or code | Source control (pull PRs automatically) |
-| Debug sessions | Describe the problem | Monitoring (pull logs and metrics) |
-| Architecture decisions | Describe the system | Knowledge base (find prior ADRs) |
-| Incident response | Describe the incident | Monitoring, Incident management, Chat |
-| Deploy checklists | Describe the deploy | CI/CD, Source control |
+| Cập nhật standup | Mô tả công việc của bạn | Quản lý mã nguồn, Theo dõi dự án, Chat |
+| Review code | Dán diff hoặc code | Quản lý mã nguồn (tự động kéo về PR) |
+| Phiên gỡ lỗi | Mô tả vấn đề | Giám sát (kéo về log và metric) |
+| Quyết định kiến trúc | Mô tả hệ thống | Cơ sở tri thức (tìm các ADR trước đó) |
+| Ứng phó sự cố | Mô tả sự cố | Giám sát, Quản lý sự cố, Chat |
+| Checklist triển khai | Mô tả lần triển khai | CI/CD, Quản lý mã nguồn |
 
-## MCP Integrations
+## Tích hợp MCP
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra xem những công cụ nào đang được kết nối, hãy xem [CONNECTORS.md](CONNECTORS.md).
 
-Connect your tools for a richer experience:
+Kết nối các công cụ của bạn để có trải nghiệm phong phú hơn:
 
-| Category | Examples | What It Enables |
+| Danh mục | Ví dụ | Nó cho phép làm gì |
 |---|---|---|
-| **Source control** | GitHub, GitLab | PR diffs, commit history, branch status |
-| **Project tracker** | Lark Task, Lark Task, Lark Task | Ticket status, sprint data, assignments |
-| **Monitoring** | Datadog, New Relic | Logs, metrics, alerts, dashboards |
-| **Incident management** | PagerDuty, Opsgenie | On-call schedules, incident tracking, paging |
-| **Chat** | Lark IM, Teams | Team discussions, standup channels |
-| **Knowledge base** | Lark Wiki, Lark Wiki | ADRs, runbooks, onboarding docs |
+| **Quản lý mã nguồn** | GitHub, GitLab | Diff của PR, lịch sử commit, trạng thái nhánh |
+| **Theo dõi dự án** | Lark Task, Lark Task, Lark Task | Trạng thái ticket, dữ liệu sprint, phân công |
+| **Giám sát** | Datadog, New Relic | Log, metric, cảnh báo, dashboard |
+| **Quản lý sự cố** | PagerDuty, Opsgenie | Lịch trực, theo dõi sự cố, gọi báo (paging) |
+| **Chat** | Lark IM, Teams | Thảo luận nhóm, kênh standup |
+| **Cơ sở tri thức** | Lark Wiki, Lark Wiki | ADR, runbook, tài liệu onboarding |
 
-See [CONNECTORS.md](CONNECTORS.md) for the full list of supported integrations.
+Xem [CONNECTORS.md](CONNECTORS.md) để biết danh sách đầy đủ các tích hợp được hỗ trợ.
 
-## Settings
+## Thiết lập
 
-Create a local settings file at `engineering/.claude/settings.local.json` to personalize:
+Tạo một file thiết lập cục bộ tại `engineering/.claude/settings.local.json` để cá nhân hóa:
 
 ```json
 {
@@ -132,4 +132,12 @@ Create a local settings file at `engineering/.claude/settings.local.json` to per
 }
 ```
 
-The plugin will ask you for this information interactively if it's not configured.
+Plugin sẽ hỏi bạn thông tin này một cách tương tác nếu nó chưa được cấu hình.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

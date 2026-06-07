@@ -8,7 +8,7 @@
 set -uo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 CLI="${LARK_CLI:-$HOME/bin/lark-cli}"
-REPO="${LARK_REPO:-/Users/jimmy/Downloads/2026-NEW/GO!/lark-cli}"
+REPO="${LARK_REPO:-$ROOT/../lark-cli}"   # sibling lark-cli repo; override with LARK_REPO=/path
 LIVE=0; [ "${1:-}" = "--live" ] && LIVE=1
 PASS=0; FAIL=0
 ok(){ printf "PASS  %-6s %s\n" "$1" "$2"; PASS=$((PASS+1)); }

@@ -1,55 +1,55 @@
-# Data Analyst Plugin
+# Plugin Phân tích Dữ liệu
 
-A data analyst plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. SQL queries, data exploration, visualization, dashboards, and insight generation. Works with any data warehouse, any SQL dialect, and any analytics stack.
+Một plugin phân tích dữ liệu được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agent của Anthropic — tuy nhiên cũng hoạt động được trong Claude Code. Truy vấn SQL, khám phá dữ liệu, trực quan hóa, dựng dashboard và tạo ra insight. Hoạt động với mọi kho dữ liệu (data warehouse), mọi phương ngữ SQL và mọi nền tảng phân tích.
 
-## Installation
+## Cài đặt
 
 ```
 claude plugins add knowledge-work-plugins/data
 ```
 
-## What It Does
+## Tính năng
 
-This plugin transforms Claude into a data analyst collaborator. It helps you explore datasets, write optimized SQL, build visualizations, create interactive dashboards, and validate analyses before sharing with stakeholders.
+Plugin này biến Claude thành một người cộng sự phân tích dữ liệu. Nó giúp bạn khám phá tập dữ liệu, viết SQL tối ưu, dựng trực quan hóa, tạo dashboard tương tác và kiểm định các phân tích trước khi chia sẻ với các bên liên quan.
 
-### With a Data Warehouse Connection
+### Khi có kết nối Data Warehouse
 
-Connect your data warehouse MCP server (e.g., Snowflake, Databricks, BigQuery, or any SQL-compatible database) for the best experience. Claude will:
+Hãy kết nối MCP server cho kho dữ liệu của bạn (ví dụ Snowflake, Databricks, BigQuery, hoặc bất kỳ cơ sở dữ liệu tương thích SQL nào) để có trải nghiệm tốt nhất. Khi đó Claude sẽ:
 
-- Query your data warehouse directly
-- Explore schemas and table metadata
-- Run analyses end-to-end without copy-pasting
-- Iterate on queries based on results
+- Truy vấn trực tiếp vào kho dữ liệu của bạn
+- Khám phá schema và metadata của các bảng
+- Chạy phân tích trọn vẹn từ đầu đến cuối mà không cần copy-paste
+- Lặp lại và tinh chỉnh truy vấn dựa trên kết quả
 
-### Without a Data Warehouse Connection
+### Khi không có kết nối Data Warehouse
 
-Without a data warehouse connection, paste SQL results or upload CSV/Excel files for analysis and visualization. Claude can also write SQL queries for you to run manually, and then analyze the results you provide.
+Khi không có kết nối tới kho dữ liệu, bạn có thể dán kết quả SQL hoặc tải lên file CSV/Excel để phân tích và trực quan hóa. Claude cũng có thể viết các câu lệnh SQL để bạn tự chạy thủ công, rồi sau đó phân tích kết quả bạn cung cấp.
 
-## Commands
+## Lệnh
 
-| Command | Description |
+| Lệnh | Mô tả |
 |---------|-------------|
-| `/analyze` | Answer data questions -- from quick lookups to full analyses |
-| `/explore-data` | Profile and explore a dataset to understand its shape, quality, and patterns |
-| `/write-query` | Write optimized SQL for your dialect with best practices |
-| `/create-viz` | Create publication-quality visualizations with Python |
-| `/build-dashboard` | Build interactive HTML dashboards with filters and charts |
-| `/validate` | QA an analysis before sharing -- methodology, accuracy, and bias checks |
+| `/analyze` | Trả lời các câu hỏi về dữ liệu -- từ tra cứu nhanh đến phân tích đầy đủ |
+| `/explore-data` | Phân tích đặc trưng (profile) và khám phá tập dữ liệu để hiểu hình dạng, chất lượng và các quy luật của nó |
+| `/write-query` | Viết SQL tối ưu cho phương ngữ của bạn theo các thông lệ tốt nhất |
+| `/create-viz` | Tạo trực quan hóa chất lượng xuất bản bằng Python |
+| `/build-dashboard` | Dựng dashboard HTML tương tác với bộ lọc và biểu đồ |
+| `/validate` | Kiểm định (QA) một phân tích trước khi chia sẻ -- kiểm tra phương pháp luận, độ chính xác và thiên kiến |
 
-## Skills
+## Kỹ năng
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |-------|-------------|
-| `sql-queries` | SQL best practices across dialects, common patterns, and performance optimization |
-| `data-exploration` | Data profiling, quality assessment, and pattern discovery |
-| `data-visualization` | Chart selection, Python viz code patterns, and design principles |
-| `statistical-analysis` | Descriptive stats, trend analysis, outlier detection, and hypothesis testing |
-| `data-validation` | Pre-delivery QA, sanity checks, and documentation standards |
-| `interactive-dashboard-builder` | HTML/JS dashboard construction with Chart.js, filters, and styling |
+| `sql-queries` | Các thông lệ tốt nhất cho SQL trên nhiều phương ngữ, các mẫu phổ biến và tối ưu hiệu năng |
+| `data-exploration` | Phân tích đặc trưng dữ liệu, đánh giá chất lượng và phát hiện quy luật |
+| `data-visualization` | Lựa chọn biểu đồ, các mẫu code trực quan hóa bằng Python và nguyên tắc thiết kế |
+| `statistical-analysis` | Thống kê mô tả, phân tích xu hướng, phát hiện điểm ngoại lai và kiểm định giả thuyết |
+| `data-validation` | Kiểm định QA trước khi bàn giao, kiểm tra tính hợp lý và chuẩn tài liệu hóa |
+| `interactive-dashboard-builder` | Xây dựng dashboard HTML/JS với Chart.js, bộ lọc và tạo kiểu (styling) |
 
-## Example Workflows
+## Quy trình mẫu
 
-### Ad-Hoc Analysis
+### Phân tích Ad-Hoc
 
 ```
 You: /analyze What was our monthly revenue trend for the past 12 months, broken down by product line?
@@ -59,7 +59,7 @@ Claude: [Writes SQL query] → [Executes against data warehouse] → [Generates 
        → [Validates results with sanity checks]
 ```
 
-### Data Exploration
+### Khám phá Dữ liệu
 
 ```
 You: /explore-data users table
@@ -70,7 +70,7 @@ Claude: [Profiles table: 2.3M rows, 47 columns]
        → [Suggests: "High-value dimensions to explore: plan_type, signup_source, country"]
 ```
 
-### Query Writing
+### Viết Truy vấn
 
 ```
 You: /write-query I need a cohort retention analysis -- users grouped by signup month,
@@ -81,7 +81,7 @@ Claude: [Writes optimized Snowflake SQL with CTEs]
        → [Includes performance notes about partition pruning]
 ```
 
-### Dashboard Building
+### Dựng Dashboard
 
 ```
 You: /build-dashboard Create a sales dashboard with monthly revenue, top products,
@@ -93,7 +93,7 @@ Claude: [Generates self-contained HTML file]
        → [Opens in browser for review]
 ```
 
-### Pre-Share Validation
+### Kiểm định Trước khi Chia sẻ
 
 ```
 You: /validate [shares analysis document]
@@ -104,17 +104,25 @@ Claude: [Reviews methodology] → [Checks for survivorship bias in churn analysi
        → [Confidence: "Ready to share with noted caveat"]
 ```
 
-## Connecting Your Data Stack
+## Kết nối Nền tảng Dữ liệu của bạn
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra xem những công cụ nào đang được kết nối, hãy xem [CONNECTORS.md](CONNECTORS.md).
 
-This plugin works best when connected to your data infrastructure. Add MCP servers for:
+Plugin này hoạt động tốt nhất khi được kết nối với hạ tầng dữ liệu của bạn. Hãy thêm các MCP server cho:
 
-- **Data Warehouse**: Snowflake, Databricks, BigQuery, Definite, or any SQL-compatible database
-- **Analytics/BI**: Amplitude, Looker, Tableau, or similar
-- **Notebooks**: Jupyter, Hex, or similar
-- **Spreadsheets**: Google Sheets, Excel
-- **Data Orchestration**: Airflow, dbt, Dagster, Prefect
-- **Data Ingestion**: Fivetran, Airbyte, Stitch
+- **Kho dữ liệu (Data Warehouse)**: Snowflake, Databricks, BigQuery, Definite, hoặc bất kỳ cơ sở dữ liệu tương thích SQL nào
+- **Phân tích/BI**: Amplitude, Looker, Tableau, hoặc tương tự
+- **Notebook**: Jupyter, Hex, hoặc tương tự
+- **Bảng tính**: Google Sheets, Excel
+- **Điều phối dữ liệu (Data Orchestration)**: Airflow, dbt, Dagster, Prefect
+- **Nạp dữ liệu (Data Ingestion)**: Fivetran, Airbyte, Stitch
 
-Configure MCP servers in your `.mcp.json` or Claude Code settings to enable direct data access.
+Hãy cấu hình các MCP server trong file `.mcp.json` hoặc trong thiết lập của Claude Code để cho phép truy cập dữ liệu trực tiếp.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

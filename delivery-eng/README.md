@@ -1,82 +1,90 @@
-# Engineering Delivery Plugin
+# Plugin Bàn giao Kỹ thuật (Engineering Delivery)
 
-Run engineering delivery rituals on Lark — incident postmortems and sprint retros. Claude pulls
-from your on-call chat, ticket trackers, and velocity history to draft the artifacts your team
-needs, blamelessly and from data rather than vibes.
+Vận hành các nghi thức bàn giao kỹ thuật (engineering delivery) trên Lark — postmortem sự cố và sprint retro. Claude kéo
+dữ liệu từ kênh chat trực sự cố (on-call), trình theo dõi ticket, và lịch sử velocity để soạn ra những tài liệu mà team
+của bạn cần, một cách không đổ lỗi (blameless) và dựa trên dữ liệu thay vì cảm tính.
 
-## Installation
+## Cài đặt
 
 ```
 claude plugins add lark-cowork/delivery-eng
 ```
 
-## What It Does
+## Tính năng
 
-This plugin turns raw delivery signal into structured retro artifacts:
+Plugin này biến tín hiệu bàn giao thô thành các tài liệu retro có cấu trúc:
 
-- **incident-retro** — A blameless postmortem built from an on-call IM timeline: sequence of
-  events, contributing factors, and owner-and-due action items. Reconstructs detection →
-  triage → mitigation → resolution without assigning individual blame.
-- **sprint-retro** — An end-of-sprint draft built from closed tickets, velocity delta, and
-  blocker signal, plus an optional retro form. Surfaces what went well, what didn't, and what
-  to try next sprint.
+- **incident-retro** — Một postmortem (mổ xẻ sự cố) không đổ lỗi được dựng từ dòng thời gian IM của đội trực sự cố: trình tự
+  các sự kiện, các yếu tố góp phần, và action item kèm người phụ trách và hạn chót. Tái dựng lại quá trình phát hiện →
+  phân loại (triage) → giảm thiểu (mitigation) → khắc phục (resolution) mà không quy trách nhiệm cho cá nhân.
+- **sprint-retro** — Một bản nháp cuối sprint được dựng từ các ticket đã đóng, độ chênh velocity, và tín hiệu về điểm nghẽn
+  (blocker), kèm theo một biểu mẫu retro tùy chọn. Nêu bật điều gì đã tốt, điều gì chưa, và điều gì
+  nên thử ở sprint kế tiếp.
 
-## Skills
+## Kỹ năng
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |-------|-------------|
-| `incident-retro` | Builds a blameless postmortem doc from an on-call IM timeline |
-| `sprint-retro` | Drafts an end-of-sprint retro from closed tickets, velocity, and blockers |
+| `incident-retro` | Dựng một tài liệu postmortem không đổ lỗi từ dòng thời gian IM của đội trực sự cố |
+| `sprint-retro` | Soạn bản nháp retro cuối sprint từ các ticket đã đóng, velocity, và các điểm nghẽn |
 
-## Example Workflows
+## Quy trình mẫu
 
-### Postmortem for a SEV2
+### Postmortem cho một SEV2
 
 ```
-You: write a postmortem for the SEV2 yesterday
+Bạn: viết postmortem cho sự cố SEV2 hôm qua
 
-Claude: [Searches the on-call IM channel for the incident window]
-        [Reconstructs the timeline: detection → page → triage → mitigation]
-        [Cross-references deployed PRs and dashboards]
-        [Drafts a blameless postmortem (summary, impact, root cause,
-         contributing factors, action items) via the postmortem template]
-        [Confirms before saving to the wiki or creating follow-up tasks]
+Claude: [Tìm trong kênh IM trực sự cố theo khoảng thời gian xảy ra sự cố]
+        [Tái dựng dòng thời gian: phát hiện → page → triage → giảm thiểu]
+        [Đối chiếu chéo với các PR đã deploy và các dashboard]
+        [Soạn một postmortem không đổ lỗi (tóm tắt, tác động, nguyên nhân gốc,
+         các yếu tố góp phần, action item) qua template postmortem]
+        [Xác nhận trước khi lưu vào wiki hoặc tạo các công việc theo sau]
 ```
 
 ### Sprint retro
 
 ```
-You: sprint retro for this sprint
+Bạn: sprint retro cho sprint này
 
-Claude: [Determines the sprint window from velocity history]
-        [Pulls closed tickets from Base/Task and computes velocity delta]
-        [Buckets retro-form feedback and groups blocker signal from chat]
-        [Drafts a one-page retro: numbers, what went well/didn't,
-         try-next, open questions]
-        [Offers to save to the wiki and update velocity history]
+Claude: [Xác định khoảng thời gian của sprint từ lịch sử velocity]
+        [Kéo các ticket đã đóng từ Base/Task và tính độ chênh velocity]
+        [Gom phản hồi từ biểu mẫu retro và nhóm tín hiệu điểm nghẽn từ chat]
+        [Soạn một retro một trang: các con số, điều gì tốt/chưa tốt,
+         nên thử tiếp, câu hỏi còn mở]
+        [Đề nghị lưu vào wiki và cập nhật lịch sử velocity]
 ```
 
-## Companion plugins
+## Plugin đồng hành
 
-These skills belong to the **lark-cowork** workflow suite and reference skills in sibling
-plugins. Skill names resolve globally, so a reference works automatically when the companion
-plugin is installed; when a companion is absent the reference **degrades gracefully** (the step
-is skipped or offered as a suggestion, never an error). Install the companions below for the full
-experience — see [`../connectors/LARK-FUSION.md`](../connectors/LARK-FUSION.md).
+Các kỹ năng này thuộc bộ quy trình **lark-cowork** và tham chiếu đến các kỹ năng ở những plugin
+anh em. Tên kỹ năng được phân giải ở phạm vi toàn cục, nên một tham chiếu sẽ hoạt động tự động khi plugin
+đồng hành đã được cài; khi vắng plugin đồng hành, tham chiếu sẽ **suy giảm một cách mượt mà** (bước đó
+bị bỏ qua hoặc được đề xuất như một gợi ý, không bao giờ là lỗi). Hãy cài các plugin đồng hành bên dưới để có
+trải nghiệm đầy đủ — xem [`../connectors/LARK-FUSION.md`](../connectors/LARK-FUSION.md).
 
-| This plugin's skill | References | In plugin |
+| Kỹ năng của plugin này | Tham chiếu đến | Trong plugin |
 |---|---|---|
-| `incident-retro`, `sprint-retro` | `doc-from-template` (postmortem template) | knowledge-docs |
+| `incident-retro`, `sprint-retro` | `doc-from-template` (template postmortem) | knowledge-docs |
 
-## Data Sources
+## Nguồn dữ liệu
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra công cụ nào đang được kết nối, xem [CONNECTORS.md](CONNECTORS.md).
 
-**Included MCP connection:** the `lark` server (`lark-cli mcp serve`), one bridge covering every category —
-- Chat (Lark IM) for on-call timelines and blocker signal
-- Project tracker (Lark Task + Lark Base) for closed tickets and velocity
-- Documents (Lark Docs + Wiki) for postmortem and retro docs
-- Meeting intelligence (Lark Minutes) for incident war-room context
-- Directory (Lark Contact) for resolving owners
+**Kết nối MCP đi kèm:** máy chủ `lark` (`lark-cli mcp serve`), một cầu nối duy nhất bao trùm mọi hạng mục —
+- Chat (Lark IM) cho dòng thời gian trực sự cố và tín hiệu điểm nghẽn
+- Trình theo dõi dự án (Lark Task + Lark Base) cho các ticket đã đóng và velocity
+- Tài liệu (Lark Docs + Wiki) cho các tài liệu postmortem và retro
+- Trí tuệ cuộc họp (Lark Minutes) cho ngữ cảnh phòng tác chiến (war-room) sự cố
+- Danh bạ (Lark Contact) để phân giải người phụ trách
 
-See [CONNECTORS.md](CONNECTORS.md) for the full tool map and Lark depth references.
+Xem [CONNECTORS.md](CONNECTORS.md) để có bản đồ công cụ đầy đủ và các tài liệu tham chiếu chuyên sâu về Lark.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

@@ -1,39 +1,39 @@
-# Productivity Plugin
+# Plugin Năng suất (Productivity)
 
-A productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. Task management, workplace memory, and a visual dashboard — Claude learns your people, projects, and terminology so it can act like a colleague, not a chatbot.
+Một plugin năng suất được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agent của Anthropic — tuy nhiên cũng hoạt động được trong Claude Code. Quản lý công việc, bộ nhớ về nơi làm việc, và một dashboard trực quan — Claude học về con người, dự án và thuật ngữ của bạn để có thể hành động như một đồng nghiệp, chứ không phải một chatbot.
 
-## Installation
+## Cài đặt
 
 ```
 claude plugins add knowledge-work-plugins/productivity
 ```
 
-## What It Does
+## Tính năng
 
-This plugin gives Claude a persistent understanding of your work:
+Plugin này mang lại cho Claude một sự hiểu biết bền vững về công việc của bạn:
 
-- **Task management** — A markdown task list (`TASKS.md`) that Claude reads, writes, and executes against. Add tasks naturally, and Claude tracks status, triages stale items, and syncs with external tools.
-- **Workplace memory** — A two-tier memory system that teaches Claude your shorthand, people, projects, and terminology. Say "ask todd to do the PSR for oracle" and Claude knows exactly who, what, and which deal.
-- **Visual dashboard** — A local HTML file that gives you a board view of your tasks and a live view of what Claude knows about your workplace. Edit from the board or the file — they stay in sync.
+- **Quản lý công việc** — Một danh sách công việc dạng markdown (`TASKS.md`) mà Claude đọc, ghi và thực thi dựa trên đó. Hãy thêm công việc một cách tự nhiên, và Claude sẽ theo dõi trạng thái, triage các mục tồn đọng, và đồng bộ với các công cụ bên ngoài.
+- **Bộ nhớ về nơi làm việc** — Một hệ thống bộ nhớ hai tầng dạy cho Claude cách viết tắt, con người, dự án và thuật ngữ của bạn. Nói "ask todd to do the PSR for oracle" và Claude biết chính xác ai, việc gì, và thuộc deal nào.
+- **Dashboard trực quan** — Một file HTML cục bộ cho bạn một góc nhìn dạng bảng (board) về các công việc và một góc nhìn trực tiếp về những gì Claude biết về nơi làm việc của bạn. Chỉnh sửa từ board hoặc từ file — chúng luôn được đồng bộ với nhau.
 
-## Commands
+## Lệnh
 
-| Command | What it does |
+| Lệnh | Nó làm gì |
 |---------|--------------|
-| `/start` | Initialize tasks + memory, open the dashboard |
-| `/update` | Triage stale items, check memory for gaps, sync from external tools if applicable |
-| `/update --comprehensive` | Deep scan email, calendar, chat — flag missed todos and suggest new memories |
+| `/start` | Khởi tạo công việc + bộ nhớ, mở dashboard |
+| `/update` | Triage các mục tồn đọng, kiểm tra bộ nhớ xem có thiếu sót gì không, đồng bộ từ các công cụ bên ngoài nếu phù hợp |
+| `/update --comprehensive` | Quét sâu email, lịch, chat — gắn cờ các todo bị bỏ sót và gợi ý các mục bộ nhớ mới |
 
-## Skills
+## Kỹ năng
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |-------|-------------|
-| `memory-management` | Two-tier memory system — CLAUDE.md for working memory, memory/ directory for deep storage |
-| `task-management` | Markdown-based task tracking using a shared TASKS.md file |
+| `memory-management` | Hệ thống bộ nhớ hai tầng — CLAUDE.md cho bộ nhớ làm việc, thư mục memory/ để lưu trữ sâu |
+| `task-management` | Theo dõi công việc dựa trên markdown sử dụng một file TASKS.md dùng chung |
 
-## Example Workflows
+## Quy trình mẫu
 
-### Getting Started
+### Bắt đầu
 
 ```
 You: /start
@@ -43,7 +43,7 @@ Claude: [Creates TASKS.md, CLAUDE.md, memory/ directory, and dashboard.html]
         [Asks about your role, team, and current priorities to seed memory]
 ```
 
-### Adding Tasks Naturally
+### Thêm Công việc một cách Tự nhiên
 
 ```
 You: I need to review the budget proposal for Sarah by Friday,
@@ -54,7 +54,7 @@ Claude: [Adds all three tasks to TASKS.md with context]
         [Dashboard updates automatically]
 ```
 
-### Morning Sync
+### Đồng bộ Buổi sáng
 
 ```
 You: /update --comprehensive
@@ -66,9 +66,9 @@ Claude: [Scans email, calendar, and chat for new action items]
         [Updates stale tasks and fills memory gaps]
 ```
 
-### Workplace Shorthand
+### Cách viết tắt nơi làm việc
 
-Once memory is populated, Claude decodes your shorthand instantly:
+Một khi bộ nhớ đã được điền đầy đủ, Claude giải mã cách viết tắt của bạn ngay lập tức:
 
 ```
 You: ask todd to do the PSR for oracle
@@ -77,20 +77,28 @@ Claude: "Ask Todd Martinez (Finance lead) to prepare the Pipeline
          Status Report for the Oracle Systems deal ($2.3M, closing Q2)"
 ```
 
-No clarifying questions. No round trips.
+Không cần hỏi lại. Không phải đi đi lại lại.
 
-## Data Sources
+## Nguồn dữ liệu
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra xem những công cụ nào đang được kết nối, hãy xem [CONNECTORS.md](CONNECTORS.md).
 
-Connect your communication and project management tools for the best experience. Without them, manage tasks and memory manually.
+Hãy kết nối các công cụ giao tiếp và quản lý dự án của bạn để có trải nghiệm tốt nhất. Khi không có chúng, bạn vẫn có thể quản lý công việc và bộ nhớ một cách thủ công.
 
-**Included MCP connection:** the `lark` server (`lark-cli mcp serve`), one bridge covering every category —
-- Chat (Lark IM) for team context and message scanning
-- Email and calendar (Lark Mail + Lark Calendar) for action item discovery
-- Knowledge base (Lark Wiki + Docs) for reference documents
-- Project tracker (Lark Task + Lark Base) for task syncing
-- Office suite (Lark Docs/Sheets/Drive) for documents
+**Kết nối MCP đi kèm:** server `lark` (`lark-cli mcp serve`), một cầu nối duy nhất bao quát mọi danh mục —
+- Chat (Lark IM) để lấy ngữ cảnh nhóm và quét tin nhắn
+- Email và lịch (Lark Mail + Lark Calendar) để phát hiện các đầu việc cần làm
+- Cơ sở tri thức (Lark Wiki + Docs) cho các tài liệu tham khảo
+- Theo dõi dự án (Lark Task + Lark Base) để đồng bộ công việc
+- Bộ ứng dụng văn phòng (Lark Docs/Sheets/Drive) cho tài liệu
 
-**Additional options:**
-- See [CONNECTORS.md](CONNECTORS.md) for alternative tools in each category
+**Các tùy chọn bổ sung:**
+- Xem [CONNECTORS.md](CONNECTORS.md) để biết các công cụ thay thế trong từng danh mục
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

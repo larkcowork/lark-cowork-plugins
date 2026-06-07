@@ -1,42 +1,42 @@
 # Create an Asset
 
-**For Sales Teams Everywhere**
+**Dành cho các đội ngũ Sales ở mọi nơi**
 
-Generate professional, customer-ready sales assets in minutes. No design skills required.
-
----
-
-## What It Does
-
-This skill creates tailored sales assets by asking you about:
-1. **Your prospect** — who they are, what you've discussed
-2. **Your audience** — who's viewing, what they care about
-3. **Your purpose** — what you want to achieve
-4. **Your format** — how you want to present it
-
-Then it researches, writes, designs, and builds a polished asset you can share with customers.
+Tạo các asset/ấn phẩm bán hàng chuyên nghiệp, sẵn sàng trình bày cho khách hàng chỉ trong vài phút. Không cần kỹ năng thiết kế.
 
 ---
 
-## Supported Formats
+## Tính năng
 
-| Format | Best For | Output |
+Kỹ năng này tạo ra các asset bán hàng được tùy chỉnh bằng cách hỏi bạn về:
+1. **Khách hàng tiềm năng của bạn** — họ là ai, bạn đã trao đổi những gì
+2. **Đối tượng của bạn** — ai sẽ xem, họ quan tâm điều gì
+3. **Mục đích của bạn** — bạn muốn đạt được điều gì
+4. **Định dạng của bạn** — bạn muốn trình bày như thế nào
+
+Sau đó nó nghiên cứu, viết nội dung, thiết kế và dựng nên một asset trau chuốt mà bạn có thể chia sẻ với khách hàng.
+
+---
+
+## Các định dạng được hỗ trợ
+
+| Định dạng | Phù hợp nhất cho | Đầu ra |
 |--------|----------|--------|
-| **Interactive Landing Page** | Exec meetings, value prop presentations | Multi-tab page with demos and calculators |
-| **Deck-Style** | Formal presentations, large audiences | Native Lark slides (via `lark-slides` skill) |
-| **One-Pager** | Leave-behinds, quick summaries | Single-scroll executive summary |
-| **Workflow / Architecture Demo** | Technical deep-dives, POC proposals | Interactive diagram with animated flow |
+| **Interactive Landing Page** | Họp cấp lãnh đạo, trình bày tuyên ngôn giá trị (value prop) | Trang nhiều tab với các bản demo và công cụ tính toán |
+| **Deck-Style** | Trình bày trang trọng, đối tượng đông người | Slide Lark gốc (thông qua kỹ năng `lark-slides`) |
+| **One-Pager** | Tài liệu để lại, tóm tắt nhanh | Bản tóm tắt điều hành cuộn một mạch (single-scroll) |
+| **Workflow / Architecture Demo** | Đào sâu kỹ thuật, đề xuất POC | Sơ đồ tương tác với luồng được hoạt họa |
 
 ---
 
-## Quick Start
+## Bắt đầu nhanh
 
-### Option 1: Simple prompt
+### Lựa chọn 1: Lệnh đơn giản
 ```
 Create an asset for Acme Corp
 ```
 
-### Option 2: With context
+### Lựa chọn 2: Kèm bối cảnh
 ```
 Create an asset for Acme Corp. I met with their VP Engineering
 last week - they're struggling with slow release cycles and
@@ -44,7 +44,7 @@ want to improve developer productivity. This is for a follow-up
 with their technical team.
 ```
 
-### Option 3: Workflow demo
+### Lựa chọn 3: Demo quy trình (workflow demo)
 ```
 I want to mock up a workflow showing how a customer would use
 our product to automate their invoice processing. The flow is:
@@ -54,116 +54,124 @@ against their ERP → flags exceptions for human review.
 
 ---
 
-## What Gets Created
+## Những gì được tạo ra
 
 ### Interactive Landing Page
-- Tabbed navigation
-- Company metrics and research
-- Use case demos
-- ROI calculator
-- Professional dark theme with prospect's brand colors
+- Điều hướng dạng tab
+- Số liệu và nghiên cứu về công ty
+- Các bản demo theo use case
+- Công cụ tính ROI
+- Giao diện tối (dark theme) chuyên nghiệp với màu thương hiệu của khách hàng tiềm năng
 
 ### Deck-Style
-- Title slide with both logos
-- Agenda
-- Content slides (one message per slide)
-- Summary and next steps
-- Speaker notes included
+- Slide tiêu đề với cả hai logo
+- Chương trình (agenda)
+- Các slide nội dung (mỗi slide một thông điệp)
+- Tóm tắt và các bước tiếp theo
+- Kèm ghi chú cho người thuyết trình (speaker notes)
 
 ### One-Pager
-- Hero statement
-- 3 key value points
-- Proof point
-- Clear CTA
+- Tuyên bố nổi bật (hero statement)
+- 3 điểm giá trị cốt lõi
+- Bằng chứng thuyết phục (proof point)
+- Lời kêu gọi hành động (CTA) rõ ràng
 
 ### Workflow Demo
-- Visual component nodes
-- Animated data flow
-- Step-by-step walkthrough
-- Play/pause/step controls
-- Sample data at each stage
+- Các node thành phần dạng trực quan
+- Luồng dữ liệu được hoạt họa
+- Hướng dẫn từng bước
+- Điều khiển play/pause/step
+- Dữ liệu mẫu ở mỗi giai đoạn
 
 ---
 
-## The Process
+## Quy trình thực hiện
 
 ```
-1. You provide context (prospect, audience, purpose)
+1. Bạn cung cấp bối cảnh (khách hàng tiềm năng, đối tượng, mục đích)
           ↓
-2. Skill researches the prospect company
+2. Kỹ năng nghiên cứu công ty khách hàng tiềm năng
           ↓
-3. Skill asks 3-4 clarifying questions
+3. Kỹ năng hỏi 3-4 câu làm rõ
           ↓
-4. You confirm direction
+4. Bạn xác nhận hướng đi
           ↓
-5. Skill builds the asset
+5. Kỹ năng dựng asset
           ↓
-6. You iterate as needed
+6. Bạn lặp lại tinh chỉnh khi cần
 ```
 
 ---
 
-## Sharing Your Asset
+## Chia sẻ Asset của bạn
 
-The output is a self-contained HTML file. Share it by:
+Đầu ra là một tệp HTML khép kín (self-contained). Hãy chia sẻ nó bằng cách:
 
-- **Static hosting**: Upload to Netlify, Vercel, GitHub Pages, or any web host
-- **Password protect**: Most hosts offer simple password protection
-- **Direct share**: Email the HTML file — it works offline
-- **Embed**: iframe it into other pages or portals
-
----
-
-## Tips for Best Results
-
-### Provide Rich Context
-The more you share about past conversations, pain points, and stakeholder concerns, the more tailored the asset will be.
-
-### Upload Transcripts
-If you have call recordings, meeting notes, or email threads, upload them. The skill will extract key quotes and priorities.
-
-### Be Specific About Audience
-"Technical team" is good. "IT architects evaluating our security model" is better.
-
-### Iterate Freely
-First draft not quite right? Just say what to change. Colors, sections, messaging, flow — all adjustable.
+- **Lưu trữ tĩnh (Static hosting)**: Tải lên Netlify, Vercel, GitHub Pages, hoặc bất kỳ máy chủ web nào
+- **Bảo vệ bằng mật khẩu**: Hầu hết các nhà lưu trữ đều cung cấp tính năng bảo vệ bằng mật khẩu đơn giản
+- **Chia sẻ trực tiếp**: Gửi email tệp HTML — nó hoạt động ngoại tuyến (offline)
+- **Nhúng (Embed)**: iframe nó vào các trang hoặc cổng thông tin khác
 
 ---
 
-## Examples
+## Mẹo để có kết quả tốt nhất
 
-| Scenario | Format | Key Features |
+### Cung cấp bối cảnh phong phú
+Bạn càng chia sẻ nhiều về các cuộc trò chuyện trước đó, các điểm đau (pain point) và mối quan tâm của các bên liên quan, thì asset càng được tùy chỉnh sát hơn.
+
+### Tải lên bản ghi (transcript)
+Nếu bạn có bản ghi cuộc gọi, ghi chú cuộc họp hoặc các luồng email, hãy tải chúng lên. Kỹ năng sẽ trích xuất các trích dẫn và ưu tiên quan trọng.
+
+### Cụ thể về đối tượng
+"Đội kỹ thuật" là tốt. "Các kiến trúc sư IT đang đánh giá mô hình bảo mật của chúng tôi" thì còn tốt hơn.
+
+### Tự do tinh chỉnh
+Bản nháp đầu chưa thật ưng ý? Chỉ cần nói cần thay đổi gì. Màu sắc, các phần mục, thông điệp, luồng — tất cả đều có thể điều chỉnh.
+
+---
+
+## Ví dụ
+
+| Kịch bản | Định dạng | Tính năng chính |
 |----------|--------|--------------|
-| Post-discovery exec meeting | Interactive page | ROI calculator, their stated priorities, case studies |
-| Technical architecture review | Workflow demo | System diagram, data flows, integration points |
-| Board presentation leave-behind | One-pager | Strategic alignment, key metrics, clear CTA |
-| Large stakeholder meeting | Deck-style | Lark Task narrative, one point per slide, appendix |
+| Họp cấp lãnh đạo sau giai đoạn khám phá (discovery) | Interactive page | Công cụ tính ROI, các ưu tiên họ đã nêu, case study |
+| Đánh giá kiến trúc kỹ thuật | Workflow demo | Sơ đồ hệ thống, luồng dữ liệu, các điểm tích hợp |
+| Tài liệu để lại sau họp hội đồng quản trị | One-pager | Sự liên kết chiến lược, các số liệu chính, CTA rõ ràng |
+| Cuộc họp đông bên liên quan | Deck-style | Tường thuật Lark Task, mỗi slide một ý, phụ lục |
 
 ---
 
-## FAQ
+## Câu hỏi thường gặp (FAQ)
 
-**Q: Does it work for any product/company?**
-A: Yes. The skill detects what you're selling from your email domain and researches accordingly.
+**Hỏi: Nó có hoạt động với mọi sản phẩm/công ty không?**
+Đáp: Có. Kỹ năng phát hiện bạn đang bán gì từ tên miền email của bạn và nghiên cứu tương ứng.
 
-**Q: How does it know my prospect's brand colors?**
-A: It extracts them from the prospect's website or brand guidelines. You can adjust after.
+**Hỏi: Làm sao nó biết màu thương hiệu của khách hàng tiềm năng?**
+Đáp: Nó trích xuất từ website hoặc bộ nhận diện thương hiệu của khách hàng tiềm năng. Bạn có thể điều chỉnh sau.
 
-**Q: Can I use my company's branding instead?**
-A: Yes — after the first build, just ask to switch to your brand colors.
+**Hỏi: Tôi có thể dùng bộ nhận diện của công ty mình thay vào đó không?**
+Đáp: Có — sau bản dựng đầu tiên, chỉ cần yêu cầu chuyển sang màu thương hiệu của bạn.
 
-**Q: What if the research is wrong?**
-A: Flag it and provide corrections. The skill will regenerate with accurate info.
+**Hỏi: Nếu thông tin nghiên cứu sai thì sao?**
+Đáp: Hãy chỉ ra và cung cấp điều chỉnh. Kỹ năng sẽ tạo lại với thông tin chính xác.
 
-**Q: Can I export as PDF?**
-A: Yes — ask for a print-optimized version and use your browser's print-to-PDF.
-
----
-
-## Support
-
-Questions or feedback? This skill is part of the public sales skills collection.
+**Hỏi: Tôi có thể xuất ra PDF không?**
+Đáp: Có — hãy yêu cầu một phiên bản tối ưu cho in ấn và dùng tính năng print-to-PDF của trình duyệt.
 
 ---
 
-*Built for salespeople who'd rather sell than design slides.*
+## Hỗ trợ
+
+Có câu hỏi hoặc góp ý? Kỹ năng này là một phần của bộ sưu tập kỹ năng bán hàng công khai.
+
+---
+
+*Được xây dựng cho những người làm bán hàng muốn dành thời gian để bán hàng hơn là thiết kế slide.*
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

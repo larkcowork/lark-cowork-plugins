@@ -1,38 +1,38 @@
-# Legal Productivity Plugin
+# Plugin Năng suất Pháp chế (Legal)
 
-An AI-powered productivity plugin for in-house legal teams, primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. Automates contract review, NDA triage, compliance workflows, legal briefings, and templated responses -- all configurable to your organization's specific playbook and risk tolerances.
+Một plugin năng suất được hỗ trợ bởi AI dành cho các đội pháp chế nội bộ (in-house legal), được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agentic của Anthropic — dù nó cũng hoạt động trong Claude Code. Tự động hóa việc review hợp đồng, triage NDA, các quy trình tuân thủ (compliance), brief pháp lý, và các phản hồi theo mẫu -- tất cả đều có thể cấu hình theo playbook và mức độ chấp nhận rủi ro cụ thể của tổ chức bạn.
 
-> **Disclaimer:** This plugin assists with legal workflows but does not provide legal advice. Always verify conclusions with qualified legal professionals. AI-generated analysis should be reviewed by licensed attorneys before being relied upon for legal decisions. The default playbook examples in this plugin reflect U.S. legal positions and jurisdictions (Delaware, New York, California). If you operate under different legal systems (EU, UK, Netherlands, Australia, etc.), you must customize the playbook in .claude/legal.local.md to reflect your jurisdiction's specific legal requirements, standard contract terms, and compliance obligations before relying on the plugin's analysis.
+> **Tuyên bố miễn trừ trách nhiệm:** Plugin này hỗ trợ các quy trình pháp lý nhưng không cung cấp tư vấn pháp lý. Luôn xác minh các kết luận với chuyên gia pháp lý có chuyên môn. Phân tích do AI tạo ra cần được luật sư có chứng chỉ hành nghề xem xét lại trước khi được dùng làm căn cứ cho các quyết định pháp lý. Các ví dụ playbook mặc định trong plugin này phản ánh các quan điểm và thẩm quyền tài phán pháp lý của Hoa Kỳ (Delaware, New York, California). Nếu bạn vận hành theo những hệ thống pháp luật khác (EU, UK, Hà Lan, Úc, v.v.), bạn phải tùy chỉnh playbook trong .claude/legal.local.md để phản ánh các yêu cầu pháp lý cụ thể của thẩm quyền tài phán của bạn, các điều khoản hợp đồng tiêu chuẩn, và các nghĩa vụ tuân thủ trước khi dựa vào phân tích của plugin.
 
-## Target Personas
+## Nhóm đối tượng mục tiêu
 
-- **Commercial Counsel** -- Contract negotiation, vendor management, deal support
-- **Product Counsel** -- Product reviews, terms of service, privacy policies, IP matters
-- **Privacy / Compliance** -- Data protection regulations, DPA reviews, data subject requests, regulatory monitoring
-- **Litigation Support** -- Discovery holds, document review prep, case briefings
+- **Commercial Counsel (Luật sư thương mại)** -- Đàm phán hợp đồng, quản lý nhà cung cấp, hỗ trợ deal
+- **Product Counsel (Luật sư sản phẩm)** -- Review sản phẩm, điều khoản dịch vụ, chính sách quyền riêng tư, các vấn đề sở hữu trí tuệ (IP)
+- **Privacy / Compliance (Quyền riêng tư / Tuân thủ)** -- Các quy định bảo vệ dữ liệu, review DPA, yêu cầu của chủ thể dữ liệu, giám sát quy định
+- **Litigation Support (Hỗ trợ tố tụng)** -- Lệnh giữ tài liệu (discovery hold), chuẩn bị review tài liệu, brief vụ việc
 
-## Installation
-
-```
-claude plugins add knowledge-work-plugins/legal
-```
-
-## Quick Start
-
-### 1. Install the plugin
+## Cài đặt
 
 ```
 claude plugins add knowledge-work-plugins/legal
 ```
 
-### 2. Configure your playbook
+## Bắt đầu nhanh
 
-Create a local settings file to define your organization's standard positions. This is where you encode your team's negotiation playbook, risk tolerances, and standard terms.
+### 1. Cài đặt plugin
 
-Create a `legal.local.md` file where Claude can find it:
+```
+claude plugins add knowledge-work-plugins/legal
+```
 
-- **Cowork**: Save it in any folder you've shared with Cowork (via the folder picker). The plugin finds it automatically.
-- **Claude Code**: Save it in your project's `.claude/` directory.
+### 2. Cấu hình playbook của bạn
+
+Tạo một file cấu hình cục bộ để định nghĩa các quan điểm tiêu chuẩn của tổ chức bạn. Đây là nơi bạn mã hóa playbook đàm phán của team, các mức chấp nhận rủi ro, và các điều khoản tiêu chuẩn.
+
+Tạo một file `legal.local.md` ở nơi Claude có thể tìm thấy:
+
+- **Cowork**: Lưu nó trong bất kỳ thư mục nào bạn đã chia sẻ với Cowork (qua bộ chọn thư mục). Plugin sẽ tự động tìm thấy.
+- **Claude Code**: Lưu nó trong thư mục `.claude/` của dự án.
 
 ```markdown
 # Legal Playbook Configuration
@@ -78,138 +78,138 @@ Create a `legal.local.md` file where Claude can find it:
 Configure paths to your template files or define inline templates for common inquiries.
 ```
 
-### 3. Connect your tools
+### 3. Kết nối các công cụ của bạn
 
-The plugin works best when connected to your existing tools via MCP. Pre-configured servers include Lark IM, Box, Egnyte, Lark, and Lark. See [CONNECTORS.md](CONNECTORS.md) for the full list of supported categories and options.
+Plugin hoạt động tốt nhất khi được kết nối với các công cụ hiện có của bạn qua MCP. Các máy chủ được cấu hình sẵn bao gồm Lark IM, Box, Egnyte, Lark và Lark. Xem [CONNECTORS.md](CONNECTORS.md) để có danh sách đầy đủ các hạng mục và tùy chọn được hỗ trợ.
 
-## Commands
+## Lệnh
 
-### `/review-contract` -- Contract Review Against Playbook
+### `/review-contract` -- Review hợp đồng đối chiếu với playbook
 
-Review a contract against your organization's negotiation playbook. Flags deviations, generates redlines, and provides business impact analysis.
+Review một hợp đồng đối chiếu với playbook đàm phán của tổ chức bạn. Đánh dấu các điểm sai lệch, tạo bản redline, và cung cấp phân tích tác động đến hoạt động kinh doanh.
 
 ```
 /review-contract
 ```
 
-Accepts: file upload, URL, or pasted contract text. Will ask for context (your side, deadline, focus areas) and review clause-by-clause against your configured playbook.
+Chấp nhận: tải file lên, URL, hoặc dán nội dung hợp đồng. Sẽ hỏi về ngữ cảnh (bên của bạn là bên nào, deadline, các trọng tâm cần chú ý) và review từng điều khoản một, đối chiếu với playbook bạn đã cấu hình.
 
-### `/triage-nda` -- NDA Pre-Screening
+### `/triage-nda` -- Sàng lọc sơ bộ NDA
 
-Rapid triage of incoming NDAs against standard criteria. Categorizes as GREEN (standard approval), YELLOW (counsel review), or RED (significant issues).
+Triage nhanh các NDA đến đối chiếu với các tiêu chí tiêu chuẩn. Phân loại thành GREEN (phê duyệt tiêu chuẩn), YELLOW (cần luật sư review), hoặc RED (có vấn đề đáng kể).
 
 ```
 /triage-nda
 ```
 
-### `/vendor-check` -- Vendor Agreement Status
+### `/vendor-check` -- Trạng thái thỏa thuận với nhà cung cấp
 
-Check the status of existing agreements with a vendor across your connected systems.
+Kiểm tra trạng thái các thỏa thuận hiện có với một nhà cung cấp trên các hệ thống bạn đã kết nối.
 
 ```
 /vendor-check [vendor name]
 ```
 
-Reports on existing NDAs, MSAs, DPAs, expiration dates, and key terms.
+Báo cáo về các NDA, MSA, DPA hiện có, ngày hết hạn, và các điều khoản chính.
 
-### `/brief` -- Legal Team Briefing
+### `/brief` -- Brief cho đội pháp chế
 
-Generate contextual briefings for your legal work.
+Tạo các bản brief theo ngữ cảnh cho công việc pháp lý của bạn.
 
 ```
-/brief daily          # Morning brief of legal-relevant items
-/brief topic [query]  # Research brief on a specific legal question
-/brief incident       # Rapid brief on a developing situation
+/brief daily          # Brief buổi sáng về các mục liên quan đến pháp lý
+/brief topic [query]  # Brief nghiên cứu về một câu hỏi pháp lý cụ thể
+/brief incident       # Brief nhanh về một tình huống đang diễn biến
 ```
 
-### `/respond` -- Generate Templated Response
+### `/respond` -- Tạo phản hồi theo mẫu
 
-Generate a response from your configured templates for common inquiry types.
+Tạo một phản hồi từ các mẫu bạn đã cấu hình cho các loại yêu cầu phổ biến.
 
 ```
 /respond [inquiry-type]
 ```
 
-Supported inquiry types include: data subject request, discovery hold, vendor question, NDA request, and custom categories you define.
+Các loại yêu cầu được hỗ trợ bao gồm: yêu cầu của chủ thể dữ liệu (data subject request), lệnh giữ tài liệu (discovery hold), câu hỏi về nhà cung cấp, yêu cầu NDA, và các hạng mục tùy chỉnh do bạn định nghĩa.
 
-## Skills
+## Kỹ năng
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |-------|-------------|
-| `contract-review` | Playbook-based contract analysis, deviation classification, redline generation |
-| `nda-triage` | NDA screening criteria, classification rules, routing recommendations |
-| `compliance` | Privacy regulations (GDPR, CCPA), DPA review, data subject requests |
-| `canned-responses` | Template management, response categories, escalation triggers |
-| `legal-risk-assessment` | Risk severity framework, classification levels, escalation criteria |
-| `meeting-briefing` | Meeting prep methodology, context gathering, action item tracking |
+| `contract-review` | Phân tích hợp đồng dựa trên playbook, phân loại điểm sai lệch, tạo redline |
+| `nda-triage` | Tiêu chí sàng lọc NDA, quy tắc phân loại, khuyến nghị định tuyến |
+| `compliance` | Các quy định về quyền riêng tư (GDPR, CCPA), review DPA, yêu cầu của chủ thể dữ liệu |
+| `canned-responses` | Quản lý mẫu, các hạng mục phản hồi, các kích hoạt chuyển cấp (escalation trigger) |
+| `legal-risk-assessment` | Khung mức độ nghiêm trọng của rủi ro, các cấp phân loại, tiêu chí chuyển cấp |
+| `meeting-briefing` | Phương pháp luận chuẩn bị họp, thu thập ngữ cảnh, theo dõi action item |
 
-## Example Workflows
+## Quy trình mẫu
 
-### Contract Review
+### Review hợp đồng
 
-1. Receive a vendor contract via email
-2. Run `/review-contract` and upload the document
-3. Provide context: "We are the customer, need to close by end of quarter, focus on data protection and liability"
-4. Receive clause-by-clause analysis with GREEN/YELLOW/RED flags
-5. Get specific redline language for YELLOW and RED items
-6. Share the analysis with your deal team
+1. Nhận một hợp đồng nhà cung cấp qua email
+2. Chạy `/review-contract` và tải tài liệu lên
+3. Cung cấp ngữ cảnh: "Chúng tôi là bên khách hàng, cần chốt trước cuối quý, tập trung vào bảo vệ dữ liệu và trách nhiệm pháp lý"
+4. Nhận phân tích từng điều khoản một với các cờ GREEN/YELLOW/RED
+5. Nhận ngôn ngữ redline cụ thể cho các mục YELLOW và RED
+6. Chia sẻ phân tích với đội deal của bạn
 
-### NDA Triage
+### Triage NDA
 
-1. Sales team sends an NDA from a new prospect
-2. Run `/triage-nda` and paste or upload the NDA
-3. Get instant classification: GREEN (route for signature), YELLOW (specific issues to review), or RED (needs full counsel review)
-4. For GREEN NDAs, approve directly; for YELLOW/RED, address flagged issues
+1. Đội sales gửi một NDA từ một khách hàng tiềm năng mới
+2. Chạy `/triage-nda` rồi dán hoặc tải NDA lên
+3. Nhận phân loại tức thì: GREEN (chuyển đi ký), YELLOW (các vấn đề cụ thể cần review), hoặc RED (cần luật sư review đầy đủ)
+4. Với các NDA GREEN, phê duyệt trực tiếp; với YELLOW/RED, xử lý các vấn đề đã được đánh dấu
 
-### Daily Brief
+### Brief hằng ngày
 
-1. Start your morning with `/brief daily`
-2. Get a summary of overnight contract requests, compliance questions, upcoming deadlines, and calendar items needing legal prep
-3. Prioritize your day based on urgency and deadlines
+1. Bắt đầu buổi sáng của bạn với `/brief daily`
+2. Nhận một bản tóm tắt về các yêu cầu hợp đồng phát sinh qua đêm, câu hỏi tuân thủ, các deadline sắp tới, và các mục trên lịch cần chuẩn bị về mặt pháp lý
+3. Sắp xếp ưu tiên cho ngày của bạn dựa trên mức độ khẩn cấp và deadline
 
-### Vendor Check
+### Kiểm tra nhà cung cấp (Vendor Check)
 
-1. Business team asks about a new engagement with an existing vendor
-2. Run `/vendor-check Acme Corp`
-3. See existing agreements, expiration dates, and key terms at a glance
-4. Know immediately whether you need a new NDA or can proceed under existing terms
+1. Đội kinh doanh hỏi về một hợp tác mới với một nhà cung cấp hiện có
+2. Chạy `/vendor-check Acme Corp`
+3. Xem các thỏa thuận hiện có, ngày hết hạn, và các điều khoản chính trong nháy mắt
+4. Biết ngay liệu bạn có cần một NDA mới hay có thể tiến hành theo các điều khoản hiện có
 
-## MCP Integration
+## Tích hợp MCP
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra công cụ nào đang được kết nối, xem [CONNECTORS.md](CONNECTORS.md).
 
-The plugin connects to your tools through MCP (Model Context Protocol) servers:
+Plugin kết nối với các công cụ của bạn thông qua các máy chủ MCP (Model Context Protocol):
 
-| Category | Examples | Purpose |
+| Hạng mục | Ví dụ | Mục đích |
 |----------|----------|---------|
-| Chat | Lark IM, Teams | Team requests, notifications, triage |
-| Cloud storage | Box, Egnyte | Playbooks, templates, precedents |
-| Office suite | Lark | Email, calendar, documents |
-| Project tracker | Lark (Lark Task/Lark Wiki) | Matter tracking, tasks |
+| Chat | Lark IM, Teams | Yêu cầu của team, thông báo, triage |
+| Lưu trữ đám mây | Box, Egnyte | Playbook, mẫu, tiền lệ |
+| Bộ ứng dụng văn phòng | Lark | Email, lịch, tài liệu |
+| Trình theo dõi dự án | Lark (Lark Task/Lark Wiki) | Theo dõi vụ việc, công việc |
 
-See [CONNECTORS.md](CONNECTORS.md) for the full list of supported integrations, including CLM, CRM, e-signature, and additional options.
+Xem [CONNECTORS.md](CONNECTORS.md) để có danh sách đầy đủ các tích hợp được hỗ trợ, bao gồm CLM, CRM, chữ ký điện tử (e-signature), và các tùy chọn bổ sung.
 
-Configure connections in `.mcp.json`. The plugin gracefully degrades when tools are unavailable -- it will note gaps and suggest manual checks.
+Cấu hình các kết nối trong `.mcp.json`. Plugin suy giảm một cách mượt mà khi các công cụ không khả dụng -- nó sẽ ghi chú các khoảng trống và đề xuất kiểm tra thủ công.
 
-## Customization
+## Tùy chỉnh
 
-### Playbook Configuration
+### Cấu hình playbook
 
-Your playbook is the heart of the contract review system. Define your positions in `legal.local.md`:
+Playbook của bạn là trái tim của hệ thống review hợp đồng. Định nghĩa các quan điểm của bạn trong `legal.local.md`:
 
-- **Standard positions**: Your preferred contract terms
-- **Acceptable ranges**: What you can agree to without escalation
-- **Escalation triggers**: Terms that require senior review or outside counsel
+- **Quan điểm tiêu chuẩn (Standard positions)**: Các điều khoản hợp đồng bạn ưu tiên
+- **Khoảng chấp nhận (Acceptable ranges)**: Những gì bạn có thể đồng ý mà không cần chuyển cấp
+- **Kích hoạt chuyển cấp (Escalation triggers)**: Các điều khoản đòi hỏi review cấp cao hơn hoặc luật sư bên ngoài
 
-### Response Templates
+### Mẫu phản hồi
 
-Define templates for common inquiries. Templates support variable substitution and include built-in escalation triggers for situations that should not use a templated response.
+Định nghĩa các mẫu cho các yêu cầu phổ biến. Các mẫu hỗ trợ thay thế biến và bao gồm các kích hoạt chuyển cấp tích hợp sẵn cho những tình huống không nên dùng phản hồi theo mẫu.
 
-### Risk Framework
+### Khung rủi ro
 
-Customize the risk assessment matrix to match your organization's risk appetite and classification scheme.
+Tùy chỉnh ma trận đánh giá rủi ro để khớp với khẩu vị rủi ro và sơ đồ phân loại của tổ chức bạn.
 
-## File Structure
+## Cấu trúc file
 
 ```
 legal/
@@ -230,3 +230,11 @@ legal/
     ├── legal-risk-assessment/SKILL.md
     └── meeting-briefing/SKILL.md
 ```
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

@@ -12,7 +12,7 @@ thật.
 ## 1. Cài lại + xác thực lark-cli
 
 ```bash
-cd /Users/jimmy/Downloads/2026-NEW/GO!/lark-cli
+cd /đường/dẫn/tới/lark-cli          # kho lark-cli của bạn (cùng cấp với kho này: ../lark-cli)
 go build -o ~/bin/lark-cli .          # hoặc target trong Makefile của kho
 export PATH="$HOME/bin:$PATH"
 lark-cli --version
@@ -23,7 +23,7 @@ lark-cli auth status                   # kỳ vọng: user (và/hoặc bot) = re
 ## 2. Chọn transport
 
 ```bash
-cd /Users/jimmy/Downloads/2026-NEW/GO!/lark-cowork-plugins
+cd /đường/dẫn/tới/lark-cowork-plugins  # thư mục gốc của kho này
 ./set-transport.sh stdio               # Desktop cổ điển (nên bắt đầu bằng cách này)
 # hoặc ./set-transport.sh http         # Cowork VM / từ xa
 ```

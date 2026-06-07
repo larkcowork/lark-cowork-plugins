@@ -1,30 +1,30 @@
 # Lark IM Plugin
 
-This repository contains the configuration needed to integrate Lark IM with Cursor IDE and Claude Code. The plugin enables your agents to interact directly with your Lark IM workspace, allowing you to search messages, send communications, manage canvases, and more—all through natural language.
+Kho lưu trữ này chứa cấu hình cần thiết để tích hợp Lark IM với Cursor IDE và Claude Code. Plugin cho phép các agent của bạn tương tác trực tiếp với không gian làm việc Lark IM, giúp bạn tìm kiếm tin nhắn, gửi thông báo, quản lý canvas, và nhiều hơn nữa—tất cả thông qua ngôn ngữ tự nhiên.
 
-## Features
+## Tính năng
 
-The Lark IM MCP server provides the following capabilities:
+Máy chủ MCP của Lark IM cung cấp các khả năng sau:
 
-- **Search**: Find messages, files, users, and channels (both public and private)
-- **Messaging**: Send messages, retrieve channel histories, and access threaded conversations
-- **Canvas**: Create and share formatted documents, export content as markdown
-- **User Management**: Retrieve user profiles including custom fields and status information
+- **Tìm kiếm**: Tìm tin nhắn, tệp, người dùng và kênh (cả công khai lẫn riêng tư)
+- **Nhắn tin**: Gửi tin nhắn, lấy lịch sử kênh và truy cập các hội thoại dạng luồng (thread)
+- **Canvas**: Tạo và chia sẻ tài liệu được định dạng, xuất nội dung dưới dạng markdown
+- **Quản lý người dùng**: Lấy hồ sơ người dùng bao gồm trường tùy chỉnh và thông tin trạng thái
 
-## Prerequisites
+## Yêu cầu trước khi cài đặt
 
-Before setting up the Lark IM MCP server, ensure you have:
+Trước khi thiết lập máy chủ MCP của Lark IM, hãy đảm bảo bạn có:
 
-- Cursor IDE or Claude Code CLI installed
-- Access to a Lark IM workspace with MCP integration approved by your workspace admin
+- Cursor IDE hoặc Claude Code CLI đã được cài đặt
+- Quyền truy cập vào không gian làm việc Lark IM có tích hợp MCP đã được quản trị viên không gian làm việc của bạn phê duyệt
 
-## Installation
+## Cài đặt
 
-Choose the installation method for your IDE:
+Chọn phương pháp cài đặt phù hợp với IDE của bạn:
 
 ### Claude Code
 
-If you're using Claude Code CLI, you can install this as a plugin by cloning it locally:
+Nếu bạn đang dùng Claude Code CLI, bạn có thể cài đặt plugin này bằng cách clone về máy:
 
 ```bash
 git clone https://github.com/slackapi/slack-mcp-plugin.git
@@ -32,9 +32,9 @@ cd slack-mcp-plugin
 claude --plugin-dir ./
 ```
 
-The Lark IM MCP server will be automatically configured when the plugin loads. You will be prompted to authenticate into your Lark IM workspace via OAuth.
+Máy chủ MCP của Lark IM sẽ được cấu hình tự động khi plugin được nạp. Bạn sẽ được nhắc xác thực vào không gian làm việc Lark IM thông qua OAuth.
 
-The Claude plugin uses the following MCP configuration (`.mcp.json`):
+Plugin của Claude sử dụng cấu hình MCP sau (`.mcp.json`):
 
 ```json
 {
@@ -53,21 +53,21 @@ The Claude plugin uses the following MCP configuration (`.mcp.json`):
 
 ### Cursor
 
-You can use the following Add to Cursor button or follow the steps below to manually configure the Lark IM MCP server in Cursor:
+Bạn có thể dùng nút Add to Cursor sau đây hoặc làm theo các bước bên dưới để cấu hình thủ công máy chủ MCP của Lark IM trong Cursor:
 
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=slack&config=eyJ1cmwiOiJodHRwczovL21jcC5zbGFjay5jb20vbWNwIiwiYXV0aCI6eyJDTElFTlRfSUQiOiIzNjYwNzUzMTkyNjI2Ljg5MDM0NjkyMjg5ODIifX0%3D)
 
-#### Step 1: Open Cursor Settings
+#### Bước 1: Mở Cursor Settings
 
-Navigate to **Cursor → Settings → Cursor Settings** (or use the keyboard shortcut `Cmd+,` on macOS, `Ctrl+,` on Windows/Linux).
+Đi tới **Cursor → Settings → Cursor Settings** (hoặc dùng phím tắt `Cmd+,` trên macOS, `Ctrl+,` trên Windows/Linux).
 
-#### Step 2: Navigate to MCP Tab
+#### Bước 2: Chuyển đến tab MCP
 
-In the Settings interface, click on the **MCP** tab to access MCP server configurations.
+Trong giao diện Settings, nhấp vào tab **MCP** để truy cập các cấu hình máy chủ MCP.
 
-#### Step 3: Add Lark IM MCP Configuration
+#### Bước 3: Thêm cấu hình MCP của Lark IM
 
-Add the following configuration to connect to the remote Lark IM MCP server:
+Thêm cấu hình sau để kết nối đến máy chủ MCP từ xa của Lark IM:
 
 ```json
 {
@@ -82,27 +82,35 @@ Add the following configuration to connect to the remote Lark IM MCP server:
 }
 ```
 
-Save the configuration. You will also see a connect button once added. Click that to authenticate into your Lark IM Workspace.
+Lưu cấu hình. Bạn cũng sẽ thấy một nút kết nối sau khi thêm. Nhấp vào nút đó để xác thực vào Không gian làm việc Lark IM của bạn.
 
-## Usage Examples
+## Ví dụ sử dụng
 
-Once configured, you can interact with Lark IM through your AI assistant using natural language:
+Sau khi cấu hình xong, bạn có thể tương tác với Lark IM thông qua trợ lý AI bằng ngôn ngữ tự nhiên:
 
-- **Search messages**: "Search for messages about the product launch in the last week"
-- **Send messages**: "Send a message to #general channel saying the deployment is complete"
-- **Find users**: "Who is the user with email john@example.com?"
-- **Access threads**: "Show me the conversation thread from that message"
-- **Create canvases**: "Create a canvas document with our meeting notes"
+- **Tìm kiếm tin nhắn**: "Tìm các tin nhắn về việc ra mắt sản phẩm trong tuần qua"
+- **Gửi tin nhắn**: "Gửi tin nhắn vào kênh #general báo rằng việc triển khai đã hoàn tất"
+- **Tìm người dùng**: "Người dùng có email john@example.com là ai?"
+- **Truy cập luồng (thread)**: "Hiển thị cho tôi luồng hội thoại từ tin nhắn đó"
+- **Tạo canvas**: "Tạo một tài liệu canvas với ghi chú cuộc họp của chúng ta"
 
-## Documentation & Resources
+## Tài liệu & Tài nguyên
 
-- [Official Lark IM MCP Server Documentation](https://docs.slack.dev/ai/mcp-server/)
+- [Tài liệu chính thức về Máy chủ MCP của Lark IM](https://docs.slack.dev/ai/mcp-server/)
 
-## Notes & Limitations
+## Ghi chú & Giới hạn
 
-- **Remote server only**: This configuration connects to Lark IM's hosted MCP server. No local installation is required or supported.
-- **Admin approval required**: Your Lark IM workspace administrator must approve MCP integration before you can use this feature.
+- **Chỉ máy chủ từ xa**: Cấu hình này kết nối đến máy chủ MCP được lưu trữ (hosted) của Lark IM. Không cần và không hỗ trợ cài đặt cục bộ.
+- **Yêu cầu phê duyệt của quản trị viên**: Quản trị viên không gian làm việc Lark IM của bạn phải phê duyệt tích hợp MCP trước khi bạn có thể sử dụng tính năng này.
 
-## Questions or Issues?
+## Câu hỏi hoặc Vấn đề?
 
-For questions about the Lark IM MCP server or integration issues, please refer to the [official Lark IM documentation](https://docs.slack.dev/ai/mcp-server/) or contact your workspace administrator.
+Nếu có câu hỏi về máy chủ MCP của Lark IM hoặc gặp sự cố tích hợp, vui lòng tham khảo [tài liệu chính thức của Lark IM](https://docs.slack.dev/ai/mcp-server/) hoặc liên hệ quản trị viên không gian làm việc của bạn.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

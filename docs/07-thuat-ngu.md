@@ -57,3 +57,11 @@ Gặp từ lạ trong tài liệu hay khi dùng? Tra ở đây.
 | **Transform** | Đơn vị phát triển & triển khai (mô hình: mã nguồn miễn phí + dịch vụ có phí). |
 
 ⬅️ Quay lại [mục lục tài liệu](./README.md).
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

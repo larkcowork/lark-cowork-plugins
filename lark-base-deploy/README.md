@@ -1,45 +1,45 @@
-# Lark Base Deploy Plugin
+# Plugin Triển khai Lark Base (Lark Base Deploy)
 
-A Lark Base deployment plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop application — though it also works in Claude Code. It turns one sentence — "build a Base for my 30-person team: 3 tables + dashboard + automation + Excel import" — into a working, verified, handed-over Base. An 8-phase orchestrator runs Discovery → Handover, designing the schema, building it on Lark, wiring relations and roles, importing data, standing up dashboards and automation, then acceptance-testing and documenting the result for the team.
+Plugin triển khai Lark Base được thiết kế chủ yếu cho [Cowork](https://claude.com/product/cowork), ứng dụng desktop dạng agent của Anthropic — dù vậy nó cũng hoạt động tốt trong Claude Code. Plugin biến một câu nói duy nhất — "dựng một Base cho team 30 người của tôi: 3 table + dashboard + tự động hoá + import Excel" — thành một Base hoàn chỉnh, đã được kiểm chứng và bàn giao. Một orchestrator 8 phase chạy từ Discovery → Handover, thiết kế schema, dựng nó trên Lark, nối các quan hệ và vai trò, import dữ liệu, dựng dashboard và tự động hoá, rồi nghiệm thu và viết tài liệu kết quả cho team.
 
-## Installation
+## Cài đặt
 
 ```
 claude plugins add lark-cowork/lark-base-deploy
 ```
 
-## What It Does
+## Tính năng
 
-This plugin orchestrates an end-to-end Base deployment through eight phases:
+Plugin này điều phối toàn bộ quá trình triển khai Base từ đầu đến cuối qua tám phase:
 
-- **Phase 0 — Discovery** — interview/confirm operational requirements into a spec (entities, KPIs, roles, data sources).
-- **Phase 1 — Design** — design the full schema: tables, fields, views, relations, rules, options, roles.
-- **Phase 2 — Build** ⚡ — create the Base, tables, fields, and views; **fan-out 6 sub-agents** (table, field, view, relation, rule, option) working in parallel; write real IDs back into the plan.
-- **Phase 3 — Wire-up** — connect tables (link/lookup/formula), set view filters, build roles and access permissions.
-- **Phase 4 — Import** — import Excel/CSV data into the Base, cleaning and mapping fields to the designed schema.
-- **Phase 5 — Viz** ⚡ — build the KPI dashboard with charts and filters; **fan-out 3 sub-agents** to compose `data_config` in parallel, then create blocks sequentially.
-- **Phase 6 — Automation** — set up Base workflow automation plus a bot for reminders and notifications.
-- **Phase 7 — Handover** — acceptance-test the UI for real (never trust `code:0`), write a usage guide, and hand the Base over to the team.
+- **Phase 0 — Discovery** — phỏng vấn/chốt yêu cầu vận hành thành một spec (entity, KPI, vai trò, nguồn dữ liệu).
+- **Phase 1 — Design** — thiết kế toàn bộ schema: table, field, view, quan hệ, rule, option, vai trò.
+- **Phase 2 — Build** ⚡ — tạo Base, table, field và view; **fan-out 6 sub-agent** (table, field, view, quan hệ, rule, option) chạy song song; ghi ID thật trở lại vào plan.
+- **Phase 3 — Wire-up** — nối các table (link/lookup/formula), đặt bộ lọc view, dựng vai trò và quyền truy cập.
+- **Phase 4 — Import** — import dữ liệu Excel/CSV vào Base, làm sạch và map field theo schema đã thiết kế.
+- **Phase 5 — Viz** ⚡ — dựng dashboard KPI với biểu đồ và bộ lọc; **fan-out 3 sub-agent** để soạn `data_config` song song, rồi tạo các block tuần tự.
+- **Phase 6 — Automation** — thiết lập tự động hoá Base workflow cùng một bot để nhắc việc và thông báo.
+- **Phase 7 — Handover** — nghiệm thu UI thật (không bao giờ tin vào `code:0`), viết hướng dẫn sử dụng, và bàn giao Base cho team.
 
-Everything flows through **`build-plan.json` — the single source of truth (SSOT)**. Every phase reads and writes it, and only real API-returned identifiers (`base_token`, `table_id`, …) are written back.
+Mọi thứ đều xoay quanh **`build-plan.json` — nguồn sự thật duy nhất (SSOT)**. Mỗi phase đều đọc và ghi vào nó, và chỉ những định danh thật do API trả về (`base_token`, `table_id`, …) mới được ghi ngược trở lại.
 
-## Skills
+## Kỹ năng
 
-| Skill | Description |
+| Kỹ năng | Mô tả |
 |-------|-------------|
-| `base-deploy` | Orchestrator — deploy a Lark Base end-to-end for a team across 8 phases (Discovery → Handover), spawning parallel sub-agents at Build and Viz. |
-| `base-discovery` | Phase 0 — interview/confirm requirements into a spec (entity, KPI, role, data source) written to `build-plan.json`. |
-| `base-design` | Phase 1 — design the schema (tables, fields, views, relations, rules, options, roles) into a complete `build-plan.json` for Build to execute. |
-| `base-build` | Phase 2 — create Base + tables + fields + views from `build-plan.json`, fan-out 1 sub-agent per table in parallel, write real IDs back into the plan. |
-| `base-wireup` | Phase 3 — connect tables (link/lookup/formula), set view filters, build roles and access permissions from `build-plan.json`. |
-| `base-import` | Phase 4 — import Excel/CSV into the Base, clean and map fields normalized to `build-plan.json`. |
-| `base-viz` | Phase 5 — build the KPI dashboard (charts, filters), fan-out 3 sub-agents to compose `data_config` in parallel, then create blocks sequentially. |
-| `base-automation` | Phase 6 — build Base workflow automation plus a reminder/notification bot per `build-plan.json`. |
-| `base-handover` | Phase 7 — acceptance-test the UI (verify for real, don't trust `code:0`), write the usage guide, and hand the Base over to the team. |
+| `base-deploy` | Orchestrator — triển khai một Lark Base end-to-end cho team qua 8 phase (Discovery → Handover), spawn các sub-agent song song ở Build và Viz. |
+| `base-discovery` | Phase 0 — phỏng vấn/chốt yêu cầu thành một spec (entity, KPI, vai trò, nguồn dữ liệu) ghi vào `build-plan.json`. |
+| `base-design` | Phase 1 — thiết kế schema (table, field, view, quan hệ, rule, option, vai trò) thành một `build-plan.json` hoàn chỉnh để Build thực thi. |
+| `base-build` | Phase 2 — tạo Base + table + field + view từ `build-plan.json`, fan-out 1 sub-agent cho mỗi table song song, ghi ID thật trở lại vào plan. |
+| `base-wireup` | Phase 3 — nối các table (link/lookup/formula), đặt bộ lọc view, dựng vai trò và quyền truy cập từ `build-plan.json`. |
+| `base-import` | Phase 4 — import Excel/CSV vào Base, làm sạch và map field chuẩn hoá theo `build-plan.json`. |
+| `base-viz` | Phase 5 — dựng dashboard KPI (biểu đồ, bộ lọc), fan-out 3 sub-agent soạn `data_config` song song, rồi tạo các block tuần tự. |
+| `base-automation` | Phase 6 — dựng tự động hoá Base workflow cùng một bot nhắc việc/thông báo theo `build-plan.json`. |
+| `base-handover` | Phase 7 — nghiệm thu UI (verify thật, không tin vào `code:0`), viết hướng dẫn sử dụng, và bàn giao Base cho team. |
 
-## Example Workflows
+## Quy trình mẫu
 
-### Full Deploy from One Sentence
+### Triển khai trọn vẹn từ một câu
 
 ```
 You: Build a Base for my 30-person team: 3 tables (Projects, Tasks, People),
@@ -56,7 +56,7 @@ Claude: [Phase 0 Discovery — confirms entities, KPIs, owner, data source → b
         [Phase 7 Handover — visually verifies the UI, writes usage guide, hands over]
 ```
 
-### Dashboard-Only on an Existing Base
+### Chỉ dựng Dashboard trên một Base có sẵn
 
 ```
 You: Add a KPI dashboard to my existing Base (base_token bascn...) —
@@ -67,7 +67,7 @@ Claude: [Loads/derives build-plan.json from the existing Base]
         [Creates dashboard blocks sequentially, verifies them in the UI]
 ```
 
-### Dry-Run a Plan Before Building
+### Chạy thử (Dry-Run) một plan trước khi dựng
 
 ```
 You: /base-deploy --dry-run a sprint tracker: Sprints, Stories, Bugs
@@ -77,26 +77,34 @@ Claude: [Runs Discovery + Design only — produces a complete build-plan.json]
         [Stops before any write — "Approve to run Build → Handover?"]
 ```
 
-## Companion plugins
+## Plugin đồng hành
 
-These skills belong to the **lark-cowork** workflow suite and reference skills in sibling
-plugins. Skill names resolve globally, so a reference works automatically when the companion
-plugin is installed; when a companion is absent the reference **degrades gracefully** (the step
-is skipped or offered as a suggestion, never an error). Install the companions below for the full
-experience — see [`../connectors/LARK-FUSION.md`](../connectors/LARK-FUSION.md).
+Các kỹ năng này thuộc bộ quy trình **lark-cowork** và tham chiếu đến kỹ năng ở các plugin
+cùng nhóm. Tên kỹ năng được phân giải toàn cục, nên một tham chiếu sẽ tự động hoạt động khi plugin
+đồng hành được cài; khi vắng plugin đồng hành thì tham chiếu sẽ **suy giảm mượt mà** (bước đó
+bị bỏ qua hoặc được đề xuất như một gợi ý, không bao giờ là lỗi). Hãy cài các plugin đồng hành dưới đây để có
+trải nghiệm đầy đủ — xem [`../connectors/LARK-FUSION.md`](../connectors/LARK-FUSION.md).
 
-| This plugin's skill | References | In plugin |
+| Kỹ năng của plugin này | Tham chiếu | Thuộc plugin |
 |---|---|---|
 | `base-handover` | `permission-audit` | governance |
 
-## Data Sources
+## Nguồn dữ liệu
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](CONNECTORS.md).
+> Nếu bạn thấy các placeholder lạ hoặc cần kiểm tra công cụ nào đang được kết nối, hãy xem [CONNECTORS.md](CONNECTORS.md).
 
-**Included MCP connection:** the `lark` server (`lark-cli mcp serve`), one bridge backing every category —
-- Project tracker (Lark Base + Task) — the system of record this plugin builds and writes to
-- Office suite (Lark Sheets/Docs/Drive) — for Excel/CSV import and generated handover docs
-- Chat (Lark IM) — for automation reminders and bot notifications
-- Directory (Lark Contact) — to resolve people into `open_id` before assigning fields/roles
+**Kết nối MCP đi kèm:** server `lark` (`lark-cli mcp serve`), một cầu nối duy nhất phục vụ mọi danh mục —
+- Project tracker (Lark Base + Task) — hệ thống lưu trữ chính thức mà plugin này dựng và ghi vào
+- Bộ ứng dụng văn phòng (Lark Sheets/Docs/Drive) — để import Excel/CSV và tạo tài liệu bàn giao
+- Chat (Lark IM) — để gửi nhắc việc tự động và thông báo của bot
+- Danh bạ (Lark Contact) — để phân giải con người thành `open_id` trước khi gán field/vai trò
 
-Base structure and record writes (create base/table/field/view, bitable records, dashboard blocks, workflow automation) have no dedicated curated tool — they go through `lark_api` (`bitable/v1`, `base/v2`) or the installed `lark-base` skill. See [CONNECTORS.md](CONNECTORS.md) for the full category-to-tool mapping.
+Cấu trúc Base và các thao tác ghi record (tạo base/table/field/view, bitable records, dashboard blocks, workflow automation) không có công cụ chuyên dụng được tuyển chọn — chúng đi qua `lark_api` (`bitable/v1`, `base/v2`) hoặc kỹ năng `lark-base` đã cài. Xem [CONNECTORS.md](CONNECTORS.md) để biết bản đồ ánh xạ đầy đủ giữa danh mục và công cụ.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)
