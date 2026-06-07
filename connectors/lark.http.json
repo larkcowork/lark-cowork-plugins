@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "lark": {
+      "type": "http",
+      "url": "${LARK_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${LARK_MCP_BEARER_TOKEN}"
+      }
+    }
+  }
+}

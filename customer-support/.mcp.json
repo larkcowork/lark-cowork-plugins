@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "hubspot": {
+      "type": "http",
+      "url": "https://mcp.hubspot.com/anthropic"
+    },
+    "intercom": {
+      "type": "http",
+      "url": "https://mcp.intercom.com/mcp"
+    },
+    "lark": {
+      "command": "lark-cli",
+      "args": [
+        "mcp",
+        "serve"
+      ],
+      "env": {
+        "NO_COLOR": "1"
+      }
+    }
+  }
+}

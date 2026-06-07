@@ -1,0 +1,8 @@
+{
+  "name": "governance",
+  "version": "1.0.0",
+  "description": "Govern Lark operations — triage the approval queue, measure approval-flow SLAs and bottlenecks, audit Drive/Doc/Wiki/Base permissions for risky exposure, and promote decisions from chat and minutes into a structured Base.",
+  "author": {
+    "name": "Lark Cowork"
+  }
+}

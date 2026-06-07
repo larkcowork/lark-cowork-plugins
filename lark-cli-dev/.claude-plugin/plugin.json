@@ -1,0 +1,8 @@
+{
+  "name": "lark-cli-dev",
+  "version": "1.0.0",
+  "description": "Build, debug, and extend the lark-cli MCP bridge (cmd/mcp/) — add and refine tools, run handshake smoke-tests, rebuild and reinstall the binary, and diagnose host disconnects. Operates on lark-cli source, not the runtime lark MCP server.",
+  "author": {
+    "name": "Lark Cowork"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp"
+    },
+    "gong": {
+      "type": "http",
+      "url": "https://mcp.gong.io/mcp"
+    },
+    "granola": {
+      "type": "http",
+      "url": "https://mcp.granola.ai/mcp"
+    },
+    "lark": {
+      "command": "lark-cli",
+      "args": [
+        "mcp",
+        "serve"
+      ],
+      "env": {
+        "NO_COLOR": "1"
+      }
+    }
+  }
+}

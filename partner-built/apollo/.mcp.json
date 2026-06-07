@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "apollo": {
+      "type": "http",
+      "url": "https://mcp.apollo.io/mcp"
+    },
+    "lark": {
+      "command": "lark-cli",
+      "args": [
+        "mcp",
+        "serve"
+      ],
+      "env": {
+        "NO_COLOR": "1"
+      }
+    }
+  }
+}

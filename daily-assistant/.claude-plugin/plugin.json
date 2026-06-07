@@ -1,0 +1,8 @@
+{
+  "name": "daily-assistant",
+  "version": "1.0.0",
+  "description": "Run your day on Lark — morning brief, end-of-day digest, inbox & IM triage, task prioritization, focus mode, meeting prep, 1:1 prep, contact 360, calendar audit, and weekly review.",
+  "author": {
+    "name": "Lark Cowork"
+  }
+}

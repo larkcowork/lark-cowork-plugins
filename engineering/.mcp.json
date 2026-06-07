@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "datadog": {
+      "type": "http",
+      "url": "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp"
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/"
+    },
+    "lark": {
+      "command": "lark-cli",
+      "args": [
+        "mcp",
+        "serve"
+      ],
+      "env": {
+        "NO_COLOR": "1"
+      }
+    },
+    "pagerduty": {
+      "type": "http",
+      "url": "https://mcp.pagerduty.com/mcp"
+    }
+  }
+}

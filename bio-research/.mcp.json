@@ -1,0 +1,58 @@
+{
+  "mcpServers": {
+    "benchling": {
+      "type": "http",
+      "url": ""
+    },
+    "biorender": {
+      "type": "http",
+      "url": "https://mcp.services.biorender.com/mcp"
+    },
+    "biorxiv": {
+      "type": "http",
+      "url": "https://hcls.mcp.claude.com/biorxiv/mcp"
+    },
+    "c-trials": {
+      "type": "http",
+      "url": "https://hcls.mcp.claude.com/clinical_trials/mcp"
+    },
+    "chembl": {
+      "type": "http",
+      "url": "https://hcls.mcp.claude.com/chembl/mcp"
+    },
+    "consensus": {
+      "type": "http",
+      "url": "https://mcp.consensus.app/mcp"
+    },
+    "lark": {
+      "command": "lark-cli",
+      "args": [
+        "mcp",
+        "serve"
+      ],
+      "env": {
+        "NO_COLOR": "1"
+      }
+    },
+    "ot": {
+      "type": "http",
+      "url": "https://mcp.platform.opentargets.org/mcp"
+    },
+    "owkin": {
+      "type": "http",
+      "url": "https://mcp.k.owkin.com/mcp"
+    },
+    "pubmed": {
+      "type": "http",
+      "url": "https://pubmed.mcp.claude.com/mcp"
+    },
+    "synapse": {
+      "type": "http",
+      "url": "https://mcp.synapse.org/mcp"
+    },
+    "wiley": {
+      "type": "http",
+      "url": "https://connector.scholargateway.ai/mcp"
+    }
+  }
+}

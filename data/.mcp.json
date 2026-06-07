@@ -1,0 +1,42 @@
+{
+  "mcpServers": {
+    "amplitude": {
+      "type": "http",
+      "url": "https://mcp.amplitude.com/mcp"
+    },
+    "amplitude-eu": {
+      "type": "http",
+      "url": "https://mcp.eu.amplitude.com/mcp"
+    },
+    "bigquery": {
+      "type": "http",
+      "url": "https://bigquery.googleapis.com/mcp"
+    },
+    "databricks": {
+      "type": "http",
+      "url": ""
+    },
+    "definite": {
+      "type": "http",
+      "url": "https://api.definite.app/v3/mcp/http"
+    },
+    "hex": {
+      "type": "http",
+      "url": "https://app.hex.tech/mcp"
+    },
+    "lark": {
+      "command": "lark-cli",
+      "args": [
+        "mcp",
+        "serve"
+      ],
+      "env": {
+        "NO_COLOR": "1"
+      }
+    },
+    "snowflake": {
+      "type": "http",
+      "url": ""
+    }
+  }
+}

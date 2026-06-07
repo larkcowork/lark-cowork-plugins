@@ -1,0 +1,8 @@
+{
+  "name": "knowledge-docs",
+  "version": "1.0.0",
+  "description": "Author and maintain Lark knowledge — generate docs, wiki pages, and sheets from named templates, and audit a Wiki for stale, orphan, and duplicate pages with archive/merge/re-parent proposals.",
+  "author": {
+    "name": "Lark Cowork"
+  }
+}

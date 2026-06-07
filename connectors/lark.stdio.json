@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "lark": {
+      "command": "lark-cli",
+      "args": ["mcp", "serve"],
+      "env": {
+        "NO_COLOR": "1"
+      }
+    }
+  }
+}

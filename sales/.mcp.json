@@ -1,0 +1,42 @@
+{
+  "mcpServers": {
+    "apollo": {
+      "type": "http",
+      "url": "https://mcp.apollo.io/mcp"
+    },
+    "clay": {
+      "type": "http",
+      "url": "https://api.clay.com/v3/mcp"
+    },
+    "close": {
+      "type": "http",
+      "url": "https://mcp.close.com/mcp"
+    },
+    "hubspot": {
+      "type": "http",
+      "url": "https://mcp.hubspot.com/anthropic"
+    },
+    "lark": {
+      "command": "lark-cli",
+      "args": [
+        "mcp",
+        "serve"
+      ],
+      "env": {
+        "NO_COLOR": "1"
+      }
+    },
+    "outreach": {
+      "type": "http",
+      "url": "https://api.outreach.io/mcp/"
+    },
+    "similarweb": {
+      "type": "http",
+      "url": "https://mcp.similarweb.com/mcp"
+    },
+    "zoominfo": {
+      "type": "http",
+      "url": "https://mcp.zoominfo.com/mcp"
+    }
+  }
+}

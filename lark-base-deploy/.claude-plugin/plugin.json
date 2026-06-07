@@ -1,0 +1,8 @@
+{
+  "name": "lark-base-deploy",
+  "version": "1.0.0",
+  "description": "Deploy a production Lark Base end-to-end for your team — an 8-phase orchestrator (discovery → design → build → wire-up → import → dashboards → automation → verified handover) that fans out parallel sub-agents at build and viz.",
+  "author": {
+    "name": "Lark Cowork"
+  }
+}

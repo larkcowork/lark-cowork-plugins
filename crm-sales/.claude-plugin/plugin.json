@@ -1,0 +1,8 @@
+{
+  "name": "crm-sales",
+  "version": "1.0.0",
+  "description": "Run a CRM on Lark Base — weekly pipeline review, post-call deal updates from meeting minutes, and dormant-contact follow-up drafts. Drafts only; you approve every send.",
+  "author": {
+    "name": "Lark Cowork"
+  }
+}

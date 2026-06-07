@@ -1,0 +1,8 @@
+{
+  "name": "delivery-eng",
+  "version": "1.0.0",
+  "description": "Engineering delivery rituals on Lark — build blameless incident postmortems from an on-call IM timeline, and draft end-of-sprint retros from closed tickets, velocity, and blockers.",
+  "author": {
+    "name": "Lark Cowork"
+  }
+}

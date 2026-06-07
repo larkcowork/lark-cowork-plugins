@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "bigquery": {
+      "type": "http",
+      "url": "https://bigquery.googleapis.com/mcp"
+    },
+    "databricks": {
+      "type": "http",
+      "url": ""
+    },
+    "lark": {
+      "command": "lark-cli",
+      "args": [
+        "mcp",
+        "serve"
+      ],
+      "env": {
+        "NO_COLOR": "1"
+      }
+    },
+    "snowflake": {
+      "type": "http",
+      "url": ""
+    }
+  }
+}

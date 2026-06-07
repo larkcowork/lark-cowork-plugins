@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "ahrefs": {
+      "type": "http",
+      "url": "https://api.ahrefs.com/mcp/mcp"
+    },
+    "amplitude": {
+      "type": "http",
+      "url": "https://mcp.amplitude.com/mcp"
+    },
+    "amplitude-eu": {
+      "type": "http",
+      "url": "https://mcp.eu.amplitude.com/mcp"
+    },
+    "canva": {
+      "type": "http",
+      "url": "https://mcp.canva.com/mcp"
+    },
+    "figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp"
+    },
+    "hubspot": {
+      "type": "http",
+      "url": "https://mcp.hubspot.com/anthropic"
+    },
+    "klaviyo": {
+      "type": "http",
+      "url": "https://mcp.klaviyo.com/mcp"
+    },
+    "lark": {
+      "command": "lark-cli",
+      "args": [
+        "mcp",
+        "serve"
+      ],
+      "env": {
+        "NO_COLOR": "1"
+      }
+    },
+    "similarweb": {
+      "type": "http",
+      "url": "https://mcp.similarweb.com"
+    },
+    "supermetrics": {
+      "type": "http",
+      "url": "https://mcp.supermetrics.com/mcp"
+    }
+  }
+}

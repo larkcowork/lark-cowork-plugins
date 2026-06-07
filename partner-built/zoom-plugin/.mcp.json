@@ -1,0 +1,35 @@
+{
+  "mcpServers": {
+    "lark": {
+      "command": "lark-cli",
+      "args": [
+        "mcp",
+        "serve"
+      ],
+      "env": {
+        "NO_COLOR": "1"
+      }
+    },
+    "zoom-docs-mcp": {
+      "type": "http",
+      "url": "https://mcp.zoom.us/mcp/docs/streamable",
+      "headers": {
+        "Authorization": "Bearer ${ZOOM_DOCS_MCP_ACCESS_TOKEN}"
+      }
+    },
+    "zoom-mcp": {
+      "type": "http",
+      "url": "https://mcp-us.zoom.us/mcp/zoom/streamable",
+      "headers": {
+        "Authorization": "Bearer ${ZOOM_MCP_ACCESS_TOKEN}"
+      }
+    },
+    "zoom-whiteboard-mcp": {
+      "type": "http",
+      "url": "https://mcp-us.zoom.us/mcp/whiteboard/streamable",
+      "headers": {
+        "Authorization": "Bearer ${ZOOM_WHITEBOARD_MCP_ACCESS_TOKEN}"
+      }
+    }
+  }
+}
