@@ -1,132 +1,140 @@
-# QC & Audit — Lark Cowork marketplace + lark-cli MCP bridge
+# QC & Audit — marketplace Lark Cowork + cầu nối MCP lark-cli
 
-**Status: ✅ ALL GREEN — 24/24 automated checks pass** (run `./tools/audit.sh --live`).
-Last run: 24 passed, 0 failed. Reproducible harness: [`tools/audit.sh`](./tools/audit.sh).
-
----
-
-## 1. Plan & scope
-
-**Objective:** verify the Lark Cowork marketplace (22 plugins, 235 skills, forked from
-anthropics/knowledge-work-plugins) and the lark-cli MCP bridge (25 tools) are correct, consistent,
-and actually work — not just "JSON parses".
-
-**Out of scope:** the upstream bio/zoom specialty payloads (kept external), Cowork-VM transport
-(needs the cloud runtime), and Feishu-CN endpoints (configured for Lark international).
-
-**Method:** 4 verification levels, each a set of automated test cases in `tools/audit.sh`:
-
-| Level | Question it answers | Mode |
-|-------|--------------------|------|
-| **L1 Structural** | Do the files/manifests hold together? | static |
-| **L2 Correctness** | Are tool names / jq paths / requirements right? | static + source |
-| **L3 Semantic** | Is the soul-swap real & consistent (not cosmetic)? | static + diff vs upstream |
-| **L4 Runtime** | Does it actually build, serve, and call Lark? | build + MCP handshake + live API |
+**Trạng thái: ✅ TẤT CẢ XANH — 24/24 kiểm tra tự động đạt** (chạy `./tools/audit.sh --live`).
+Lần chạy gần nhất: 24 đạt, 0 lỗi. Bộ kiểm thử tái lập được: [`tools/audit.sh`](./tools/audit.sh).
 
 ---
 
-## 2. Test-case matrix (automated — IDs match `tools/audit.sh` output)
+## 1. Kế hoạch & phạm vi
 
-### L1 — Structural
-| ID | Test | Expected | Result |
-|----|------|----------|--------|
-| L1.1 | All `*.json` parse | valid JSON | ✅ |
-| L1.2 | Every marketplace plugin `source` dir exists | no dangling entry | ✅ |
-| L1.3 | Every `plugin.json` has name/version/description | complete | ✅ |
-| L1.4 | No `CONNECTORS.md` with empty table (partner incl.) | all have rows | ✅ |
-| L1.5 | No broken card `kind:` grammar | 0 occurrences | ✅ |
+**Mục tiêu:** kiểm chứng marketplace Lark Cowork (22 plugin, 235 kỹ năng, fork từ
+anthropics/knowledge-work-plugins) và cầu nối MCP lark-cli (25 công cụ) là đúng đắn, nhất quán và
+**thực sự chạy** — không chỉ "JSON parse được".
 
-### L2 — Correctness
-| ID | Test | Expected | Result |
-|----|------|----------|--------|
-| L2.1 | No hallucinated `lark_*` tool referenced in skills | only the 25 (+`lark_api`) | ✅ |
-| L2.2 | No wrong top-level jq paths in skills | all under `.data.` | ✅ |
-| L2.3 | Depth-core docs present (PATTERNS/RECIPES/FUSION) | 3 files | ✅ |
-| L2.4 | No stale "21 tools" in docs | says 25 | ✅ |
-| L2.5 | `toolBaseSearch` enforces `search_fields` | Build errors clearly | ✅ |
+**Ngoài phạm vi:** các payload chuyên ngành bio/zoom của bản gốc (giữ kết nối ngoài), transport
+Cowork-VM (cần runtime đám mây), và endpoint Feishu-CN (đang cấu hình cho Lark quốc tế).
 
-### L3 — Semantic (soul-swap quality)
-| ID | Test | Expected | Result |
-|----|------|----------|--------|
-| L3.1 | No SKILL renamed vs upstream `/tmp/knowledge-work-plugins` | 0 renames | ✅ |
-| L3.2 | Frontmatter intact (`---` + exactly one `name:`) | clean | ✅ |
-| L3.3 | All first-party SKILL.md soul-swapped (depth-core ref) | 100% | ✅ |
-| L3.4 | No agent meta-commentary artifacts in skills | 0 | ✅ |
-| L3.5 | Every plugin CONNECTORS points to depth core | all | ✅ |
+**Phương pháp:** 4 cấp kiểm chứng, mỗi cấp là một tập test case tự động trong `tools/audit.sh`:
+
+| Cấp | Câu hỏi nó trả lời | Chế độ |
+|-----|--------------------|--------|
+| **L1 Cấu trúc** | Các file/manifest có khớp nhau không? | tĩnh |
+| **L2 Đúng đắn** | Tên công cụ / đường jq / yêu cầu có đúng không? | tĩnh + mã nguồn |
+| **L3 Ngữ nghĩa** | Việc "thay hồn" có thật & nhất quán (không chỉ hình thức)? | tĩnh + diff với bản gốc |
+| **L4 Runtime** | Nó có thực sự build, serve và gọi được Lark không? | build + handshake MCP + API thật |
+
+---
+
+## 2. Ma trận test case (tự động — ID khớp với output của `tools/audit.sh`)
+
+### L1 — Cấu trúc
+| ID | Test | Kỳ vọng | Kết quả |
+|----|------|---------|---------|
+| L1.1 | Mọi `*.json` parse được | JSON hợp lệ | ✅ |
+| L1.2 | Mọi thư mục `source` của plugin trong marketplace tồn tại | không mục treo | ✅ |
+| L1.3 | Mọi `plugin.json` có name/version/description | đầy đủ | ✅ |
+| L1.4 | Không `CONNECTORS.md` nào có bảng rỗng (kể cả partner) | đều có dòng | ✅ |
+| L1.5 | Không lỗi ngữ pháp `kind:` trong thẻ | 0 trường hợp | ✅ |
+
+### L2 — Đúng đắn
+| ID | Test | Kỳ vọng | Kết quả |
+|----|------|---------|---------|
+| L2.1 | Không công cụ `lark_*` "ảo" được tham chiếu trong skill | chỉ 25 (+`lark_api`) | ✅ |
+| L2.2 | Không đường jq cấp cao sai trong skill | đều dưới `.data.` | ✅ |
+| L2.3 | Tài liệu lõi depth-core có mặt (PATTERNS/RECIPES/FUSION) | 3 file | ✅ |
+| L2.4 | Không còn "21 tools" cũ trong tài liệu | ghi 25 | ✅ |
+| L2.5 | `toolBaseSearch` bắt buộc `search_fields` | báo lỗi rõ ràng | ✅ |
+
+### L3 — Ngữ nghĩa (chất lượng "thay hồn")
+| ID | Test | Kỳ vọng | Kết quả |
+|----|------|---------|---------|
+| L3.1 | Không SKILL nào bị đổi tên so với bản gốc `/tmp/knowledge-work-plugins` | 0 đổi tên | ✅ |
+| L3.2 | Frontmatter còn nguyên (`---` + đúng một `name:`) | sạch | ✅ |
+| L3.3 | Mọi SKILL.md first-party đã "thay hồn" (tham chiếu depth-core) | 100% | ✅ |
+| L3.4 | Không sót dấu vết meta-commentary của agent trong skill | 0 | ✅ |
+| L3.5 | Mọi CONNECTORS của plugin trỏ về depth core | tất cả | ✅ |
 
 ### L4 — Runtime
-| ID | Test | Expected | Result |
-|----|------|----------|--------|
-| L4.1 | `go vet` (cmd/mcp + okr) | clean | ✅ |
-| L4.2 | `go test` (cmd/mcp + okr) | pass | ✅ |
-| L4.3 | `go build` → `~/bin/lark-cli` | builds | ✅ |
-| L4.4 | `mcp tools` (offline) | 25 tools | ✅ |
-| L4.5 | MCP stdio handshake `tools/list` | 25 tools | ✅ |
-| L4.6 | Interactive card (P4) compiles offline | `ok:true` | ✅ |
+| ID | Test | Kỳ vọng | Kết quả |
+|----|------|---------|---------|
+| L4.1 | `go vet` (cmd/mcp + okr) | sạch | ✅ |
+| L4.2 | `go test` (cmd/mcp + okr) | đạt | ✅ |
+| L4.3 | `go build` → `~/bin/lark-cli` | build được | ✅ |
+| L4.4 | `mcp tools` (offline) | 25 công cụ | ✅ |
+| L4.5 | Handshake MCP stdio `tools/list` | 25 công cụ | ✅ |
+| L4.6 | Thẻ tương tác (P4) biên dịch offline | `ok:true` | ✅ |
 | L4L.0 | `auth status` ready | user+bot ready | ✅ |
-| L4L.1 | LIVE read: `lark_contact_search me` → open_id | real data | ✅ |
-| L4L.2 | LIVE mutating round-trip: task create→complete→delete | created, completed, gone | ✅ |
+| L4L.1 | ĐỌC THẬT: `lark_contact_search me` → open_id | dữ liệu thật | ✅ |
+| L4L.2 | Vòng GHI THẬT: tạo→hoàn thành→xóa task | đã tạo, đã xong, đã mất | ✅ |
 
-> L4L.* run only with `--live` (needs `lark-cli auth login`). The mutating round-trip touches only a
-> self-created `[AUDIT]` task and deletes it — **zero impact on existing data**.
-
----
-
-## 3. Use cases (end-to-end scenarios) & verification status
-
-| UC | Scenario | Tools exercised | How verified | Status |
-|----|----------|-----------------|--------------|--------|
-| UC1 | "What's on my plate / who am I" | `lark_contact_search`, `lark_task_my` | L4L.1 live read (real profile) | ✅ |
-| UC2 | Capture a follow-up as a task, then close it | `lark_task_create`, `lark_task_complete` | L4L.2 live round-trip | ✅ |
-| UC3 | Preview a message/event before sending (safe-mutation P2) | `lark_im_send`/`lark_calendar_create` `dry_run` | live dry_run (no write) — earlier session | ✅ |
-| UC4 | Find records in a CRM/tracker Base | `lark_base_search` (+`search_fields`) | live: query+search_fields → record | ✅ |
-| UC5 | Write/update a Base record (SoR, P5) | `lark_base_record_upsert` | live: `created:true`+record_id | ✅ |
-| UC6 | Land durable knowledge in Wiki (P8) | `lark_wiki_node_create` | live create→delete round-trip | ✅ |
-| UC7 | Check availability before scheduling | `lark_calendar_freebusy` | live read `ok:true` | ✅ |
-| UC8 | Surface a decision/digest as an interactive card (P4) | `lark_im_card_send` | offline `print_json` `ok:true` (L4.6) | ✅ |
-| UC9 | Pull meeting action items (P6) | `lark_minutes_search` | live read (`.data.items`) | ✅ |
+> L4L.* chỉ chạy với `--live` (cần `lark-cli auth login`). Vòng ghi chỉ chạm một task `[AUDIT]` tự tạo
+> rồi xóa — **không ảnh hưởng dữ liệu hiện có**.
 
 ---
 
-## 4. QC checklist (sign-off)
+## 3. Use case (kịch bản end-to-end) & trạng thái kiểm chứng
 
-- [x] Plumbing: 22/22 marketplace plugins resolve; 20 carry the `lark` connector; pdf-viewer intentional
-- [x] Connectors: every plugin CONNECTORS.md has a real table + depth-core pointer
-- [x] Tools: 25 MCP tools, all flag names verified vs `shortcuts/`, `go test` green
-- [x] jq: all examples/skills project under `.data.` (verified the envelope is `{ok,data,…}`)
-- [x] Soul-swap: 14 first-party (135 skills) + productivity (4/4) + 14 partner collab skills; 0 renames
-- [x] Bugs fixed & re-verified: card `kind:` grammar, okr `"me"` resolver, `base_search` (search_fields + format + jq)
-- [x] Runtime: build + MCP handshake (25) + card compile + live reads + live mutating round-trips
-- [x] Data hygiene: all `[TEST-AUDIT]`/`[AUDIT]` throwaway artifacts deleted (0 leftover)
-- [x] Docs: README, SETUP, blueprint, RECIPES say 25 tools; LARK-RECIPES documents base_search gotchas
-
----
-
-## 5. Parallel deep-QC pass (21 agents)
-
-A workflow of 20 per-plugin QC agents + 1 tool-shape agent reviewed **every** skill and fixed
-**100 issues** across 20 plugins (base_search now carries `search_fields` + "no jq" in all examples;
-jq projections under `.data.`; card grammar; no hallucinated tools). Re-verified: `audit.sh --live`
-still **24/24 green**, `go test` green. Then **closed both prior limitations**:
-
-- ✅ **`vc_search` shape VERIFIED LIVE** — a date-ranged search returned 15 real past meetings; real
-  shape is `.data.items[]` (each item: id, display_info, meta_data) — the earlier `.data.meetings[]`
-  example was wrong and is now fixed in `tools.go`.
-- ✅ **`sheets_read` shape confirmed** correct (no change needed).
-
-## 6. Known limitations (honest)
-
-- **Cowork-VM transport** (http) not runtime-tested here — only Desktop-classic stdio is proven.
-- **`base_search` requires `search_fields`** by API design — skills now state this + how to discover
-  field names; the tool errors clearly if omitted.
+| UC | Kịch bản | Công cụ dùng | Cách kiểm chứng | Trạng thái |
+|----|----------|--------------|-----------------|------------|
+| UC1 | "Hôm nay tôi có gì / tôi là ai" | `lark_contact_search`, `lark_task_my` | L4L.1 đọc thật (profile thật) | ✅ |
+| UC2 | Ghi một follow-up thành task, rồi đóng nó | `lark_task_create`, `lark_task_complete` | L4L.2 vòng ghi thật | ✅ |
+| UC3 | Xem trước tin nhắn/sự kiện trước khi gửi (an toàn-ghi P2) | `lark_im_send`/`lark_calendar_create` `dry_run` | dry_run thật (không ghi) — phiên trước | ✅ |
+| UC4 | Tìm bản ghi trong Base CRM/tracker | `lark_base_search` (+`search_fields`) | thật: query+search_fields → record | ✅ |
+| UC5 | Ghi/cập nhật một bản ghi Base (SoR, P5) | `lark_base_record_upsert` | thật: `created:true`+record_id | ✅ |
+| UC6 | Lưu tri thức bền vững vào Wiki (P8) | `lark_wiki_node_create` | thật: vòng tạo→xóa | ✅ |
+| UC7 | Kiểm tra lịch trống trước khi sắp lịch | `lark_calendar_freebusy` | đọc thật `ok:true` | ✅ |
+| UC8 | Hiện quyết định/digest dưới dạng thẻ tương tác (P4) | `lark_im_card_send` | offline `print_json` `ok:true` (L4.6) | ✅ |
+| UC9 | Lấy action item từ cuộc họp (P6) | `lark_minutes_search` | đọc thật (`.data.items`) | ✅ |
 
 ---
 
-## 7. How to re-run
+## 4. Checklist QC (ký duyệt)
+
+- [x] Đường ống: 22/22 plugin marketplace phân giải được; 20 mang connector `lark`; pdf-viewer cố ý
+- [x] Connector: mọi CONNECTORS.md của plugin có bảng thật + con trỏ depth-core
+- [x] Công cụ: 25 công cụ MCP, mọi tên cờ đã kiểm chứng với `shortcuts/`, `go test` xanh
+- [x] jq: mọi ví dụ/skill chiếu dưới `.data.` (đã kiểm chứng envelope là `{ok,data,…}`)
+- [x] Thay hồn: 14 first-party (135 skill) + productivity (4/4) + 14 skill cộng tác partner; 0 đổi tên
+- [x] Bug đã sửa & kiểm chứng lại: ngữ pháp thẻ `kind:`, resolver okr `"me"`, `base_search` (search_fields + format + jq)
+- [x] Runtime: build + handshake MCP (25) + biên dịch thẻ + đọc thật + vòng ghi thật
+- [x] Vệ sinh dữ liệu: mọi artifact tạm `[TEST-AUDIT]`/`[AUDIT]` đã xóa (0 sót lại)
+- [x] Tài liệu: README, SETUP, blueprint, RECIPES ghi 25 công cụ; LARK-RECIPES ghi rõ gotcha base_search
+
+---
+
+## 5. Đợt deep-QC song song (21 agent)
+
+Một workflow gồm 20 agent QC theo từng plugin + 1 agent về hình dạng công cụ đã review **mọi** skill
+và sửa **100 vấn đề** trên 20 plugin (base_search nay mang `search_fields` + "no jq" trong mọi ví dụ;
+phép chiếu jq dưới `.data.`; ngữ pháp thẻ; không công cụ ảo). Đã kiểm chứng lại: `audit.sh --live` vẫn
+**24/24 xanh**, `go test` xanh. Sau đó **đóng cả hai hạn chế trước đó**:
+
+- ✅ **Hình dạng `vc_search` ĐÃ KIỂM CHỨNG THẬT** — một tìm kiếm theo khoảng ngày trả về 15 cuộc họp
+  thật đã qua; hình dạng thật là `.data.items[]` (mỗi item: id, display_info, meta_data) — ví dụ cũ
+  `.data.meetings[]` là sai và nay đã sửa trong `tools.go`.
+- ✅ **Hình dạng `sheets_read` đã xác nhận** đúng (không cần đổi).
+
+## 6. Hạn chế đã biết (trung thực)
+
+- **Transport Cowork-VM** (http) chưa được test runtime ở đây — chỉ stdio Desktop-cổ-điển đã chứng minh.
+- **`base_search` yêu cầu `search_fields`** theo thiết kế API; skill nay nêu rõ điều này + cách phát
+  hiện tên field; công cụ báo lỗi rõ ràng nếu thiếu.
+
+---
+
+## 7. Cách chạy lại
 
 ```bash
 cd lark-cowork-plugins
-./tools/audit.sh            # L1–L4 offline (static + build + handshake + card)
-./tools/audit.sh --live     # + auth-gated live reads & a self-cleaning task round-trip
-# exit code 0 = all green; prints PASS/FAIL per test id
+./tools/audit.sh            # L1–L4 offline (tĩnh + build + handshake + thẻ)
+./tools/audit.sh --live     # + đọc thật qua xác thực & vòng task tự dọn
+# exit code 0 = tất cả xanh; in PASS/FAIL theo từng test id
 ```
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)

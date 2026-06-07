@@ -1,78 +1,87 @@
-# Lark Cowork — Setup & Verification
+# Lark Cowork — Cài đặt & Kiểm chứng
 
-End-to-end checklist to take this marketplace from "files on disk" to "working in Claude".
+Checklist end-to-end đưa marketplace này từ "các file trên ổ đĩa" thành "chạy được trong Claude".
 
-## 0. State of this machine
+## 0. Hiện trạng máy này
 
-The `lark-cli` binary, its Keychain auth, and the Claude Desktop MCP entry were **wiped** during
-an earlier demo cleanup. So the very first runtime test requires reinstalling lark-cli. The plugin
-files themselves are complete and validated (JSON + connector mapping); only the live runtime
-needs the binary back.
+Binary `lark-cli`, phần xác thực Keychain của nó, và mục MCP trong Claude Desktop đã bị **xóa sạch**
+trong một lần dọn dẹp demo trước đây. Vì vậy bài test runtime đầu tiên cần cài lại lark-cli. Bản thân
+các file plugin đã hoàn chỉnh và được kiểm chứng (JSON + ánh xạ connector); chỉ thiếu binary để chạy
+thật.
 
-## 1. Reinstall + authenticate lark-cli
+## 1. Cài lại + xác thực lark-cli
 
 ```bash
 cd /Users/jimmy/Downloads/2026-NEW/GO!/lark-cli
-go build -o ~/bin/lark-cli .          # or the repo's Makefile target
+go build -o ~/bin/lark-cli .          # hoặc target trong Makefile của kho
 export PATH="$HOME/bin:$PATH"
 lark-cli --version
-lark-cli auth login                    # opens browser; stores creds in Keychain
-lark-cli auth status                   # expect: user (and/or bot) = ready
+lark-cli auth login                    # mở trình duyệt; lưu credential vào Keychain
+lark-cli auth status                   # kỳ vọng: user (và/hoặc bot) = ready
 ```
 
-## 2. Pick a transport
+## 2. Chọn transport
 
 ```bash
 cd /Users/jimmy/Downloads/2026-NEW/GO!/lark-cowork-plugins
-./set-transport.sh stdio               # Desktop classic (recommended to start)
-# or ./set-transport.sh http           # Cowork VM / remote
+./set-transport.sh stdio               # Desktop cổ điển (nên bắt đầu bằng cách này)
+# hoặc ./set-transport.sh http         # Cowork VM / từ xa
 ```
 
-For `http`, also start the remote bridge + tunnel and export `LARK_MCP_URL` +
-`LARK_MCP_BEARER_TOKEN` (see README "Choosing a transport").
+Với `http`, cần khởi động thêm cầu nối từ xa + tunnel và export `LARK_MCP_URL` +
+`LARK_MCP_BEARER_TOKEN` (xem mục "Chọn phương thức kết nối" trong README).
 
-## 3. Smoke-test the bridge directly (no Claude yet)
+## 3. Smoke-test cầu nối trực tiếp (chưa cần Claude)
 
 ```bash
-lark-cli mcp tools                      # lists the lark_* tool surface (offline)
-# Optional: initialize + a real call via your mcp-test / mcp-call helpers
+lark-cli mcp tools                      # liệt kê bề mặt công cụ lark_* (offline)
+# Tùy chọn: khởi tạo + một lệnh gọi thật qua helper mcp-test / mcp-call của bạn
 ```
 
-## 4. Install into Claude
+## 4. Cài vào Claude
 
-- **Claude Code:** `claude plugin marketplace add .` then
+- **Claude Code:** `claude plugin marketplace add .` rồi
   `claude plugin install productivity@lark-cowork`.
-- **Cowork (Desktop):** add this folder as a local marketplace; install from the plugin UI.
+- **Cowork (Desktop):** thêm thư mục này như marketplace cục bộ; cài từ giao diện plugin.
 
-## 5. Verify in the UI (do NOT trust exit code 0)
+## 5. Kiểm chứng trên giao diện (KHÔNG tin exit code 0)
 
-Per the project rule: a feature isn't done until visually verified. Run a real workflow and
-confirm Claude actually calls `lark_*`:
+Theo quy tắc dự án: một tính năng chưa xong cho tới khi được kiểm chứng trực quan. Chạy một quy trình
+thật và xác nhận Claude thực sự gọi `lark_*`:
 
-1. In a plugin's working dir, run `/productivity:start` (or invoke a skill).
-2. Watch for tool calls to `lark_im_*`, `lark_doc_*`, `lark_task_*`, etc.
-3. Cross-check the audit log if running http: `~/.lark-mcp-audit.ndjson` records each call.
+1. Trong thư mục làm việc của một plugin, chạy `/productivity:start` (hoặc gọi một skill).
+2. Theo dõi các lệnh gọi công cụ `lark_im_*`, `lark_doc_*`, `lark_task_*`, v.v.
+3. Đối chiếu chéo với audit log nếu chạy http: `~/.lark-mcp-audit.ndjson` ghi lại từng lệnh gọi.
 
-## Structural verification already done
+## Kiểm chứng cấu trúc đã thực hiện sẵn
 
 ```bash
-# all JSON valid
+# tất cả JSON hợp lệ
 python3 -c "import json,glob;[json.load(open(f)) for f in glob.glob('**/*.json',recursive=True)];print('ok')"
-# every knowledge-work plugin has the lark connector
+# mọi plugin nghiệp vụ đều có connector lark
 grep -rl '\"lark\"' */.mcp.json | wc -l            # -> 15
-# no generic SaaS servers remain
-grep -hoE '\"(slack|notion|gmail|google calendar|asana|linear|atlassian)\"' */.mcp.json   # -> empty
+# không còn server SaaS chung nào
+grep -hoE '\"(slack|notion|gmail|google calendar|asana|linear|atlassian)\"' */.mcp.json   # -> rỗng
 ```
 
-## Known gaps / open questions
+## Các khoảng trống đã biết / câu hỏi mở
 
-- **R1 — Cowork stdio reachability.** Unverified whether Cowork's VM can spawn a host stdio
-  binary. If not, `http` transport is mandatory for Cowork. (Desktop classic stdio is proven.)
-- **R2 — single-server resolution.** All categories map to one `lark` server; CONNECTORS.md
-  names the exact tools so Claude routes correctly. Confirm with a multi-tool workflow.
-- **R3 — CRM/analytics.** Lark has no native CRM/product-analytics; those stay external or get
-  modeled in Lark Base (use the `base-deploy` skill to scaffold a CRM Base).
-- **R4 — tool surface.** The bridge exposes 25 curated tools + `lark_api`. Ops outside that set
-  go through `lark_api` and may need extra Lark app scopes.
-- **R5 — Lark vs Feishu.** Configured for Lark international (larksuite.com). Feishu (feishu.cn)
-  would need different endpoints/scopes.
+- **R1 — Khả năng tiếp cận stdio của Cowork.** Chưa kiểm chứng VM của Cowork có spawn được binary
+  stdio trên máy chủ hay không. Nếu không, transport `http` là bắt buộc cho Cowork. (stdio Desktop cổ
+  điển đã được chứng minh.)
+- **R2 — phân giải một server duy nhất.** Mọi danh mục ánh xạ về một server `lark`; CONNECTORS.md nêu
+  rõ tên công cụ chính xác để Claude định tuyến đúng. Xác nhận bằng một quy trình đa công cụ.
+- **R3 — CRM/analytics.** Lark không có CRM/product-analytics gốc; những thứ đó giữ kết nối ngoài hoặc
+  được mô hình hóa trong Lark Base (dùng skill `base-deploy` để dựng khung CRM Base).
+- **R4 — bề mặt công cụ.** Cầu nối phơi bày 25 công cụ được tuyển chọn + `lark_api`. Thao tác ngoài bộ
+  này đi qua `lark_api` và có thể cần thêm scope ứng dụng Lark.
+- **R5 — Lark vs Feishu.** Cấu hình cho Lark quốc tế (larksuite.com). Feishu (feishu.cn) sẽ cần
+  endpoint/scope khác.
+
+---
+
+## Tác giả
+
+**Nguyễn Ngọc Tuấn**
+Founder Transform Group — **Lark Platinum Partner**
+🌐 Dự án: [larkcowork.com](https://larkcowork.com)
