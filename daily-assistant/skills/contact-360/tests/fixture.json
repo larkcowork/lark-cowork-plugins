@@ -3,21 +3,21 @@
   "skill": "contact-360",
   "calls": [
     {
-      "service": "contact",
+      "service": "lark-contact",
       "verb": "search-user",
       "flags": [
         "--query"
       ]
     },
     {
-      "service": "contact",
+      "service": "lark-contact",
       "verb": "get-user",
       "flags": [
         "--user-id"
       ]
     },
     {
-      "service": "im",
+      "service": "lark-im",
       "verb": "messages-search",
       "flags": [
         "--sender",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "service": "vc",
+      "service": "lark-vc",
       "verb": "search",
       "flags": [
         "--participant-ids",
@@ -35,21 +35,21 @@
       ]
     },
     {
-      "service": "docs",
+      "service": "lark-doc",
       "verb": "search",
       "flags": [
         "--query"
       ]
     },
     {
-      "service": "task",
+      "service": "lark-task",
       "verb": "search",
       "flags": [
         "--follower"
       ]
     },
     {
-      "service": "base",
+      "service": "lark-base",
       "verb": "record-search",
       "flags": [
         "--base-token",

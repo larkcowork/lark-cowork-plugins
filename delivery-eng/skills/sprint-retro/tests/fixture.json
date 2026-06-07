@@ -3,7 +3,7 @@
   "skill": "sprint-retro",
   "calls": [
     {
-      "service": "task",
+      "service": "lark-task",
       "verb": "search",
       "flags": [
         "--completed",
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "service": "base",
+      "service": "lark-base",
       "verb": "record-list",
       "flags": [
         "--base-token",
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "service": "im",
+      "service": "lark-im",
       "verb": "messages-search",
       "flags": [
         "--query",

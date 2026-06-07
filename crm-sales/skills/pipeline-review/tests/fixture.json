@@ -3,7 +3,7 @@
   "skill": "pipeline-review",
   "calls": [
     {
-      "service": "drive",
+      "service": "lark-drive",
       "verb": "search",
       "flags": [
         "--doc-types",
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "service": "base",
+      "service": "lark-base",
       "verb": "data-query",
       "flags": [
         "--base-token",
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "service": "base",
+      "service": "lark-base",
       "verb": "record-list",
       "flags": [
         "--base-token",

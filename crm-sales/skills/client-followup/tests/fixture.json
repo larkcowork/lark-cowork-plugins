@@ -3,7 +3,7 @@
   "skill": "client-followup",
   "calls": [
     {
-      "service": "drive",
+      "service": "lark-drive",
       "verb": "search",
       "flags": [
         "--doc-types",
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "service": "base",
+      "service": "lark-base",
       "verb": "record-list",
       "flags": [
         "--base-token",
@@ -24,7 +24,7 @@
       "flags": []
     },
     {
-      "service": "vc",
+      "service": "lark-vc",
       "verb": "search",
       "flags": [
         "--participant-ids",
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "service": "mail",
+      "service": "lark-mail",
       "verb": "draft-create",
       "flags": [
         "--to",

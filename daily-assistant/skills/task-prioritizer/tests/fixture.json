@@ -3,26 +3,26 @@
   "skill": "task-prioritizer",
   "calls": [
     {
-      "service": "task",
+      "service": "lark-task",
       "verb": "get-my-tasks",
       "flags": [
         "--complete"
       ]
     },
     {
-      "service": "task",
+      "service": "lark-task",
       "verb": "get-related-tasks",
       "flags": [
         "--followed-by-me"
       ]
     },
     {
-      "service": "okr",
+      "service": "lark-okr",
       "verb": "progress-get",
       "flags": []
     },
     {
-      "service": "im",
+      "service": "lark-im",
       "verb": "messages-search",
       "flags": [
         "--query"

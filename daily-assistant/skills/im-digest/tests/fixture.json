@@ -3,14 +3,14 @@
   "skill": "im-digest",
   "calls": [
     {
-      "service": "im",
+      "service": "lark-im",
       "verb": "chat-search",
       "flags": [
         "--sort-by"
       ]
     },
     {
-      "service": "im",
+      "service": "lark-im",
       "verb": "chat-messages-list",
       "flags": [
         "--chat-id",
@@ -18,7 +18,7 @@
       ]
     },
     {
-      "service": "im",
+      "service": "lark-im",
       "verb": "messages-search",
       "flags": [
         "--is-at-me"

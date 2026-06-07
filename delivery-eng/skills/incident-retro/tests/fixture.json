@@ -3,7 +3,7 @@
   "skill": "incident-retro",
   "calls": [
     {
-      "service": "im",
+      "service": "lark-im",
       "verb": "messages-search",
       "flags": [
         "--query",
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "service": "im",
+      "service": "lark-im",
       "verb": "chat-messages-list",
       "flags": [
         "--chat-id",
@@ -20,14 +20,14 @@
       ]
     },
     {
-      "service": "docs",
+      "service": "lark-doc",
       "verb": "search",
       "flags": [
         "--query"
       ]
     },
     {
-      "service": "task",
+      "service": "lark-task",
       "verb": "create",
       "flags": [
         "--summary",

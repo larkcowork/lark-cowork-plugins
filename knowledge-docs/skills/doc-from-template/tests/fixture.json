@@ -3,7 +3,7 @@
   "skill": "doc-from-template",
   "calls": [
     {
-      "service": "docs",
+      "service": "lark-doc",
       "verb": "create",
       "flags": [
         "--api-version",
@@ -12,12 +12,12 @@
       ]
     },
     {
-      "service": "wiki",
+      "service": "lark-wiki",
       "verb": "node-create",
       "flags": []
     },
     {
-      "service": "sheets",
+      "service": "lark-sheets",
       "verb": "append",
       "flags": []
     }

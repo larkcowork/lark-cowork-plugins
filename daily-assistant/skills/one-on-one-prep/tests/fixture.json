@@ -3,14 +3,14 @@
   "skill": "one-on-one-prep",
   "calls": [
     {
-      "service": "contact",
+      "service": "lark-contact",
       "verb": "search-user",
       "flags": [
         "--query"
       ]
     },
     {
-      "service": "okr",
+      "service": "lark-okr",
       "verb": "cycle-list",
       "flags": [
         "--user-id",
@@ -18,7 +18,7 @@
       ]
     },
     {
-      "service": "task",
+      "service": "lark-task",
       "verb": "search",
       "flags": [
         "--assignee",
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "service": "docs",
+      "service": "lark-doc",
       "verb": "search",
       "flags": [
         "--query"

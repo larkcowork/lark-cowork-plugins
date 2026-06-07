@@ -3,21 +3,21 @@
   "skill": "decision-logger",
   "calls": [
     {
-      "service": "im",
+      "service": "lark-im",
       "verb": "messages-search",
       "flags": [
         "--query"
       ]
     },
     {
-      "service": "im",
+      "service": "lark-im",
       "verb": "threads-messages-list",
       "flags": [
         "--thread"
       ]
     },
     {
-      "service": "vc",
+      "service": "lark-vc",
       "verb": "search",
       "flags": [
         "--start",
@@ -30,7 +30,7 @@
       "flags": []
     },
     {
-      "service": "base",
+      "service": "lark-base",
       "verb": "record-batch-create",
       "flags": [
         "--base-token",

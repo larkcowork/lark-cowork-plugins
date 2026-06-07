@@ -50,13 +50,13 @@ công việc** — điều mà ghép nối Slack + Notion + Jira + Gmail rời r
 | Trả lời câu hỏi | ✅ | ✅ |
 | **Làm việc nhiều bước thật** (đọc → xử lý → ghi kết quả) | ❌ | ✅ |
 | Dựng cả một hệ Base/Docs/báo cáo | ❌ | ✅ |
-| Chạy quy trình theo nghề (sales, CSKH, kế toán…) | ❌ | ✅ ~247 kỹ năng |
+| Chạy quy trình theo nghề (sales, CSKH, kế toán…) | ❌ | ✅ ~245 kỹ năng |
 | Tự kiểm tra kết quả trước khi báo "xong" | ❌ | ✅ |
 
 ## Có sẵn những gì
 
 - **29 bộ kỹ năng theo nghề** — xem đầy đủ ở [trang 3](./03-danh-muc-theo-phong-ban.md).
-- **~247 kỹ năng công việc** thật (từ "tóm tắt buổi sáng" đến "dựng hệ Base 8 bước").
+- **~245 kỹ năng công việc** thật (từ "tóm tắt buổi sáng" đến "dựng hệ Base 8 bước").
 - **An toàn mặc định** — xem [trang 5](./05-an-toan-tin-cay.md).
 
 ➡️ Sẵn sàng thử? Sang [2. Bắt đầu trong vài phút](./02-bat-dau.md).

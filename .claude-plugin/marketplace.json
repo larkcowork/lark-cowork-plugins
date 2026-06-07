@@ -74,25 +74,25 @@
       "name": "engineering",
       "displayName": "Engineering",
       "source": "./engineering",
-      "description": "Streamline engineering workflows \u2014 standups, code review, architecture decisions, incident response, and technical documentation. Works with your existing tools or standalone."
+      "description": "Streamline engineering workflows — standups, code review, architecture decisions, incident response, and technical documentation. Works with your existing tools or standalone."
     },
     {
       "name": "human-resources",
       "displayName": "Human Resources",
       "source": "./human-resources",
-      "description": "Streamline people operations \u2014 recruiting, onboarding, performance reviews, compensation analysis, and policy guidance. Maintain compliance and keep your team running smoothly."
+      "description": "Streamline people operations — recruiting, onboarding, performance reviews, compensation analysis, and policy guidance. Maintain compliance and keep your team running smoothly."
     },
     {
       "name": "design",
       "displayName": "Design",
       "source": "./design",
-      "description": "Accelerate design workflows \u2014 critique, design system management, UX writing, accessibility audits, research synthesis, and dev handoff. From exploration to pixel-perfect specs."
+      "description": "Accelerate design workflows — critique, design system management, UX writing, accessibility audits, research synthesis, and dev handoff. From exploration to pixel-perfect specs."
     },
     {
       "name": "operations",
       "displayName": "Operations",
       "source": "./operations",
-      "description": "Optimize business operations \u2014 vendor management, process documentation, change management, capacity planning, and compliance tracking. Keep your organization running efficiently."
+      "description": "Optimize business operations — vendor management, process documentation, change management, capacity planning, and compliance tracking. Keep your organization running efficiently."
     },
     {
       "name": "small-business",
@@ -104,22 +104,22 @@
       "name": "pdf-viewer",
       "displayName": "PDF Viewer",
       "source": "./pdf-viewer",
-      "description": "View, annotate, and sign PDFs in a live interactive viewer. Mark up contracts, fill forms with visual feedback, stamp approvals, and place signatures \u2014 then download the annotated copy."
+      "description": "View, annotate, and sign PDFs in a live interactive viewer. Mark up contracts, fill forms with visual feedback, stamp approvals, and place signatures — then download the annotated copy."
     },
     {
       "name": "apollo",
       "source": "./partner-built/apollo",
-      "description": "3 pre-built skills that chain multiple Apollo APIs into complete sales workflows \u2014 no manual steps, no tab switching. Enrich any contact from a name, email, or LinkedIn URL. Prospect by describing you"
+      "description": "3 pre-built skills that chain multiple Apollo APIs into complete sales workflows — no manual steps, no tab switching. Enrich any contact from a name, email, or LinkedIn URL. Prospect by describing your ICP in plain English and get ranked leads. Find, enrich, and load contacts into a sequence in one shot."
     },
     {
       "name": "brand-voice",
       "source": "./partner-built/brand-voice",
-      "description": "Brand Voice transforms scattered brand materials into enforceable AI guardrails \u2014 automatically. It searches across Lark Wiki, Lark Drive, Lark Wiki, Gong, Lark IM, and meeting transcripts to distill "
+      "description": "Brand Voice transforms scattered brand materials into enforceable AI guardrails — automatically. It searches across Lark Wiki, Lark Drive, Lark Wiki, Gong, Lark IM, and meeting transcripts to distill your strongest brand signals into a single source of truth, then applies them to every piece of AI-generated content. The more your team creates with Claude, the more consistent your brand becomes."
     },
     {
       "name": "common-room",
       "source": "./partner-built/common-room",
-      "description": "Turn Common Room into your GTM copilot. Research accounts and contacts, prep for calls with attendee profiles and talking points, and draft personalized outreach across email, LinkedIn, and phone. Bui"
+      "description": "Turn Common Room into your GTM copilot. Research accounts and contacts, prep for calls with attendee profiles and talking points, and draft personalized outreach across email, LinkedIn, and phone. Build targeted prospect lists, generate weekly briefings for every upcoming call, and create strategic account plans — all grounded in real signal data from product usage, engagement and intent signals, so every output reflects what's actually happening in your accounts."
     },
     {
       "name": "slack-by-salesforce",

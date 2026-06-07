@@ -3,7 +3,7 @@
   "skill": "daily-digest",
   "calls": [
     {
-      "service": "calendar",
+      "service": "lark-calendar",
       "verb": "agenda",
       "flags": [
         "--start",
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "service": "task",
+      "service": "lark-task",
       "verb": "search",
       "flags": [
         "--completed",
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "service": "task",
+      "service": "lark-task",
       "verb": "get-my-tasks",
       "flags": [
         "--complete",

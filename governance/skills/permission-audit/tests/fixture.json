@@ -3,7 +3,7 @@
   "skill": "permission-audit",
   "calls": [
     {
-      "service": "drive",
+      "service": "lark-drive",
       "verb": "search",
       "flags": [
         "--doc-types",
@@ -11,14 +11,14 @@
       ]
     },
     {
-      "service": "base",
+      "service": "lark-base",
       "verb": "table-list",
       "flags": [
         "--base-token"
       ]
     },
     {
-      "service": "docs",
+      "service": "lark-doc",
       "verb": "fetch",
       "flags": [
         "--api-version",

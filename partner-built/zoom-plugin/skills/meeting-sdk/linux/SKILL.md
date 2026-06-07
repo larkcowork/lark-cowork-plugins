@@ -1,5 +1,5 @@
 ---
-name: meeting-sdk/linux
+name: zoom-meeting-sdk-linux
 description: "Zoom Meeting SDK for Linux - C++ headless meeting bots with raw audio/video access, transcription, recording, and AI integration for server-side automation"
 user-invocable: false
 triggers:

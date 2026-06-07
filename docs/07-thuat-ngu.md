@@ -9,7 +9,7 @@ Gặp từ lạ trong tài liệu hay khi dùng? Tra ở đây.
 | **Lark Cowork** | Bộ này: trợ lý AI biết làm việc, sống trong Lark. |
 | **Trợ lý / Agent** | "Đồng nghiệp AI" thực thi việc nhiều bước, không chỉ trả lời. |
 | **Plugin / Bộ kỹ năng** | Một gói kỹ năng theo nghề (sales, CSKH, kế toán…). Có 29 bộ. |
-| **Skill / Kỹ năng** | Một quy trình công việc cụ thể (vd "tóm tắt cuộc gọi", "đối soát"). ~247 cái. |
+| **Skill / Kỹ năng** | Một quy trình công việc cụ thể (vd "tóm tắt cuộc gọi", "đối soát"). ~245 cái. |
 | **Câu lệnh (prompt)** | Câu tiếng Việt bạn gõ cho trợ lý. Không cần cú pháp. |
 | **Thẻ tương tác (card)** | Tin nhắn Lark có **nút bấm** (Duyệt/Từ chối/Làm tiếp) — hành động ngay trong chat. |
 | **Xem trước (dry-run)** | Trợ lý hiện kế hoạch/bản nháp trước, chỉ làm khi bạn đồng ý. |

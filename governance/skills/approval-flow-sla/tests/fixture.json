@@ -3,7 +3,7 @@
   "skill": "approval-flow-sla",
   "calls": [
     {
-      "service": "approval",
+      "service": "lark-approval",
       "verb": "instances initiated",
       "flags": [
         "--user-id",
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "service": "approval",
+      "service": "lark-approval",
       "verb": "instances get",
       "flags": [
         "--instance-code",
@@ -20,12 +20,12 @@
       ]
     },
     {
-      "service": "approval",
+      "service": "lark-approval",
       "verb": "tasks query",
       "flags": []
     },
     {
-      "service": "approval",
+      "service": "lark-approval",
       "verb": "tasks remind",
       "flags": [
         "--instance-code"

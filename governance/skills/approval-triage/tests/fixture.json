@@ -13,7 +13,7 @@
       "flags": []
     },
     {
-      "service": "docs",
+      "service": "lark-doc",
       "verb": "search",
       "flags": [
         "--query"

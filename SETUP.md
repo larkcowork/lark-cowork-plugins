@@ -59,7 +59,7 @@ thật và xác nhận Claude thực sự gọi `lark_*`:
 # tất cả JSON hợp lệ
 python3 -c "import json,glob;[json.load(open(f)) for f in glob.glob('**/*.json',recursive=True)];print('ok')"
 # mọi plugin nghiệp vụ đều có connector lark
-grep -rl '\"lark\"' */.mcp.json | wc -l            # -> 15
+grep -rl '\"lark\"' */.mcp.json | wc -l            # -> 21 (15 nghiệp vụ + 6 thuần Lark có .mcp.json)
 # không còn server SaaS chung nào
 grep -hoE '\"(slack|notion|gmail|google calendar|asana|linear|atlassian)\"' */.mcp.json   # -> rỗng
 ```
