@@ -1,3 +1,5 @@
+![Lark Cowork Plugins](docs/assets/image.png)
+
 # Lark Cowork Plugins
 
 Biến **Claude Cowork** (trong Claude Desktop) thành một **chuyên gia làm việc thuần Lark** cho mọi
